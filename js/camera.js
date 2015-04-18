@@ -200,8 +200,8 @@ function accelerometerErrorPaysage() {
 // Shows photo captured by camera.getPicture()
 function onCaptureSuccess(imageData) {
 	
-	if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {var lmj=prompt("Nouvel album","");alert(lmj);var smj=prompt("Nouvel élément","");alert(smj);var num = '1303';}
-alert('photo okbdf');
+	if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {alert('photo okbdf');var lmj=prompt("Nouvel album","");alert(lmj);var smj=prompt("Nouvel élément","");alert(smj);var num = '1303';}
+
          var networkState = navigator.network.connection.type;
 
         var states = {};
