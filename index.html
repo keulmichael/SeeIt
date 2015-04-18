@@ -79,7 +79,7 @@ require([
 ready(function(){
 require(["dojo/request"],
 function(request){
-request.get('http://www.appliseeit/mobile/badges.php').then(
+request.get('http://www.appliseeit.com/mobile/badges.php').then(
 function(response){
 var iconContainerWidget = registry.byId("infoBadges");
 var res = response.split("_?_"); 
@@ -87,7 +87,7 @@ for(var i= 0; i < res.length; i++)
 {var itemWidget ='';
 var resAff = res[i].split("_!_");  
 var itemWidget = new IconItem({
-icon: "http://www.appliseeit/mobile/camera.png",
+icon: "http://www.appliseeit.com/mobile/camera.png",
 label: resAff[1],
 Badge: resAff[0], 
 moveTo:"#",
@@ -116,7 +116,7 @@ require([
         "dojox/mobile/FilteredListMixin"
         ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
 
-        dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit/mobile/tournees.php'});
+        dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/tournees.php'});
 
 })
 
@@ -134,7 +134,7 @@ require([
         "dojox/mobile/FilteredListMixin"
         ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
 
-        dataStoreAlbums = new ItemFileReadStore({url: 'http://www.appliseeit/mobile/album.php'});
+        dataStoreAlbums = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/album.php'});
 
 })
 
@@ -152,7 +152,7 @@ require([
 ], function(registry, ViewController){
     var vc = ViewController.getInstance();
         vc.openExternalView({
-            url:"http://www.appliseeit/mobile/affichPointsTournees.php?tournee="+tournee+"&type="+type,
+            url:"http://www.appliseeit.com/mobile/affichPointsTournees.php?tournee="+tournee+"&type="+type,
             transition:"slide"
         }, registry.byId("affichPointsTournee").containerNode);
     
@@ -182,7 +182,7 @@ if (types!='FIN'){var quantite_reelleNum="quantite_reelle"+num;var quantite_reel
 var quantite_retoursNum="quantite_retours"+num; var quantite_retours= document.getElementById(quantite_retoursNum).value;
 varTNum="T"+num;var T = document.getElementById(varTNum).value;
 
-request.get('http://www.appliseeit/mobile/mobile_modif_donnees_reelle.php?edition='+edition+'&num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&PDA_Latitude='+position.coords.latitude+'&PDA_Longitude='+position.coords.longitude).then(
+request.get('http://www.appliseeit.com/mobile/mobile_modif_donnees_reelle.php?edition='+edition+'&num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&PDA_Latitude='+position.coords.latitude+'&PDA_Longitude='+position.coords.longitude).then(
 function(response41){	affichPointsTournees(tournee,page);prog.stop();})
 });
 }
@@ -358,13 +358,13 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 > Cliquer sur <b>Options</b> pour activer l'aide à la prise de photo au mode souhaité, pour configurez les alertes vous être averti des nouvelles photos : messages, vocales, vibrations, sonneries (disponible dans les prochaines versions)<br></font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"A venir"'>
-<font color='black' size='2'>Camera Frontable<br>Zomme Grand Angle<br>Reconnaissance Vocale<br>Consultation des album en Privé<br>Abonnement à  un album<br>Vidéo </font>
+<font color='black' size='2'>Camera Frontable<br>Zomme Grand Angle<br>Reconnaissance Vocale<br>Consultation des album en Privé<br>Abonnement à  un album<br>Vidéo <br>Achat d'accessoires</font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Pourquoi faire ?"'>
 <font color='black' size='2'>Partager un événement, une scène insolite, un monument, une exposition<br>Jouer au reporter<br>Communiquer des problèmes de transport<br>Avertir lorsqu'une place de parking est libre<br>Montrer un lieu de rdv</font>
 </div>
-    <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Les auteurs"'>
-<font color='black' size='2'></font>
+    <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Nous contacter ?"'>
+<font color='black' size='2'>Vous pouvez nous contacter en nous envoyant un email à contact@appliseeit.com</font>
 </div>
  </div>
 </div>
