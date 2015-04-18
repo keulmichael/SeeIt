@@ -278,10 +278,10 @@ function MontrerCamera(){document.getElementById('pic').style.visibility="block"
 function creerAlbum(){
 require(["dojo/request"],
 function(request){
-var album=document.getElementById('nouvelAlbum').style.value;
-var album=document.getElementById('nouvelElement').style.value;
+var album=document.getElementById('nouvelAlbum').value;
+var album=document.getElementById('nouvelElement').value;
 request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album'+album+'&element='+element).then(
-function(response){alert(element+" a été créé dans l'album "+album);   })})
+function(response){alert(response);   })})
 }
 </script>
 
