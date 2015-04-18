@@ -22,7 +22,7 @@ function onLoadCamera() {
     
     settings = new Settings();
     // Read and save cameraOptions from the "settings_form" element
-    applySettings();
+
     $("#settings_ok_button").bind("click", applySettings);
     $("#settings_cancel_button").bind("click", restoreSettings);
 }
@@ -131,7 +131,7 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
 
 
 function accelerometerErrorPortrait() {
-    alert('Veuillez activer l\'accÃ©lÃ©romÃ¨tre');
+    alert('Veuillez activer l\'accéléromètre');
 };
 
 								  
@@ -183,7 +183,7 @@ if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
 
 
 function accelerometerErrorPaysage() {
-    alert('Veuillez activer l\'accÃ©lÃ©romÃ¨tre');
+    alert('Veuillez activer l\'accéléromètre');
 };
 
 								  
@@ -209,16 +209,16 @@ function onCaptureSuccess(imageData) {
         states[Connection.CELL_2G] = 'Connexion 2G';
         states[Connection.CELL_3G] = 'Connexion 3G';
         states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion rÃƒÂ©seau';
+        states[Connection.NONE] = 'Pas de connexion réseau';
 
-if (states[networkState] == 'Pas de connexion rÃƒÂ©seau') {
+if (states[networkState] == 'Pas de connexion réseau') {
         alert('Veuillez reprendre la photo');}
         
 else
 {
-if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {prompt("Nouvel album","");var num = '1303';}
-var edition = document.getElementById("edition").value;
-    var fichierupload = encodeURI("http://www.distriweb.mobi/mgp/paris/mobile/phonegap/photo.php?edition="+edition+"&num="+num+"&imageData="+imageData)
+if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {var lmj=prompt("Nouvel album","");alert(lmj);var smj=prompt("Nouvel élément","");alert(smj);var num = '1303';}
+
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/phonegap/photo.php?num="+num+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
@@ -246,8 +246,8 @@ var options = new FileUploadOptions();
 function recharger_photo() {
 var imageData = document.getElementById("imageData").value;
 var num = document.getElementById("num").value;
-var edition = document.getElementById("edition").value;
-    var fichierupload = encodeURI("http://www.distriweb.mobi/mgp/paris/mobile/phonegap/photo.php?edition="+edition+"&num="+num)
+
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/phonegap/photo.php?&num="+num)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;

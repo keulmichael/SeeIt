@@ -117,7 +117,7 @@ require([
         ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
 
         dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/tournees.php'});
-
+alert(dataStoreTournees);
 })
 
 
@@ -280,7 +280,7 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">Des moments à partager - SeeIt !</h1>
-<img src="icone.png">
+<img src="icone.png" width="200">
 <ul id="intro" data-dojo-type="dojox/mobile/RoundRectList">
 <font color='grey' size='2'><b>Partagez des moments et découvrez ceux du monde entier en directe d'une façon innovante car comme dans la vie réelle, les moments disparaissent avec SeeIt ! Soyez donc à  l'affût des nouvelles photos en consultant les albums et en recevant les alertes !<br>Les photos ne sont pas sauvegardées dans votre téléphone. Vous n'avez donc pas à  vous inquiéter pour le stockage ! Les photos sont automatiquement supprimées des albums chaque jour afin de pouvoir en réaliser des nouvelles.</b></font>
 </ul>
