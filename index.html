@@ -102,10 +102,6 @@ iconContainerWidget.addChild(itemWidget);
 });
 })
 
-	require(["dojo/request"],
-function(request){
-request.get('https://www.appliseeit.com/mobile/tournees.php').then(
-function(response){alert(response);})})
 
 var dataStoreTournees;
 require([
@@ -276,6 +272,17 @@ var u = new SpeechSynthesisUtterance();
 else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 }
 
+function CacherCamera(){document.getElementById('pic').style.visibility="hidden";}
+function MontrerCamera(){document.getElementById('pic').style.visibility="block";}
+
+function creerAlbum(){
+require(["dojo/request"],
+function(request){
+var album=document.getElementById('nouvelAlbum').style.value;
+var album=document.getElementById('nouvelElement').style.value;
+request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album'+album+'&element='+element).then(
+function(response){alert(element+" a été créé dans l'album "+album);   })})
+}
 </script>
 
 </head>
@@ -291,16 +298,11 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Accès'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Sélectionner', moveTo:'album'">Album</li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
-
-<br>
-<div data-role="content">
-<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
-</div>
-
-<div data-role="content">
-<img id="pic" src="" style="display: none; border: 2px black;"/>
-</div>
-<div id='total'></div> 
+<br> <br>
+<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album</font>
+Album<input data-dojo-type="dojox/mobile/TextBox" placeHolder="" id="nouvelAlbum">
+Elément<input data-dojo-type="dojox/mobile/TextBox" placeHolder="" id="nouvelElement">
+<button data-dojo-type="dojox/mobile/Button" data-dojo-props='onClick:function(){creerAlbum()}'>Créer</button>
 </div>
 
 
@@ -316,11 +318,7 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 </div>
 
 
-<div id="affichPointsTournee" data-dojo-type="dojox/mobile/View">
-
-
-
-</div>
+<div id="affichPointsTournee" data-dojo-type="dojox/mobile/View"></div>
 
 
 <div id='tabViewOptions' data-dojo-type='dojox/mobile/ScrollableView' >
@@ -374,15 +372,23 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 </div>
 
 
+<div data-role="content">
+<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
+</div>
+
+<div data-role="content">
+<img id="pic" src="" style="display: none; border: 2px black;"/>
+</div>
+<div id='total'></div>
 
 
-	<ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>		
-		<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true'>Accueil</li>
-		<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum"'>Today</li>
-		<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewTop"'>Top</li>
-		<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions"'>Options</li>
-		<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates"'>Infos</li>
-	</ul>
+<ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>		
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera()}'>Accueil</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera()}'>Today</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewTop", onClick:function(){CacherCamera()}'>Top</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
+</ul>
 	
 	
 </body>

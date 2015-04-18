@@ -17,7 +17,7 @@ var settings;
 function onLoadCamera() {
 	
 	    
-    //document.getElementById('open_camera_button').style.visibility="hidden";
+    document.getElementById('open_camera_button').style.visibility="hidden";
     document.addEventListener("deviceready", onDeviceReady, false);
     
     settings = new Settings();
@@ -200,8 +200,8 @@ function accelerometerErrorPaysage() {
 // Shows photo captured by camera.getPicture()
 function onCaptureSuccess(imageData) {
 	
-	if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {alert('photo okbdf');var lmj=prompt("Nouvel album","");alert(lmj);var smj=prompt("Nouvel élément","");alert(smj);var num = '1303';}
-
+	var num = document.getElementById("num").value;
+	
          var networkState = navigator.network.connection.type;
 
         var states = {};
