@@ -161,7 +161,7 @@ require([
 }
 
 
-function mobile_modif_donnees_reelle(edition, num, tournee, page){
+function mobile_modif_donnees_reelle(num, tournee, page){
 
 require(["dojo/_base/window", "dojox/mobile/ProgressIndicator"],
 function(win, ProgressIndicator){
@@ -182,7 +182,7 @@ if (types!='FIN'){var quantite_reelleNum="quantite_reelle"+num;var quantite_reel
 var quantite_retoursNum="quantite_retours"+num; var quantite_retours= document.getElementById(quantite_retoursNum).value;
 varTNum="T"+num;var T = document.getElementById(varTNum).value;
 
-request.get('http://www.appliseeit.com/mobile/mobile_modif_donnees_reelle.php?edition='+edition+'&num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&PDA_Latitude='+position.coords.latitude+'&PDA_Longitude='+position.coords.longitude).then(
+request.get('http://www.appliseeit.com/mobile/mobile_modif_donnees_reelle.php?num='+num+'&site='+site+'&Types='+types+'&nouvelle_quantite_reelle='+quantite_reelle+'&nouvelle_quantite_retours='+quantite_retours+'&PDA_Latitude='+position.coords.latitude+'&PDA_Longitude='+position.coords.longitude).then(
 function(response41){	affichPointsTournees(tournee,page);prog.stop();})
 });
 }
@@ -289,7 +289,14 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
 
 <br>
+<div data-role="content">
+<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
+</div>
 
+<div data-role="content">
+<img id="pic" src="" style="display: none; border: 2px black;"/>
+</div>
+<div id='total'></div> 
 </div>
 
 
