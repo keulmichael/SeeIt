@@ -94,7 +94,7 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
     alert('Veuillez tenir l\'appareil en mode portrait');
 		}
 
-	else {alert('photo ok');
+	else {
     var callerId = getTargetId(e, "a");
     
     switch (callerId) {
@@ -146,7 +146,7 @@ if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
     alert('Veuillez tenir l\'appareil en mode paysage');
 		}
 
-	else {alert('photo ok');
+	else {
     var callerId = getTargetId(e, "a");
     
     switch (callerId) {
@@ -198,7 +198,7 @@ function accelerometerErrorPaysage() {
         }
 
 // Shows photo captured by camera.getPicture()
-function onCaptureSuccess(imageData) {
+function onCaptureSuccess(imageData) {alert('photo okb');
 	
 	if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {var lmj=prompt("Nouvel album","");alert(lmj);var smj=prompt("Nouvel élément","");alert(smj);var num = '1303';}
 
