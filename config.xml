@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
-id = "dojo"
-version = "3.7.0">
-<name>Distriweb.mobi</name>
+id = "SeeIt"
+version = "1.0">
+<name>See It!</name>
 <description>
-Distriweb mobile .mobi
+Application de partage de moments
 </description>
-<author href="http://www.distriweb.mobi"
-email="host.michael@gmail.com">
+<author href="http://www.appliseeit.com"
+email="contact@appliseeit.com">
 Michael Host
 </author>
 <gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
