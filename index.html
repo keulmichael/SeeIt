@@ -117,6 +117,11 @@ require([
         ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
 
         dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/tournees.php'});
+	require(["dojo/request"],
+function(request){
+request.get('http://www.appliseeit.com/mobile/tournees.php').then(
+function(response){alert(response);})})
+
 alert(dataStoreTournees.getValue(item, "label"));
 })
 

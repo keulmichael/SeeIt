@@ -94,7 +94,7 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
     alert('Veuillez tenir l\'appareil en mode portrait');
 		}
 
-	else {
+	else {alert('photo ok');
     var callerId = getTargetId(e, "a");
     
     switch (callerId) {
@@ -146,7 +146,7 @@ if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
     alert('Veuillez tenir l\'appareil en mode paysage');
 		}
 
-	else {
+	else {alert('photo ok');
     var callerId = getTargetId(e, "a");
     
     switch (callerId) {
@@ -199,6 +199,8 @@ function accelerometerErrorPaysage() {
 
 // Shows photo captured by camera.getPicture()
 function onCaptureSuccess(imageData) {
+	
+	if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {var lmj=prompt("Nouvel album","");alert(lmj);var smj=prompt("Nouvel élément","");alert(smj);var num = '1303';}
 
          var networkState = navigator.network.connection.type;
 
@@ -216,8 +218,6 @@ if (states[networkState] == 'Pas de connexion réseau') {
         
 else
 {
-if (document.getElementById("num").value!=''){var num = document.getElementById("num").value;}else {var lmj=prompt("Nouvel album","");alert(lmj);var smj=prompt("Nouvel élément","");alert(smj);var num = '1303';}
-
     var fichierupload = encodeURI("http://www.appliseeit.com/mobile/phonegap/photo.php?num="+num+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
