@@ -300,9 +300,9 @@ function(response){alert(response);   })})
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
 <br> <br>
 <font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album</font>
-Album<input data-dojo-type="dojox/mobile/TextBox" placeHolder="" id="nouvelAlbum">
-Elément<input data-dojo-type="dojox/mobile/TextBox" placeHolder="" id="nouvelElement">
-<button data-dojo-type="dojox/mobile/Button" data-dojo-props='onClick:function(){creerAlbum()}'>Créer</button>
+Album<input type="text" id="nouvelAlbum">
+Elément<input type="text" id="nouvelElement">
+<button onClick="creerAlbum()">Créer</button>
 </div>
 
 
