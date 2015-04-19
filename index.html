@@ -92,7 +92,7 @@ label: resAff[1],
 Badge: resAff[0], 
 moveTo:"#",
 onClick: function(e){
-affichPointsTournees(this.label,'album')
+affichPointsAlbum(this.label)
 }
 });
 iconContainerWidget.addChild(itemWidget);
@@ -288,8 +288,8 @@ var u = new SpeechSynthesisUtterance();
 else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 }
 
-function CacherCamera(){document.getElementById('pic').style.visibility="hidden";}
-function MontrerCamera(){document.getElementById('pic').style.visibility="block";}
+function CacherCamera(){document.getElementById('open_camera_button').style.visibility="hidden";}
+function MontrerCamera(){document.getElementById('open_camera_button').style.visibility="block";}
 
 function creerAlbum(){
 require(["dojo/request"],
@@ -369,7 +369,7 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 
 <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
 <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
-<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album. Attention, les albums et éléments ne peuvent pas être supprimés</font><br>
+<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album. Attention, les albums et éléments ne peuvent pas être supprimés.</font><br><br>
 <font color='grey' size='3'>Album</font><input type="text" id="nouvelAlbum">
 <font color='grey' size='3'>Elément</font><input type="text" id="nouvelElement">
 <div data-role="content">
