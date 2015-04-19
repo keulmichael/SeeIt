@@ -35,7 +35,7 @@ function onDeviceReady() {
     fillSettingsInfo("settings_info");
     
     // Bind application button elements with their functionality
-    $("#creer_album_button").bind ("click", creerAlbum);
+
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
