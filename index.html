@@ -117,25 +117,9 @@ require([
         ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
 
         dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/tournees.php'});
+
 })
 
-function affichPointsTournees(tournee){
-var dataStorePointsTournees;
-require([
-        "dojox/mobile/parser",
-        "dojox/mobile",
-        "dojox/mobile/compat", 
-        "dojo/ready",
-        "dijit/registry",
-        "dojo/data/ItemFileReadStore",
-        "dojox/mobile/ScrollableView",
-        "dojox/mobile/EdgeToEdgeDataList",
-        "dojox/mobile/FilteredListMixin"
-        ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
-
-        dataStorePointsTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/Pointstournees.php?tournee='+tournee});
-})
-}
 
 var dataStoreAlbums;
 require([
@@ -151,6 +135,7 @@ require([
         ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
 
         dataStoreAlbums = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/album.php'});
+
 })
 
 
@@ -173,7 +158,7 @@ require([
 }
 
 
-function affichPointsTourneess(tournee){
+function affichPointsTournees(tournee){
 require([
     "dijit/registry",
     "dojox/mobile/ViewController",
@@ -336,11 +321,6 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
         <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil'">Thèmes</h1>
         <ul id="listTournes" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStoreTournees"></ul>
-</div>
-
-<div id="Pointstournees" data-dojo-type="dojox/mobile/ScrollableView">
-        <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Thèmes', moveTo:'tournees'">Thèmes</h1>
-        <ul id="listPointsTournes" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStorePointsTournees"></ul>
 </div>
 
 
