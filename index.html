@@ -333,7 +333,14 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 </div>
 
 <div id="affichPointsTournee" data-dojo-type="dojox/mobile/ScrollableView">
+<div data-role="content">
+<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
+</div>
 
+<div data-role="content">
+<img id="pic" src="" style="display: none; border: 2px black;"/>
+</div>
+<div id='total'></div>
 </div>
 
 
@@ -393,14 +400,7 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
  </div>
 </div>
 
-<div data-role="content">
-<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
-</div>
 
-<div data-role="content">
-<img id="pic" src="" style="display: none; border: 2px black;"/>
-</div>
-<div id='total'></div>
 
 
 <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>		
