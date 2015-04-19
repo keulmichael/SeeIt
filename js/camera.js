@@ -219,7 +219,7 @@ if (states[networkState] == 'Pas de connexion réseau') {
         
 else
 {alert(num);alert(imageData);
-    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/phonegap/photo.php?num="+num+"&imageData="+imageData)
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?num="+num+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
@@ -248,7 +248,7 @@ function recharger_photo() {
 var imageData = document.getElementById("imageData").value;
 var num = document.getElementById("num").value;
 
-    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/phonegap/photo.php?&num="+num)
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?&num="+num)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
@@ -278,7 +278,7 @@ var options = new FileUploadOptions();
         states[Connection.CELL_2G] = 'Connexion 2G';
         states[Connection.CELL_3G] = 'Connexion 3G';
         states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion rÃƒÂ©seau';
+        states[Connection.NONE] = 'Pas de connexion réseau';
 
         alert('Connexion : ' + states[networkState]);
 }
