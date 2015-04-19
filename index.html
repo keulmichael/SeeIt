@@ -275,7 +275,7 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 function CacherCamera(){document.getElementById('pic').style.visibility="hidden";}
 function MontrerCamera(){document.getElementById('pic').style.visibility="block";}
 
-function creerAlbum(){
+function creerAlbum(){alert("album");
 require(["dojo/request"],
 function(request){
 var album=document.getElementById('nouvelAlbum').value;
@@ -299,10 +299,6 @@ function(response){alert(response);   })})
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Sélectionner', moveTo:'album'">Album</li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
 <br> <br>
-<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album</font>
-Album<input type="text" id="nouvelAlbum">
-Elément<input type="text" id="nouvelElement">
-<button onClick="creerAlbum()">Créer</button>
 </div>
 
 
@@ -353,23 +349,28 @@ Elément<input type="text" id="nouvelElement">
 <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
 </div>
 
-<div id="tabViewTop" data-dojo-type="dojox/mobile/ScrollableView" > 
-<h1 data-dojo-type="dojox/mobile/Heading">Top Photos</h1>
+<div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
+<h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
+<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album</font>
+Album<input type="text" id="nouvelAlbum">
+Elément<input type="text" id="nouvelElement">creer_album_button
+<div data-role="content">
+<a href="#" data-role="button" id="creer_album_button">Créer</a>
+</div>
 </div>
 
 <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" > 
 <h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
-
 <div data-dojo-type="dojox/mobile/Accordion" >
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>   
-<font color='black' size='2'>> Ouvrez un <b>Thème</b> existant pour prendre une photo. Dans la prochaine version vous pourrez créer vos propres thèmes : prenez donc d'abord une photo et indiquez un nom d'album si le celui-ci n'existe pas.<br>
+<font color='black' size='2'>> Ouvrez un <b>Thème</b> puis un élémént existant pour prendre une photo. Consulter toutes les <b>Photos</b> en cliquant sur Album. Créez votre propre album si le celui-ci n'existe pas !<br>
 > Cliquez sur <b>Album</b> pour découvrir toutes les photos.<br>
 > Cliquez sur <b>Today</b> pour découvrir les photos du jour.<br>
-> Cliquez sur <b>Top</b> pour voir les photos les plus populaires (disponible dans les prochaines versions).<br>
+> Cliquez sur <b>Ajouter</b> pour créer vos propres thèmes et vos propres éléments<br>
 > Cliquer sur <b>Options</b> pour activer l'aide à la prise de photo au mode souhaité, pour configurez les alertes vous être averti des nouvelles photos : messages, vocales, vibrations, sonneries (disponible dans les prochaines versions)<br></font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"A venir"'>
-<font color='black' size='2'>Camera Frontable<br>Zomme Grand Angle<br>Reconnaissance Vocale<br>Consultation des album en Privé<br>Abonnement à  un album<br>Vidéo <br>Achat d'accessoires</font>
+<font color='black' size='2'>Camera Frontable<br>Zomme Grand Angle<br>Reconnaissance Vocale<br>Les photos les plus populaires<br>Consultation des album en Privé<br>Abonnement à  un album<br>Vidéo <br>Achat d'accessoires</font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Pourquoi faire ?"'>
 <font color='black' size='2'>Partager un événement, une scène insolite, un monument, une exposition<br>Jouer au reporter<br>Communiquer des problèmes de transport<br>Avertir lorsqu'une place de parking est libre<br>Montrer un lieu de rdv</font>
@@ -387,7 +388,7 @@ Elément<input type="text" id="nouvelElement">
 <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>		
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera()}'>Accueil</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera()}'>Today</li>
-<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewTop", onClick:function(){CacherCamera()}'>Top</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewAjouter", onClick:function(){CacherCamera()}'>Ajouter</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
 </ul>
