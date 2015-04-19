@@ -139,10 +139,26 @@ require([
 })
 
 
+function affichPointsAlbum(tournee){
+require([
+    "dijit/registry",
+    "dojox/mobile/ViewController",
+    "dojox/mobile/parser",
+    "dojox/mobile",
+    "dojox/mobile/Button"
+], function(registry, ViewController){
+    var vca = ViewController.getInstance();
+        vca.openExternalView({
+            url:"http://www.appliseeit.com/mobile/affichPointsAlbums.php?tournee="+tournee,
+            transition:"slide"
+        }, registry.byId("affichPointsAlbums").containerNode);
+    
+});
+
+}
 
 
-
-function affichPointsTournees(tournee,type){
+function affichPointsTournees(tournee){
 require([
     "dijit/registry",
     "dojox/mobile/ViewController",
@@ -152,7 +168,7 @@ require([
 ], function(registry, ViewController){
     var vc = ViewController.getInstance();
         vc.openExternalView({
-            url:"http://www.appliseeit.com/mobile/affichPointsTournees.php?tournee="+tournee+"&type="+type,
+            url:"http://www.appliseeit.com/mobile/affichPointsTournees.php?tournee="+tournee,
             transition:"slide"
         }, registry.byId("affichPointsTournee").containerNode);
     
@@ -313,8 +329,10 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
         <ul id="listAlbum" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStoreAlbums"></ul>
 </div>
 
+<div id="affichPointsAlbums" data-dojo-type="dojox/mobile/View">
+</div>
 
-<div id="affichPointsTournee" data-dojo-type="dojox/mobile/ScrollableView">
+<div id="affichPointsTournee" data-dojo-type="dojox/mobile/View">
 <div data-role="content">
 <a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
 </div>
@@ -377,7 +395,7 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 <font color='black' size='2'>Partager un événement, une scène insolite, un monument, une exposition<br>Jouer au reporter<br>Communiquer des problèmes de transport<br>Avertir lorsqu'une place de parking est libre<br>Montrer un lieu de rdv</font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Nous contacter ?"'>
-<font color='black' size='2'>Vous pouvez nous contacter en nous envoyant un email à contact@appliseeit.com</font>
+<font color='black' size='2'>Vous pouvez nous envoyer vos commentaires (corrections, amérliorations, idées) ou simplement nous faire un petit coucou en nous envoyant un email à contact@appliseeit.com</font>
 </div>
  </div>
 </div>
