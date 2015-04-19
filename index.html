@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1"/>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <title> Des moments à partager avec SeeIt! </title>
@@ -25,7 +25,7 @@ function Settings() {
     this.positionPaysage = false;
         
     this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG : 0; // cameraOptions: encodingType
-    this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
+    this.saveToPhotoAlbum = true; // cameraOptions: saveToPhotoAlbum
     
     this.popoverOptions = ((typeof Camera !== "undefined") && (typeof CameraPopoverOptions !== "undefined")) ? new CameraPopoverOptions(220, 600, 320, 480, Camera.PopoverArrowDirection.ARROW_DOWN) : null; // cameraOptions: popoverOptions
 
