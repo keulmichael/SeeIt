@@ -333,14 +333,7 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 </div>
 
 <div id="affichPointsTournee" data-dojo-type="dojox/mobile/View">
-<div data-role="content">
-<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
-</div>
 
-<div data-role="content">
-<img id="pic" src="" style="display: none; border: 2px black;"/>
-</div>
-<div id='total'></div>
 </div>
 
 
@@ -382,14 +375,14 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 <h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
 <div data-dojo-type="dojox/mobile/Accordion" >
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>   
-<font color='black' size='2'>> Ouvrez un <b>Thème</b> puis un élémént existant pour prendre une photo. Consulter toutes les <b>Photos</b> en cliquant sur Album. Créez votre propre album si le celui-ci n'existe pas !<br>
+<font color='black' size='2'>> Ouvrez un <b>Thème</b> puis un élément existant pour prendre une photo. Consulter toutes les <b>Photos</b> en cliquant sur Album. Créez votre propre album si le celui-ci n'existe pas !<br>
 > Cliquez sur <b>Album</b> pour découvrir toutes les photos.<br>
 > Cliquez sur <b>Today</b> pour découvrir les photos du jour.<br>
 > Cliquez sur <b>Ajouter</b> pour créer vos propres thèmes et vos propres éléments<br>
 > Cliquer sur <b>Options</b> pour activer l'aide à la prise de photo au mode souhaité, pour configurez les alertes vous être averti des nouvelles photos : messages, vocales, vibrations, sonneries (disponible dans les prochaines versions)<br></font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"A venir"'>
-<font color='black' size='2'>Camera Frontable<br>Zomme Grand Angle<br>Reconnaissance Vocale<br>Les photos les plus populaires<br>Consultation des album en Privé<br>Abonnement à  un album<br>Vidéo <br>Achat d'accessoires</font>
+<font color='black' size='2'>Camera Frontable<br>Zoom Grand Angle<br>Reconnaissance Vocale<br>Les photos les plus populaires<br>Consultation des album en Privé<br>Abonnement à  un album<br>Vidéo <br>Achat d'accessoires</font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Pourquoi faire ?"'>
 <font color='black' size='2'>Partager un événement, une scène insolite, un monument, une exposition<br>Jouer au reporter<br>Communiquer des problèmes de transport<br>Avertir lorsqu'une place de parking est libre<br>Montrer un lieu de rdv</font>
@@ -401,7 +394,14 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 </div>
 
 
+<div data-role="content">
+<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
+</div>
 
+<div data-role="content">
+<img id="pic" src="" style="display: none; border: 2px black;"/>
+</div>
+<div id='total'></div>
 
 
 <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>		
