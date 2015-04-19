@@ -275,13 +275,13 @@ else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 function CacherCamera(){document.getElementById('pic').style.visibility="hidden";}
 function MontrerCamera(){document.getElementById('pic').style.visibility="block";}
 
-function creerAlbum(){alert("album");
+function creerAlbum(){
 require(["dojo/request"],
 function(request){
 var album=document.getElementById('nouvelAlbum').value;
-var album=document.getElementById('nouvelElement').value;
+var element=document.getElementById('nouvelElement').value;
 request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album'+album+'&element='+element).then(
-function(response){alert(response);   })})
+function(response){alert(response); document.getElementById('resultatCreerAlbum').innerHTML=response;  })})
 }
 </script>
 
@@ -351,12 +351,13 @@ function(response){alert(response);   })})
 
 <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
 <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
-<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album</font>
-Album<input type="text" id="nouvelAlbum">
-Elément<input type="text" id="nouvelElement">creer_album_button
+<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album. Attention, les albums et éléments ne peuvent pas être supprimés</font><br>
+<font color='grey' size='3'>Album</font><input type="text" id="nouvelAlbum">
+<font color='grey' size='3'>Elément</font><input type="text" id="nouvelElement">creer_album_button
 <div data-role="content">
 <a href="#" data-role="button" id="creer_album_button">Créer</a>
-</div>
+</div><br>
+<div id="resultatCreerAlbum"></div>
 </div>
 
 <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" > 
