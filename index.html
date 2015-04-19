@@ -119,7 +119,7 @@ require([
         dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/tournees.php'});
 })
 
-function affichPointsTourneess(tournee){
+function affichPointsTournees(tournee){
 var dataStorePointsTournees;
 require([
         "dojox/mobile/parser",
@@ -133,7 +133,7 @@ require([
         "dojox/mobile/FilteredListMixin"
         ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
 
-        dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/Pointstournees.php?tournee='+tournee});
+        dataStorePointsTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/Pointstournees.php?tournee='+tournee});
 })
 }
 
