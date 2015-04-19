@@ -218,7 +218,7 @@ if (states[networkState] == 'Pas de connexion réseau') {
         alert('Veuillez reprendre la photo');}
         
 else
-{alert(num);alert(imageData);
+{
     var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?num="+num+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
