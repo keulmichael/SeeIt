@@ -15,9 +15,7 @@ var settings;
 
 // Called on bodyLoad
 function onLoadCamera() {
-	
-	    
-    CacherCamera();
+
     document.addEventListener("deviceready", onDeviceReady, false);
     
     settings = new Settings();
