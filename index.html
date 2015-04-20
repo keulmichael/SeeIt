@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<meta http-equiv="Content-type" content="text/html; charset=iso-8859-1"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <title> Des moments à partager avec SeeIt! </title>
@@ -249,8 +249,8 @@ var u = new SpeechSynthesisUtterance();
 }}};}
 else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 }
-function CacherCamera(){alert('camera cachée');document.getElementById("cadreCamera").style.visibility="hidden";document.getElementById("photoCamera").style.visibility="hidden";}
-function MontrerCamera(){alert('camera montrée');document.getElementById('cadreCamera').style.visibility="visible";document.getElementById('photoCamera').style.visibility="visible";}
+function CacherCamera(){document.getElementById("cadreCamera").style.display = "none";document.getElementById("photoCamera").style.display = "none";}
+function MontrerCamera(){document.getElementById('cadreCamera').style.display="block";document.getElementById('photoCamera').style.display="block";}
 
 function creerAlbum(){
 require(["dojo/request"],
@@ -354,11 +354,11 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
  </div>
 </div>
 
-<div data-role="content" id="cadreCamera">
+<div data-role="content" id="cadreCamera" style="display:none">
 <a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
 </div>
 
-<div data-role="content" id="photoCamera">
+<div data-role="content" id="photoCamera" style="display:none">
 <img id="pic" src="" style="display: none; border: 2px black;"/>
 </div>
 <div id='total'></div>
