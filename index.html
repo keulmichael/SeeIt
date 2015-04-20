@@ -249,8 +249,8 @@ var u = new SpeechSynthesisUtterance();
 }}};}
 else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
 }
-function CacherCamera(){document.getElementById("open_camera_button").style.display = "none";document.getElementById("pic").style.display = "none";}
-function MontrerCamera(){document.getElementById('open_camera_button').style.display="block";}
+function CacherCamera(){document.getElementById("cadreCamera").style.display = "none";document.getElementById("photoCamera").style.display = "none";}
+function MontrerCamera(){document.getElementById('cadreCamera').style.display="block";document.getElementById('photoCamera').style.display="block";}
 
 function creerAlbum(){
 require(["dojo/request"],
@@ -354,12 +354,12 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
  </div>
 </div>
 
-<div data-role="content">
-<a href="#" data-role="button" id="open_camera_button"  style="display:none">Prendre une photo</a>
+<div data-role="content" id="cadreCamera" style="display:none">
+<a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
 </div>
 
-<div data-role="content">
-<img id="pic" src="" style="display: none; "/>
+<div data-role="content" id="photoCamera" style="display:none">
+<img id="pic" src="" style="display: none;"/>
 </div>
 
 

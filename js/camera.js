@@ -210,9 +210,9 @@ function onCaptureSuccess(imageData) {
         states[Connection.CELL_2G] = 'Connexion 2G';
         states[Connection.CELL_3G] = 'Connexion 3G';
         states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion rÃ©seau';
+        states[Connection.NONE] = 'Pas de connexion réseau';
 
-if (states[networkState] == 'Pas de connexion rÃ©seau') {
+if (states[networkState] == 'Pas de connexion réseau') {
         alert('Veuillez reprendre la photo');}
         
 else
@@ -276,7 +276,7 @@ var options = new FileUploadOptions();
         states[Connection.CELL_2G] = 'Connexion 2G';
         states[Connection.CELL_3G] = 'Connexion 3G';
         states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion rÃ©seau';
+        states[Connection.NONE] = 'Pas de connexion réseau';
 
         alert('Connexion : ' + states[networkState]);
 }
