@@ -17,7 +17,7 @@ var settings;
 function onLoadCamera() {
 	
 	    
-    document.getElementById('open_camera_button').style.visibility="hidden";
+    CacherCamera();
     document.addEventListener("deviceready", onDeviceReady, false);
     
     settings = new Settings();
@@ -132,7 +132,7 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
 
 
 function accelerometerErrorPortrait() {
-    alert('Veuillez activer l\'accéléromètre');
+    alert('Veuillez activer l\'accÃ©lÃ©romÃ¨tre');
 };
 
 								  
@@ -184,7 +184,7 @@ if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
 
 
 function accelerometerErrorPaysage() {
-    alert('Veuillez activer l\'accéléromètre');
+    alert('Veuillez activer l\'accÃ©lÃ©romÃ¨tre');
 };
 
 								  
@@ -212,9 +212,9 @@ function onCaptureSuccess(imageData) {
         states[Connection.CELL_2G] = 'Connexion 2G';
         states[Connection.CELL_3G] = 'Connexion 3G';
         states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion réseau';
+        states[Connection.NONE] = 'Pas de connexion rÃ©seau';
 
-if (states[networkState] == 'Pas de connexion réseau') {
+if (states[networkState] == 'Pas de connexion rÃ©seau') {
         alert('Veuillez reprendre la photo');}
         
 else
@@ -278,7 +278,7 @@ var options = new FileUploadOptions();
         states[Connection.CELL_2G] = 'Connexion 2G';
         states[Connection.CELL_3G] = 'Connexion 3G';
         states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion réseau';
+        states[Connection.NONE] = 'Pas de connexion rÃ©seau';
 
         alert('Connexion : ' + states[networkState]);
 }
