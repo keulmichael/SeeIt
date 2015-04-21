@@ -258,8 +258,8 @@ function(request){
 var album=document.getElementById('nouvelAlbum').value;
 var element=document.getElementById('nouvelElement').value;
 request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element).then(
-function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  })})
-affichPointsTournees(album);
+function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  affichPointsTournees(album);})})
+
 }
 </script>
 
