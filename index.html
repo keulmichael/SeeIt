@@ -4,7 +4,7 @@
 <meta http-equiv="Content-type" content="text/html; charset=iso-8859-1"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
-<title> Des moments à partager avec SeeIt! </title>
+<title> Des moments Ã  partager avec SeeIt! </title>
 
 <script type="text/javascript">
 function Settings() {
@@ -201,7 +201,7 @@ function onError(error) {
 navigator.compass.getCurrentHeading(onSuccess, onError);
 }
 function changeCameraDirection(value) {
-alert('Option àvenir dans les prochaines versions');
+alert('Option Ã venir dans les prochaines versions');
 if (value=='on'){settings.CameraDirection=1;}
 else{settings.CameraDirection=0;}
 };
@@ -259,6 +259,7 @@ var album=document.getElementById('nouvelAlbum').value;
 var element=document.getElementById('nouvelElement').value;
 request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element).then(
 function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  })})
+affichPointsTournees(album);
 }
 </script>
 
@@ -267,20 +268,20 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 
 
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
-<h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">Des moments àpartager - SeeIt !</h1>
+<h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">Des moments Ã partager - SeeIt !</h1>
 <img src="icone.png" width="200">
 <ul id="intro" data-dojo-type="dojox/mobile/RoundRectList">
-<font color='grey' size='2'><b>Partagez des moments en photo et découvrez ceux du monde entier en directe d'une façon innovante car comme dans la vie réelle, les moments disparaissent avec SeeIt ! Soyez donc à l'affût des nouvelles photos en consultant les albums et en recevant les alertes !<br>Les photos ne sont pas sauvegardées dans votre téléphone. Vous n'avez donc pas à vous inquiéter pour le stockage ! Les photos sont automatiquement supprimées des albums chaque jour afin de pouvoir en réaliser des nouvelles.</b></font>
+<font color='grey' size='2'><b>Partagez des moments en photo et dÃ©couvrez ceux du monde entier en directe d'une faÃ§on innovante car comme dans la vie rÃ©elle, les moments disparaissent avec SeeIt ! Soyez donc Ã  l'affÃ»t des nouvelles photos en consultant les albums et en recevant les alertes !<br>Les photos ne sont pas sauvegardÃ©es dans votre tÃ©lÃ©phone. Vous n'avez donc pas Ã  vous inquiÃ©ter pour le stockage ! Les photos sont automatiquement supprimÃ©es des albums chaque jour afin de pouvoir en rÃ©aliser des nouvelles.</b></font>
 </ul>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Accès'"></li>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Sélectionner', moveTo:'album'">Album</li>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'AccÃ¨s'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'SÃ©lectionner', moveTo:'album'">Album</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'SÃ©lectionner', moveTo:'tournees'">ThÃ¨mes</li>
 <br> <br>
 </div>
 
 
 <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
-        <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil'">Thèmes</h1>
+        <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil'">ThÃ¨mes</h1>
         <ul id="listTournes" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStoreTournees"></ul>
 </div>
 
@@ -309,7 +310,7 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Camera Frontale
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoom Grand Angle
-<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option àvenir dans les prochaines versions');}" value="off"></div>
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option Ã venir dans les prochaines versions');}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
 </li>
@@ -323,11 +324,11 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 
 <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
 <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
-<font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album. Attention, les albums et éléments ne peuvent pas être supprimés.</font><br><br>
+<font color='grey' size='2'>Indiquez un album existant ou crÃ©ez un nouvel album. Attention, les albums et Ã©lÃ©ments ne peuvent pas Ãªtre supprimÃ©s.</font><br><br>
 <font color='grey' size='3'>Album</font><input type="text" id="nouvelAlbum">
-<font color='grey' size='3'>Elément</font><input type="text" id="nouvelElement">
+<font color='grey' size='3'>ElÃ©ment</font><input type="text" id="nouvelElement">
 
-<button onclick='creerAlbum()'>Créer</button>
+<button onclick='creerAlbum()'>CrÃ©er</button>
 <br>
 <div id="resultatCreerAlbum"></div>
 </div>
@@ -336,20 +337,20 @@ function(response){document.getElementById('resultatCreerAlbum').innerHTML=respo
 <h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
 <div data-dojo-type="dojox/mobile/Accordion" >
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>   
-<font color='black' size='2'>> Ouvrez un <b>Thème</b> puis un élément existant pour prendre une photo. Consulter toutes les <b>Photos</b> en cliquant sur Album. Créez votre propre album si le celui-ci n'existe pas !<br>
-> Cliquez sur <b>Album</b> pour découvrir toutes les photos.<br>
-> Cliquez sur <b>Today</b> pour découvrir les photos du jour.<br>
-> Cliquez sur <b>Ajouter</b> pour créer vos propres thèmes et vos propres éléments<br>
-> Cliquer sur <b>Options</b> pour activer l'aide àla prise de photo au mode souhaité, pour configurez les alertes et être averti des nouvelles photos : messages, vocales, vibrations, sonneries (disponible dans les prochaines versions)<br></font>
+<font color='black' size='2'>> Ouvrez un <b>ThÃ¨me</b> puis un Ã©lÃ©ment existant pour prendre une photo. Consulter toutes les <b>Photos</b> en cliquant sur Album. CrÃ©ez votre propre album si le celui-ci n'existe pas !<br>
+> Cliquez sur <b>Album</b> pour dÃ©couvrir toutes les photos.<br>
+> Cliquez sur <b>Today</b> pour dÃ©couvrir les photos du jour.<br>
+> Cliquez sur <b>Ajouter</b> pour crÃ©er vos propres thÃ¨mes et vos propres Ã©lÃ©ments<br>
+> Cliquer sur <b>Options</b> pour activer l'aide Ã la prise de photo au mode souhaitÃ©, pour configurez les alertes et Ãªtre averti des nouvelles photos : messages, vocales, vibrations, sonneries (disponible dans les prochaines versions)<br></font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"A venir"'>
-<font color='black' size='2'>Camera Frontable<br>Zoom Grand Angle<br>Reconnaissance Vocale<br>Les photos les plus populaires<br>Consultation des album en Privé<br>Abonnement à un album<br>Vidéo <br>Achat d'accessoires</font>
+<font color='black' size='2'>Camera Frontable<br>Zoom Grand Angle<br>Reconnaissance Vocale<br>Les photos les plus populaires<br>Consultation des album en PrivÃ©<br>Abonnement Ã  un album<br>VidÃ©o <br>Achat d'accessoires</font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Pourquoi faire ?"'>
-<font color='black' size='2'>Partager un événement, une scène insolite, un monument, une exposition<br>Jouer au reporter<br>Communiquer des problèmes de transport<br>Avertir lorsqu'une place de parking est libre<br>Montrer un lieu de rdv</font>
+<font color='black' size='2'>Partager un Ã©vÃ©nement, une scÃ¨ne insolite, un monument, une exposition<br>Jouer au reporter<br>Communiquer des problÃ¨mes de transport<br>Avertir lorsqu'une place de parking est libre<br>Montrer un lieu de rdv</font>
 </div>
     <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Nous contacter ?"'>
-<font color='black' size='2'>Vous pouvez nous envoyer vos commentaires (corrections, amérliorations, idées) ou simplement nous faire un petit coucou en nous envoyant un email àcontact@appliseeit.com</font>
+<font color='black' size='2'>Vous pouvez nous envoyer vos commentaires (corrections, amÃ©rliorations, idÃ©es) ou simplement nous faire un petit coucou en nous envoyant un email Ã contact@appliseeit.com</font>
 </div>
  </div>
 </div>
