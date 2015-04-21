@@ -60,6 +60,14 @@ parseOnLoad: false
 require([
 "dojo/_base/connect",
 "dojo/ready",
+], function(connect, ready){
+ready(function(){
+AffichBadges();
+});
+})
+
+function AffichBadges(){
+require(["dojo/request",
 "dijit/registry",
 "dojox/mobile/IconItem",
 "dojox/mobile/IconContainer",
@@ -69,15 +77,7 @@ require([
 "dojox/mobile",
 "dojox/mobile/compat",
 "dojox/mobile/ViewController",
-], function(connect, ready, registry, IconItem, IconContainer, ListItem,ViewController){
-ready(function(){
-AffichBadges();
-});
-})
-
-function AffichBadges(){
-require(["dojo/request"],
-function(request){
+], function(request, registry, IconItem, IconContainer, ListItem,ViewController){
 request.get('http://www.appliseeit.com/mobile/badges.php').then(
 function(response){
 var iconContainerWidget = registry.byId("infoBadges");
@@ -373,7 +373,7 @@ document.getElementById('afficherTourneeApresCreer').style.display="block";
 
 <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>	
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera()}'>Accueil</li>
-<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera()}'>Today</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera();AffichBadges()}'>Today</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewAjouter", onClick:function(){CacherCamera()}'>Ajouter</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
