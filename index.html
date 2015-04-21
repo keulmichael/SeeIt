@@ -258,12 +258,11 @@ function(request,win, ProgressIndicator){
 var album=document.getElementById('nouvelAlbum').value;
 var element=document.getElementById('nouvelElement').value;
 request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element).then(
-function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  alert(response);})
-var prog = new ProgressIndicator({size:40, center:false});
-  win.body().appendChild(prog.domNode);
-  prog.start();
-affichPointsTournees(album);
-prog.stop();})
+function(response){
+document.getElementById('resultatCreerAlbum').innerHTML=response; 
+document.getElementById('afficherTourneeApresCreer').style.display="block";
+})
+})
 }
 </script>
 
@@ -334,7 +333,8 @@ prog.stop();})
 
 <button onclick='creerAlbum()'>Créer</button>
 <br>
-<div id="resultatCreerAlbum"></div>
+<div id="resultatCreerAlbum"></div><br><br>
+<button id='afficherTourneeApresCreer' onclick='affichPointsTournees(album);' style='display:none'>Afficher</button>;
 </div>
 
 <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" > 
