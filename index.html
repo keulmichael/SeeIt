@@ -258,7 +258,7 @@ function(request,win, ProgressIndicator){
 var album=document.getElementById('nouvelAlbum').value;
 var element=document.getElementById('nouvelElement').value;
 request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element).then(
-function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  })
+function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  alert(response);})
 var prog = new ProgressIndicator({size:40, center:false});
   win.body().appendChild(prog.domNode);
   prog.start();
