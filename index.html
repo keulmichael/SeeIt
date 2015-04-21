@@ -253,13 +253,17 @@ function CacherCamera(){document.getElementById("cadreCamera").style.display = "
 function MontrerCamera(){document.getElementById('cadreCamera').style.display="block";document.getElementById('photoCamera').style.display="block";}
 
 function creerAlbum(){
-require(["dojo/request"],
-function(request){
+require(["dojo/request","dojo/_base/window","dojox/mobile/ProgressIndicator"],
+function(request,win, ProgressIndicator){
 var album=document.getElementById('nouvelAlbum').value;
 var element=document.getElementById('nouvelElement').value;
 request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element).then(
-function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  affichPointsTournees(album);})})
-
+function(response){document.getElementById('resultatCreerAlbum').innerHTML=response;  )})
+var prog = new ProgressIndicator({size:40, center:false});
+  win.body().appendChild(prog.domNode);
+  prog.start();
+affichPointsTournees(album);
+prog.stop();}
 }
 </script>
 
