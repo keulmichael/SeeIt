@@ -81,7 +81,6 @@ require(["dojo/request",
 request.get('http://www.appliseeit.com/mobile/badges.php').then(
 function(response){
 var iconContainerWidget = registry.byId("infoBadges");
-iconContainerWidget.removeChild();
 var res = response.split("_?_"); 
 for(var i= 0; i < res.length; i++)
 {var itemWidget ='';
