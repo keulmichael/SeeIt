@@ -334,7 +334,7 @@ document.getElementById('afficherTourneeApresCreer').style.display="block";
 <button onclick='creerAlbum()'>Créer</button>
 <br>
 <div id="resultatCreerAlbum"></div><br><br>
-<button id='afficherTourneeApresCreer' onclick='affichPointsTournees(album);' style='display:none'>Afficher</button>;
+<button id='afficherTourneeApresCreer' onclick='affichPointsTournees(document.getElementById("nouvelAlbum").value);' style='display:none'>Afficher</button>
 </div>
 
 <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" > 
