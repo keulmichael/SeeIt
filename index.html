@@ -103,7 +103,7 @@
     require(["dojo/request",
     "dijit/registry"
     ], function(request, registry){alert('function pk');
-var iconContainerWidgetSuppr = registry.byId("infoBadges");
+var iconContainerWidgetSuppr = document.getElementById("infoBadges");
 while (iconContainerWidgetSuppr.firstChild) {alert('child pk');
   iconContainerWidgetSuppr.removeChild(iconContainerWidgetSuppr.firstChild);
 }
