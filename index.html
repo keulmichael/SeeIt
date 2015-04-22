@@ -78,8 +78,7 @@
     "dojox/mobile/compat",
     "dojox/mobile/ViewController"
     ], function(request, registry, IconItem, IconContainer, ListItem,ViewController){
-var iconContainerWidgetSuppr = registry.byId("infoBadges");
-iconContainerWidgetSuppr.parentNode.removeChild(iconContainerWidgetSuppr);
+
     request.get('http://www.appliseeit.com/mobile/badges.php').then(
     function(response){
     var iconContainerWidget = registry.byId("infoBadges");
@@ -106,8 +105,8 @@ iconContainerWidgetSuppr.parentNode.removeChild(iconContainerWidgetSuppr);
     require(["dojo/request",
     "dijit/registry"
     ], function(request, registry){
-    var iconContainerWidgetSuppr = registry.byId("infoBadges");alert('ok');
-    iconContainerWidgetSuppr.removeChild();
+var iconContainerWidgetSuppr = registry.byId("infoBadges");
+iconContainerWidgetSuppr.parentNode.removeChild(iconContainerWidgetSuppr);
     })
     }
     
@@ -326,7 +325,7 @@ iconContainerWidgetSuppr.parentNode.removeChild(iconContainerWidgetSuppr);
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Camera Frontale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoom Grand Angle
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option àvenir dans les prochaines versions');}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option à venir dans les prochaines versions');}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
@@ -336,6 +335,7 @@ iconContainerWidgetSuppr.parentNode.removeChild(iconContainerWidgetSuppr);
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
     <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
+    <button  onclick='SupprBadges()'>Supprimer</button>
     </div>
     
     <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
