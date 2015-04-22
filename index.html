@@ -102,9 +102,9 @@
     function SupprBadges(){
     require(["dojo/request",
     "dijit/registry"
-    ], function(request, registry){
+    ], function(request, registry){alert('function pk');
 var iconContainerWidgetSuppr = registry.byId("infoBadges");
-while (iconContainerWidgetSuppr.firstChild) {
+while (iconContainerWidgetSuppr.firstChild) {alert('child pk');
   iconContainerWidgetSuppr.removeChild(iconContainerWidgetSuppr.firstChild);
 }
     })
@@ -285,7 +285,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1>
     <br><br><img src="icone.png" width="150"><br><br>
-    <font color='grey' size='4' style='text-align: center;'><b>Des moments à partager<br>avec le monde</b></font><br><br>
+    <div align="center"><font color='grey' size='4'><b>Des moments à partager<br>avec le monde</b></font></div><br><br>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Accès'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Sélectionner', moveTo:'album'">Album</li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
