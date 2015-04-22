@@ -71,13 +71,11 @@
     "dijit/registry",
     "dojox/mobile/IconItem",
     "dojox/mobile/IconContainer",
-    "dojox/mobile/ListItem",
-    "dojox/mobile/Button",
     "dojox/mobile/parser",
     "dojox/mobile",
     "dojox/mobile/compat",
     "dojox/mobile/ViewController"
-    ], function(request, registry, IconItem, IconContainer, ListItem,ViewController){
+    ], function(request, registry, IconItem, IconContainer, ViewController){
 
     request.get('http://www.appliseeit.com/mobile/badges.php').then(
     function(response){
@@ -106,7 +104,9 @@
     "dijit/registry"
     ], function(request, registry){
 var iconContainerWidgetSuppr = registry.byId("infoBadges");
-iconContainerWidgetSuppr.parentNode.removeChild(iconContainerWidgetSuppr);
+while (iconContainerWidgetSuppr.firstChild) {
+  iconContainerWidgetSuppr.removeChild(iconContainerWidgetSuppr.firstChild);
+}
     })
     }
     
@@ -284,8 +284,8 @@ iconContainerWidgetSuppr.parentNode.removeChild(iconContainerWidgetSuppr);
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1>
-    <img src="icone.png" width="150"><br>
-    <font color='grey' size='4' style='text-align: center;'><b>>Des moments à partager avec le monde</b></font><br>
+    <br><br><img src="icone.png" width="150"><br><br>
+    <font color='grey' size='4' style='text-align: center;'><b>Des moments à partager<br>avec le monde</b></font><br><br>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Accès'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Sélectionner', moveTo:'album'">Album</li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
