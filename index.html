@@ -57,6 +57,13 @@
     parseOnLoad: false
     };
     
+        require(["dojo/request"], function(request){
+    request.get('http://www.appliseeit.com/mobile/texte.php').then(
+    function(response){
+document.getElementById("titreAccueil"). innerHTML=response;
+    })
+    });
+    
     require([
     "dojo/_base/connect",
     "dojo/ready",
@@ -288,16 +295,15 @@ while (iconContainerWidgetSuppr.firstChild) {
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1>
     <br><br><img src="icone.png" width="150"><br><br>
-    <div align="center"><font color='grey' size='5'><b>Des moments à partager<br>avec le monde</b></font></div><br><br>
-    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Accès'"></li>
-    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Sélectionner', moveTo:'album'">Album</li>
-    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Sélectionner', moveTo:'tournees'">Thèmes</li>
+    <div id='titreAccueil' align="center"></div><br><br>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Consulter', moveTo:'album'">Album</li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Photos', moveTo:'tournees'">Prendre</li>
     <br> <br>
     </div>
     
     
     <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
-            <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil'">Thèmes</h1>
+            <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil'">Prendre les photos</h1>
             <ul id="listTournes" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStoreTournees"></ul>
     </div>
     
