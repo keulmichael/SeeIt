@@ -272,7 +272,11 @@ while (iconContainerWidgetSuppr.firstChild) {
     else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
     }
     function CacherCamera(){document.getElementById("cadreCamera").style.display = "none";document.getElementById("photoCamera").style.display = "none";}
-    function MontrerCamera(){document.getElementById('cadreCamera').style.display="block";document.getElementById('photoCamera').style.display="block";}
+    function MontrerCamera(){
+    document.getElementById('cadreCamera').style.display="block";document.getElementById('photoCamera').style.display="block";
+    document.getElementById('cadreCamera').style.position="absolute";document.getElementById('photoCamera').style.position="absolute";
+    document.getElementById('cadreCamera').style.top="0px";document.getElementById('photoCamera').style.top="50px";
+    }
     
     function creerAlbum(){
     require(["dojo/request","dojo/_base/window","dojox/mobile/ProgressIndicator"],
