@@ -58,13 +58,13 @@
     };
     
 require(["dojo/request"], function(request){
-request.get('http://www.appliseeit.com/mobile/textTitreAccueil.html').then(function(resptitreAccueil){document.getElementById("titreAccueil").innerHTML=resptitreAccueil;})
+request.get('http://www.appliseeit.com/mobile/texteTitreAccueil.html').then(function(resptitreAccueil){document.getElementById("titreAccueil").innerHTML=resptitreAccueil;})
 request.get('http://www.appliseeit.com/mobile/texttexteAjouter.html').then(function(resptexteAjouter){document.getElementById("texteAjouter").innerHTML=resptexteAjouter;})
 request.get('http://www.appliseeit.com/mobile/texteIntroInfos.html').then(function(respIntroInfos){document.getElementById("IntroInfos").innerHTML=respIntroInfos;})
-request.get('http://www.appliseeit.com/mobile/texteAideInfos.html').then(function(respAideInfos){document.getElementById("AideInfos").innerHTML=respIntroInfos;})
-request.get('http://www.appliseeit.com/mobile/texteAvenirInfos.html').then(function(respAvenirInfos){document.getElementById("AvenirInfos").innerHTML=respIntroInfos;})
-request.get('http://www.appliseeit.com/mobile/textePourquoifaireInfos.html').then(function(respPourquoifaireInfos){document.getElementById("PourquoifaireInfos").innerHTML=respIntroInfos;})
-request.get('http://www.appliseeit.com/mobile/texteNouscontacterInfos.html').then(function(respNouscontacterIntroInfos){document.getElementById("NouscontacterInfos").innerHTML=respIntroInfos;})
+request.get('http://www.appliseeit.com/mobile/texteAideInfos.html').then(function(respAideInfos){document.getElementById("AideInfos").innerHTML=respAideInfos;})
+request.get('http://www.appliseeit.com/mobile/texteAvenirInfos.html').then(function(respAvenirInfos){document.getElementById("AvenirInfos").innerHTML=respAvenirInfos;})
+request.get('http://www.appliseeit.com/mobile/textePourquoifaireInfos.html').then(function(respPourquoifaireInfos){document.getElementById("PourquoifaireInfos").innerHTML=respPourquoifaireInfos;})
+request.get('http://www.appliseeit.com/mobile/texteNouscontacterInfos.html').then(function(respNouscontacterInfos){document.getElementById("NouscontacterInfos").innerHTML=respNouscontacterInfos;})
     });
     
     require([
@@ -279,8 +279,8 @@ while (iconContainerWidgetSuppr.firstChild) {
     }
     function MontrerCamera(){
     document.getElementById('cadreCamera').style.display="block";
-    document.getElementById('cadreCamera').style.position="relative";
-    document.getElementById('cadreCamera').style.bottom="30px";
+    document.getElementById('cadreCamera').style.float="top";
+
     }
     
     function creerAlbum(){
