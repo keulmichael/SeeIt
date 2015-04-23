@@ -58,8 +58,9 @@
     };
     
 require(["dojo/request"], function(request){
-request.get('http://www.appliseeit.com/mobile/textTitreAccueil.html').then(function(response){document.getElementById("titreAccueil").innerHTML=response;})
-request.get('http://www.appliseeit.com/mobile/texttexteAjouter.html').then(function(response){document.getElementById("texteAjouter").innerHTML=response;})
+request.get('http://www.appliseeit.com/mobile/textTitreAccueil.html').then(function(resptitreAccueil){document.getElementById("titreAccueil").innerHTML=resptitreAccueil;})
+request.get('http://www.appliseeit.com/mobile/texttexteAjouter.html').then(function(resptexteAjouter){document.getElementById("texteAjouter").innerHTML=resptexteAjouter;})
+request.get('http://www.appliseeit.com/mobile/texteIntroInfos.html').then(function(respIntroInfos){document.getElementById("IntroInfos").innerHTML=respIntroInfos;})
 
     });
     
@@ -270,10 +271,12 @@ while (iconContainerWidgetSuppr.firstChild) {
     }}};}
     else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
     }
-    function CacherCamera(){document.getElementById("cadreCamera").style.display = "none";}
+    function CacherCamera(){
+    document.getElementById("cadreCamera").style.display = "none";
+    }
     function MontrerCamera(){
     document.getElementById('cadreCamera').style.display="block";
-    document.getElementById('cadreCamera').style.position="absolute";
+    document.getElementById('cadreCamera').style.position="relative";
     document.getElementById('cadreCamera').style.top="50px";
     }
     
@@ -332,7 +335,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateOrientation){changeCorrectOrientation(newStateOrientation)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Blocage Position (Paysage)
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option Ã venir dans les prochaines versions');}" value="off"></div>
-    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Sécurité Camera (Paysage)
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Blocage Camera (Paysage)
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatePosition){changePositionPaysage(newStatePosition)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Camera Frontale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
@@ -351,7 +354,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     
     <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
-    <div id="texteAjouter" ></div><br><br>
+    <div id="texteAjouter" align="center"></div><br><br>
     <font color='grey' size='3'>Album</font><input type="text" id="nouvelAlbum">
     <font color='grey' size='3'>Objectif</font><input type="text" id="nouvelElement">
     
@@ -364,7 +367,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
     <ul id="intro" data-dojo-type="dojox/mobile/RoundRectList">
-    <font color='grey' size='2'><b>Partagez des moments en photo et découvrez ceux du monde entier en directe d'une faÃ§on innovante car comme dans la vie réelle, les moments disparaissent avec SeeIt ! Soyez donc à l'affût des nouvelles photos en consultant les albums et en recevant les alertes !<br>Les photos ne sont pas sauvegardées dans votre téléphone. Vous n'avez donc pas à vous inquiéter pour le stockage ! Les photos sont automatiquement supprimées des albums chaque jour afin de pouvoir en réaliser des nouvelles.</b></font>
+<div id='IntroInfos' align='center'></div>
     </ul>
     <div data-dojo-type="dojox/mobile/Accordion" >
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>   
