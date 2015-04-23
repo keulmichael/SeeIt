@@ -228,7 +228,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     navigator.compass.getCurrentHeading(onSuccess, onError);
     }
     function changeCameraDirection(value) {
-    alert('Option Ã venir dans les prochaines versions');
+    alert('Option disponible dans les prochaines versions');
     if (value=='on'){settings.CameraDirection=1;}
     else{settings.CameraDirection=0;}
     };
@@ -279,7 +279,8 @@ while (iconContainerWidgetSuppr.firstChild) {
     }
     function MontrerCamera(){
     document.getElementById('cadreCamera').style.display="block";
-    document.getElementById('cadreCamera').style.float="top";
+   document.getElementById('cadreCamera').style.display="absolute";
+    document.getElementById('cadreCamera').style.bottom="30px";
 
     }
     
@@ -343,7 +344,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Camera Frontale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoom Grand Angle
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option à venir dans les prochaines versions');}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
