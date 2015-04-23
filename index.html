@@ -61,7 +61,10 @@ require(["dojo/request"], function(request){
 request.get('http://www.appliseeit.com/mobile/textTitreAccueil.html').then(function(resptitreAccueil){document.getElementById("titreAccueil").innerHTML=resptitreAccueil;})
 request.get('http://www.appliseeit.com/mobile/texttexteAjouter.html').then(function(resptexteAjouter){document.getElementById("texteAjouter").innerHTML=resptexteAjouter;})
 request.get('http://www.appliseeit.com/mobile/texteIntroInfos.html').then(function(respIntroInfos){document.getElementById("IntroInfos").innerHTML=respIntroInfos;})
-
+request.get('http://www.appliseeit.com/mobile/texteAideInfos.html').then(function(respAideInfos){document.getElementById("AideInfos").innerHTML=respIntroInfos;})
+request.get('http://www.appliseeit.com/mobile/texteAvenirInfos.html').then(function(respAvenirInfos){document.getElementById("AvenirInfos").innerHTML=respIntroInfos;})
+request.get('http://www.appliseeit.com/mobile/textePourquoifaireInfos.html').then(function(respPourquoifaireInfos){document.getElementById("PourquoifaireInfos").innerHTML=respIntroInfos;})
+request.get('http://www.appliseeit.com/mobile/texteNouscontacterInfos.html').then(function(respNouscontacterIntroInfos){document.getElementById("NouscontacterInfos").innerHTML=respIntroInfos;})
     });
     
     require([
@@ -276,8 +279,8 @@ while (iconContainerWidgetSuppr.firstChild) {
     }
     function MontrerCamera(){
     document.getElementById('cadreCamera').style.display="block";
-    document.getElementById('cadreCamera').style.position="relative";
-    document.getElementById('cadreCamera').style.top="50px";
+    document.getElementById('cadreCamera').style.position="absolute";
+    document.getElementById('cadreCamera').style.bottom="30px";
     }
     
     function creerAlbum(){
@@ -371,20 +374,16 @@ while (iconContainerWidgetSuppr.firstChild) {
     </ul>
     <div data-dojo-type="dojox/mobile/Accordion" >
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>   
-    <font color='black' size='2'>> Ouvrez un <b>Thème</b> puis un élément existant pour prendre une photo. Consulter toutes les <b>Photos</b> en cliquant sur Album. Créez votre propre album si le celui-ci n'existe pas !<br>
-    > Cliquez sur <b>Album</b> pour découvrir toutes les photos.<br>
-    > Cliquez sur <b>Today</b> pour découvrir les photos du jour.<br>
-    > Cliquez sur <b>Ajouter</b> pour créer vos propres thèmes et vos propres éléments<br>
-    > Cliquer sur <b>Options</b> pour activer la sécurité appareil photo, pour activer l'aide à la prise de photo au mode souhaité, pour configurez les alertes et être averti des nouvelles photos : messages, vocales, vibrations, sonneries (disponible dans les prochaines versions)<br></font>
-    </div>
+	<div id='AideInfos' align='left'></div>
+        </div>
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"A venir"'>
-    <font color='black' size='2'>Camera Frontable<br>Zoom Grand Angle<br>Reconnaissance Vocale<br>Les photos les plus populaires<br>Consultation des album en Privé<br>Abonnement à un album<br>Vidéo <br>Achat d'accessoires</font>
-    </div>
+	<div id='AvenirInfos' align='left'></div>
+   </div>
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Pourquoi faire ?"'>
-    <font color='black' size='2'>Partager un événement, une scÃšne insolite, un monument, une exposition<br>Jouer au reporter<br>Communiquer des problèmes de transport<br>Avertir lorsqu'une place de parking est libre<br>Montrer un lieu de rdv</font>
+	<div id='PourquoifaireInfos' align='left'></div>
     </div>
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Nous contacter ?"'>
-    <font color='black' size='2'>Vous pouvez nous envoyer vos commentaires (corrections, amérliorations, idées) ou simplement nous faire un petit coucou en nous envoyant un email Ã contact@appliseeit.com</font>
+	<div id='NouscontacterInfos' align='left'></div>
     </div>
      </div>
     </div>
