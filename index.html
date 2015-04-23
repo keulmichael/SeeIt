@@ -57,11 +57,10 @@
     parseOnLoad: false
     };
     
-        require(["dojo/request"], function(request){
-    request.get('http://www.appliseeit.com/mobile/texte.php').then(
-    function(response){
-document.getElementById("titreAccueil"). innerHTML=response;
-    })
+require(["dojo/request"], function(request){
+request.get('http://www.appliseeit.com/mobile/textTitreAccueil.html').then(function(response){document.getElementById("titreAccueil").innerHTML=response;})
+request.get('http://www.appliseeit.com/mobile/texttexteAjouter.html').then(function(response){document.getElementById("texteAjouter").innerHTML=response;})
+
     });
     
     require([
@@ -271,11 +270,11 @@ while (iconContainerWidgetSuppr.firstChild) {
     }}};}
     else{alert('La fonction Voix ne fonctionne pas sur ce navigateur');}
     }
-    function CacherCamera(){document.getElementById("cadreCamera").style.display = "none";document.getElementById("photoCamera").style.display = "none";}
+    function CacherCamera(){document.getElementById("cadreCamera").style.display = "none";}
     function MontrerCamera(){
-    document.getElementById('cadreCamera').style.display="block";document.getElementById('photoCamera').style.display="block";
-    document.getElementById('cadreCamera').style.position="absolute";document.getElementById('photoCamera').style.position="absolute";
-    document.getElementById('cadreCamera').style.top="0px";document.getElementById('photoCamera').style.top="50px";
+    document.getElementById('cadreCamera').style.display="block";
+    document.getElementById('cadreCamera').style.position="absolute";
+    document.getElementById('cadreCamera').style.top="50px";
     }
     
     function creerAlbum(){
@@ -301,7 +300,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     <br><br><img src="icone.png" width="150"><br><br>
     <div id='titreAccueil' align="center"></div><br><br>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'screen.png', rightText:'Consulter', moveTo:'album'">Album</li>
-    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Photos', moveTo:'tournees'">Prendre</li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'truck.png', rightText:'Prendre', moveTo:'tournees'">Photos</li>
     <br> <br>
     </div>
     
@@ -352,11 +351,11 @@ while (iconContainerWidgetSuppr.firstChild) {
     
     <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
-    <font color='grey' size='2'>Indiquez un album existant ou créez un nouvel album. Attention, les albums et éléments ne peuvent pas être supprimés.</font><br><br>
+    <div id="texteAjouter" ></div><br><br>
     <font color='grey' size='3'>Album</font><input type="text" id="nouvelAlbum">
-    <font color='grey' size='3'>Elément</font><input type="text" id="nouvelElement">
+    <font color='grey' size='3'>Objectif</font><input type="text" id="nouvelElement">
     
-    <button onclick='creerAlbum()'>Créer</button>
+    <button onclick='creerAlbum()'>Ajouter</button>
     <br>
     <div id="resultatCreerAlbum"></div><br><br>
     <div id='afficherTourneeApresCreer' style='display:none'><button onclick='affichPointsTournees(document.getElementById("nouvelAlbum").value);'>Afficher</button></div>
@@ -387,14 +386,15 @@ while (iconContainerWidgetSuppr.firstChild) {
      </div>
     </div>
     
-    <div data-role="content" id="cadreCamera" style="display:none">
+    <div id='cadreCamera' style="display:none">
+    <div data-role="content" id="cadreCamera" >
     <a href="#" data-role="button" id="open_camera_button">Prendre une photo</a>
     </div>
     
-    <div data-role="content" id="photoCamera" style="display:none">
+    <div data-role="content">
     <img id="pic" src="" style="display: none;"/>
     </div>
-    
+    </div>
     
     
     <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>	
