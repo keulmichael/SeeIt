@@ -80,7 +80,6 @@ var iconContainerWidgetSuppr = document.getElementById("infoBadges");
 while (iconContainerWidgetSuppr.firstChild) {
   iconContainerWidgetSuppr.removeChild(iconContainerWidgetSuppr.firstChild);
 }
-}
     request.get('http://www.appliseeit.com/mobile/badges.php').then(
     function(response){
     var iconContainerWidget = registry.byId("infoBadges");
