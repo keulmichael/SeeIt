@@ -2,10 +2,10 @@
     <!DOCTYPE html>
     <html>
     <head>
+    <meta http-equiv="Content-type" content="text/html; charset=ISO-8859-1"/>
     <meta http-equiv="Content-type" content="text/html; class="gmail_default" style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <title> Des moments à partager avec SeeIt! </title>
-    
     <script type="text/javascript">
     function Settings() {
         
@@ -76,7 +76,11 @@
     "dojox/mobile/compat",
     "dojox/mobile/ViewController"
     ], function(request, registry, IconItem, IconContainer, ViewController){
-
+var iconContainerWidgetSuppr = document.getElementById("infoBadges");
+while (iconContainerWidgetSuppr.firstChild) {
+  iconContainerWidgetSuppr.removeChild(iconContainerWidgetSuppr.firstChild);
+}
+}
     request.get('http://www.appliseeit.com/mobile/badges.php').then(
     function(response){
     var iconContainerWidget = registry.byId("infoBadges");
@@ -102,9 +106,9 @@
     function SupprBadges(){
     require(["dojo/request",
     "dijit/registry"
-    ], function(request, registry){alert('function pk');
+    ], function(request, registry){
 var iconContainerWidgetSuppr = document.getElementById("infoBadges");
-while (iconContainerWidgetSuppr.firstChild) {alert('child pk');
+while (iconContainerWidgetSuppr.firstChild) {
   iconContainerWidgetSuppr.removeChild(iconContainerWidgetSuppr.firstChild);
 }
     })
@@ -335,7 +339,6 @@ while (iconContainerWidgetSuppr.firstChild) {alert('child pk');
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
     <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
-    <button  onclick='SupprBadges()'>Supprimer</button>
     </div>
     
     <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
@@ -347,7 +350,7 @@ while (iconContainerWidgetSuppr.firstChild) {alert('child pk');
     <button onclick='creerAlbum()'>Créer</button>
     <br>
     <div id="resultatCreerAlbum"></div><br><br>
-    <button id='afficherTourneeApresCreer' onclick='affichPointsTournees(document.getElementById("nouvelAlbum").value);' style='display:none'>Afficher</button>
+    <div id='afficherTourneeApresCreer' style='display:none'><button onclick='affichPointsTournees(document.getElementById("nouvelAlbum").value);'>Afficher</button></div>
     </div>
     
     <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" > 
