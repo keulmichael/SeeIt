@@ -72,6 +72,11 @@ request.get('http://www.appliseeit.com/mobile/texteNouscontacterInfos.html').the
     "dojo/ready",
     ], function(connect, ready){
     ready(function(){
+    
+var backButton = dijit.registry.byId("hdgSettings").backButton;
+if (backButton) {
+  dojo.connect(backButton, "onClick", function() { ... });
+} 
     AffichBadges();
     });
     })
