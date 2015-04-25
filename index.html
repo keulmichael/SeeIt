@@ -316,13 +316,13 @@ while (iconContainerWidgetSuppr.firstChild) {
     
     
     <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
-            <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil'">Prendre les photos</h1>
+            <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Prendre les photos</h1>
             <ul id="listTournes" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStoreTournees"></ul>
     </div>
     
     
     <div id="album" data-dojo-type="dojox/mobile/ScrollableView">
-            <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil'">Albums</h1>
+            <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Albums</h1>
             <ul id="listAlbum" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStoreAlbums"></ul>
     </div>
     
