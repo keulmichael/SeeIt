@@ -301,10 +301,16 @@ while (iconContainerWidgetSuppr.firstChild) {
     })
     })
     }
+    
+        function creerAlbum(){
+websocket = new WebSocket("ws://echo.websocket.org/"); 
+websocket.onopen = function(evt) { websocket.send("WebSocket rocks");  }; 
+websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); }; 
+	}
     </script>
     
     </head>
-    <body onload="onLoadCamera();" style="visibility:hidden;">
+    <body onload="onLoadCamera();testSocket()" style="visibility:hidden;">
     
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
@@ -342,17 +348,22 @@ while (iconContainerWidgetSuppr.firstChild) {
     <div id='tabViewOptions' data-dojo-type='dojox/mobile/ScrollableView' >
     <h1 data-dojo-type="dojox/mobile/Heading">Options</h1>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
-    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Options'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Camera/Image'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Orientation auto
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateOrientation){changeCorrectOrientation(newStateOrientation)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Blocage Position (Paysage)
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option Ã venir dans les prochaines versions');}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option à venir dans les prochaines versions');}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Blocage Camera (Paysage)
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatePosition){changePositionPaysage(newStatePosition)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Camera Frontale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoom Grand Angle
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
+     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Alertes/Nofications'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Son
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){}" value="off"></div>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Vibration
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
