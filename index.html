@@ -302,7 +302,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     })
     }
     
-        function creerAlbum(){
+        function testSocket(){
 websocket = new WebSocket("ws://echo.websocket.org/"); 
 websocket.onopen = function(evt) { websocket.send("WebSocket rocks");  }; 
 websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); }; 
