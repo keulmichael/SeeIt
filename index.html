@@ -306,6 +306,17 @@ while (iconContainerWidgetSuppr.firstChild) {
 websocket = new WebSocket("http://www.appliseeit.com/mobile/test.php"); 
 websocket.onopen = function(evt) { websocket.send("WebSocket rocks");  }; 
 websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); }; 
+
+    require(["dojox/socket"], function (Socket) {
+    // Create socket instance
+    var socket = new Socket("http://www.appliseeit.com/mobile/test.php");
+	    
+	    socket.on("message", function(event){
+    var data = event.data;
+    alert(data);
+});
+});
+
 	}
 	
     function changeAlertSon(value) {
@@ -315,6 +326,9 @@ websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); };
     function changeAlertVibration(value) {
     if (value=='on'){navigator.notification.vibrate(2000);}
     }
+    
+
+
     </script>
     
     </head>
@@ -369,9 +383,9 @@ websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); };
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
      <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Alertes/Nofications'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Son
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(value)}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(newStateAlertSon)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Vibration
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){changeAlertVibration(value)}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){changeAlertVibration(newStateVibration)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
