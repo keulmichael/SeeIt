@@ -307,6 +307,14 @@ websocket = new WebSocket("ws://echo.websocket.org/");
 websocket.onopen = function(evt) { websocket.send("WebSocket rocks");  }; 
 websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); }; 
 	}
+	
+    function changeAlertSon(value) {
+    if (value=='on'){ navigator.notification.beep(3);}
+    }
+    
+    function changeAlertVibration(value) {
+    if (value=='on'){navigator.notification.vibrate(2000);}
+    }
     </script>
     
     </head>
@@ -361,9 +369,9 @@ websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); };
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
      <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Alertes/Nofications'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Son
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(value)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Vibration
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){changeAlertVibration(value)}" value="off"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
