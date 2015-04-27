@@ -314,34 +314,35 @@ alert('send' + response);
 alert('load') + response;
   });
 
-
-
-
   request.get("http://www.appliseeit.com/mobile/test.php");
 });
+
 
 websocket = new WebSocket("http://www.appliseeit.com/mobile/test.php"); 
 websocket.onopen = function(evt) { websocket.send("WebSocket rocks");  }; 
 websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); }; 
 
-    require(["dojox/socket"], function (Socket) {
-    // Create socket instance
-    var socket = new Socket("http://www.appliseeit.com/mobile/test.php");
-	    
-	    socket.on("message", function(event){
-    var data = event.data;
-    alert(data);
-});
-});
-
 	}
+
 	
-    function changeAlertSon(value) {
-    if (value=='on'){ navigator.notification.beep(3);}
+function VerifNewPhoto(){
+	require(["dojo/request"], function(request){
+    request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
+    function(responseNewPhoto){
+	    if (responseNewPhoto<nbPhoto){var nbPhoto = responseNewPhoto;}
+	    if (responseNewPhoto==nbPhoto){var nbPhoto = responseNewPhoto;}
+	    if (responseNewPhoto>nbPhoto) {navigator.notification.beep(1);}
+	    }
+    )
+    })
     }
     
-    function changeAlertVibration(value) {alert(value);
-    if (value=='on'){navigator.notification.vibrate(2000);}
+    function changeAlertSon(value) {
+    if (value=='on'){setInterval(VerifNewPhoto, 10000);}
+    }
+    
+    function changeAlertVibration(value) {
+    if (value=='on'){setInterval(VerifNewPhoto, 10000);}
     }
     
 
