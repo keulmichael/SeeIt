@@ -302,7 +302,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     })
     }
     
-        function testSocket(){
+  function testSocket(){
 		require(["dojo/request", "dojo/request/notify"], function(request, notify){
   notify("start", function(){
 alert('start');
@@ -329,9 +329,9 @@ function VerifNewPhoto(){
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNewPhoto){
-	    if (responseNewPhoto<nbPhoto){var nbPhoto = responseNewPhoto;}
-	    if (responseNewPhoto==nbPhoto){var nbPhoto = responseNewPhoto;}
-	    if (responseNewPhoto>nbPhoto) {navigator.notification.beep(1);}
+	   // if (responseNewPhoto<nbPhoto){var nbPhoto = responseNewPhoto;}
+	    //if (responseNewPhoto==nbPhoto){var nbPhoto = responseNewPhoto;}
+	    navigator.notification.beep(1);
 	    }
     )
     })
@@ -350,7 +350,7 @@ function VerifNewPhoto(){
     </script>
     
     </head>
-    <body onload="onLoadCamera();testSocket()" style="visibility:hidden;">
+    <body onload="onLoadCamera();" style="visibility:hidden;">
     
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
