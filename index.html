@@ -303,6 +303,23 @@ while (iconContainerWidgetSuppr.firstChild) {
     }
     
         function testSocket(){
+		require(["dojo/request", "dojo/request/notify"], function(request, notify){
+  notify("start", function(){
+alert('start');
+  });
+  notify("send", function(response, cancel){
+alert('send' + response);
+  });
+  notify("load", function(response){
+alert('load') + response;
+  });
+
+
+
+
+  request.get("http://www.appliseeit.com/mobile/test.php");
+});
+
 websocket = new WebSocket("http://www.appliseeit.com/mobile/test.php"); 
 websocket.onopen = function(evt) { websocket.send("WebSocket rocks");  }; 
 websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); }; 
@@ -323,7 +340,7 @@ websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); };
     if (value=='on'){ navigator.notification.beep(3);}
     }
     
-    function changeAlertVibration(value) {
+    function changeAlertVibration(value) {alert(value);
     if (value=='on'){navigator.notification.vibrate(2000);}
     }
     
