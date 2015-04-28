@@ -336,6 +336,7 @@ var NbNewPhotos='';
     
     if(type=='vibrate'){navigator.vibrate([1000, 1000, 1000, 1000, 1000]);}
     if(type=='son'){navigator.notification.beep(1);}
+    navigator.notification.prompt('Des nouvelles photos ont été prises avec SeeIt!', promptCallback, 'SeeIt!', ["OK","Cancel"]);
     }
 	    }
     )
@@ -368,7 +369,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </script>
     
     </head>
-    <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 20000);" style="visibility:hidden;">
+    <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
     
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
