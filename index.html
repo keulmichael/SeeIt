@@ -328,8 +328,8 @@ websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); };
 function VerifNewPhoto(){
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
-    function(responseNewPhoto){
-    var ancienNbPhotos=document.getElementById('nombrePhotos').value;
+    function(responseNewPhoto){alert('Nouveau:'+responseNewPhoto);
+    var ancienNbPhotos=document.getElementById('nombrePhotos').value;alert("Ancier:"+ancienNbPhotos);
     if(ancienNbPhotos<responseNewPhoto){ navigator.notification.beep(1);}
 	    }
     )
@@ -356,18 +356,18 @@ document.getElementById('nombrePhotos').innerHTML=responseNbPhoto;
     </script>
     
     </head>
-    <body onload="onLoadCamera();nombrePhotos()" style="visibility:hidden;">
+    <body onload="onLoadCamera();setInterval(nombrePhotos, 10000)" style="visibility:hidden;">
     
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1>
     <br><img src="icone.png" width="150"><br>
     <div id='titreAccueil' align="center"></div><br><br>
-	Il y a <div id='nombrePhotos' align="center"></div> photos en ligne<br>
+	<table border=0 align="center"><tr><td><font size=4 color=black>Il y a <div id='nombrePhotos' align="center"></div> photos en ligne</font></td></tr></table><br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'">Album</li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'">Photos</li>
-    </ul>
+    </ul> 
     <br>
     <div id='problemeReseau' align="center"></div>
     </div>
@@ -467,7 +467,7 @@ document.getElementById('nombrePhotos').innerHTML=responseNbPhoto;
     
     
     <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>	
-    <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera()}'>Accueil</li>
+    <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera();nombrePhotos()}'>Accueil</li>
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera();AffichBadges()}'>Today</li>
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewAjouter", onClick:function(){CacherCamera()}'>Ajouter</li>
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
