@@ -330,8 +330,8 @@ var NbNewPhotos='';
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNewPhoto){
-    var NbNewPhotos=responseNewPhoto.split(" "); alert('nouvelle:'+NbNewPhotos[5]);
-    var ancienNbPhotos=document.getElementById('nombrePhotosCache').value;alert('ancienne:'+ancienNbPhotos);
+    var NbNewPhotos=responseNewPhoto.split(" "); 
+    var ancienNbPhotos=document.getElementById('nombrePhotosCache').value;
     if(ancienNbPhotos!=NbNewPhotos[5]){
     
     if(type=='vibrate'){navigator.vibrate([1000, 1000, 1000, 1000, 1000]);}
@@ -368,7 +368,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </script>
     
     </head>
-    <body onload="onLoadCamera();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
+    <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 20000);" style="visibility:hidden;">
     
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
