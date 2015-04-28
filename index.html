@@ -329,9 +329,8 @@ function VerifNewPhoto(){
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNewPhoto){
-	   // if (responseNewPhoto<nbPhoto){var nbPhoto = responseNewPhoto;}
-	    //if (responseNewPhoto==nbPhoto){var nbPhoto = responseNewPhoto;}
-	    navigator.notification.beep(1);
+    var ancienNbPhotos=document.getElementById('nombrePhotos').value;
+    if(ancienNbPhotos<responseNewPhoto){ navigator.notification.beep(1);}
 	    }
     )
     })
@@ -345,18 +344,26 @@ function VerifNewPhoto(){
     if (value=='on'){setInterval(VerifNewPhoto, 10000);}
     }
     
-
-
+ function nombrePhotos(){
+ 	require(["dojo/request"], function(request){
+    request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
+    function(responseNbPhoto){
+document.getElementById('nombrePhotos').innerHTML=responseNbPhoto;
+	    }
+    )
+    })
+ }
     </script>
     
     </head>
-    <body onload="onLoadCamera();" style="visibility:hidden;">
+    <body onload="onLoadCamera();nombrePhotos()" style="visibility:hidden;">
     
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1>
-    <br><br><img src="icone.png" width="150"><br><br>
+    <br><img src="icone.png" width="150"><br>
     <div id='titreAccueil' align="center"></div><br><br>
+	Il y a <div id='nombrePhotos' align="center"></div> photos en ligne<br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'">Album</li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'">Photos</li>
