@@ -331,7 +331,8 @@ function VerifNewPhoto(type){
     function(responseNewPhoto){
     var NbNewPhotos=responseNewPhoto.split(" "); alert('nouvelle:'+NbNewPhotos[5]);
     var ancienNbPhotos=document.getElementById('nombrePhotosCache').value;alert('ancienne:'+ancienNbPhotos);
-    if(ancienNbPhotos<NbNewPhotos[3]){ 
+    if(ancienNbPhotos!=NbNewPhotos[3]){
+    
     if(type=='vibrate'){navigator.vibrate([1000, 1000, 1000, 1000, 1000]);}
     if(type=='son'){navigator.notification.beep(1);}
     }
@@ -365,7 +366,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </script>
     
     </head>
-    <body onload="onLoadCamera();nombrePhotos();" style="visibility:hidden;">
+    <body onload="onLoadCamera();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
     
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
