@@ -326,12 +326,13 @@ websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); };
 
 	
 function VerifNewPhoto(type){
+var NbNewPhotos='';
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNewPhoto){
     var NbNewPhotos=responseNewPhoto.split(" "); alert('nouvelle:'+NbNewPhotos[5]);
     var ancienNbPhotos=document.getElementById('nombrePhotosCache').value;alert('ancienne:'+ancienNbPhotos);
-    if(ancienNbPhotos!=NbNewPhotos[3]){
+    if(ancienNbPhotos!=NbNewPhotos[5]){
     
     if(type=='vibrate'){navigator.vibrate([1000, 1000, 1000, 1000, 1000]);}
     if(type=='son'){navigator.notification.beep(1);}
@@ -343,16 +344,17 @@ function VerifNewPhoto(type){
     
     function changeAlertSon(value) {
     if (value=='on'){var interval = setInterval("VerifNewPhoto('son')", 10000);}
-    if (value=='of'){clearInterval(interval);}
+    if (value=='off'){clearInterval(interval);}
     }
     
     function changeAlertVibration(value) {
     if (value=='on'){var interval = setInterval("VerifNewPhoto('vibrate')", 10000);}
-    if (value=='of'){clearInterval(interval);}
+    if (value=='off'){clearInterval(interval);}
     }
     
     
  function nombrePhotos(){
+ var responseNbPhotoCache='';
  	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNbPhoto){
