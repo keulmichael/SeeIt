@@ -334,12 +334,19 @@ var NbNewPhotos='';
     var ancienNbPhotos=document.getElementById('nombrePhotosCache').value;
     if(ancienNbPhotos!=NbNewPhotos[5]){
     
+var Notification = window.Notification || window.mozNotification || window.webkitNotification;
+Notification.requestPermission(function (permission) {
+
+var instance = new Notification("SeeIt!", {body: "De nouvelles photos sont disponibles !",icon:'iconeseeit.jpg'});
+
+instance.onclick = function () {AffichBadges();};
+instance.onclose = function () {AffichBadges();};
+});
+    
     if(type=='vibrate'){navigator.vibrate([1000, 1000, 1000, 1000, 1000]);}
     if(type=='son'){navigator.notification.beep(1);}
-   navigator.notification.alert('Des nouvelles photos ont été prises avec SeeIt!', AffichBadges, 'SeeIt!', 'OK');
     }
-	    }
-    )
+})
     })
     }
     
