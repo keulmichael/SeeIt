@@ -336,7 +336,7 @@ var NbNewPhotos='';
     
     if(type=='vibrate'){navigator.vibrate([1000, 1000, 1000, 1000, 1000]);}
     if(type=='son'){navigator.notification.beep(1);}
-   navigator.notification.alert('Des nouvelles photos ont été prises avec SeeIt!', AffichBadges, 'SeeIt!', 'OK']);
+   navigator.notification.alert('Des nouvelles photos ont été prises avec SeeIt!', AffichBadges, 'SeeIt!', 'OK');
     }
 	    }
     )
@@ -349,7 +349,7 @@ var NbNewPhotos='';
     }
     
     function changeAlertVibration(value) {
-    if (value=='on'){var interval = setInterval("VerifNewPhoto('vibrate')", 1000);}
+    if (value=='on'){interval = setInterval("VerifNewPhoto('vibrate')", 1000);}
     if (value=='off'){clearInterval(interval);}
     }
     
