@@ -343,12 +343,12 @@ var NbNewPhotos='';
     }
     
     function changeAlertSon(value) {
-    if (value=='on'){var interval = setInterval("VerifNewPhoto('son')", 10000);}
+    if (value=='on'){var interval = setInterval("VerifNewPhoto('son')", 1000);}
     if (value=='off'){clearInterval(interval);}
     }
     
     function changeAlertVibration(value) {
-    if (value=='on'){var interval = setInterval("VerifNewPhoto('vibrate')", 10000);}
+    if (value=='on'){var interval = setInterval("VerifNewPhoto('vibrate')", 1000);}
     if (value=='off'){clearInterval(interval);}
     }
     
