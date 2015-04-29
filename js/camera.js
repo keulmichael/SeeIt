@@ -152,7 +152,7 @@ function onCaptureSuccess(imageData) {
 	
 	var num = document.getElementById("num").value;
 	
-    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?num="+num+"&imageData="+imageData)
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
