@@ -19,21 +19,13 @@ if (states[networkState] == 'Pas de connexion réseau') {
     document.addEventListener("deviceready", onDeviceReady, false);
     
     settings = new Settings();
-    // Read and save cameraOptions from the "settings_form" element
-
-    $("#settings_ok_button").bind("click", applySettings);
-    $("#settings_cancel_button").bind("click", restoreSettings);
 }
 
-// Called when Cordova is fully loaded (and calling to Cordova functions has become safe)
 function onDeviceReady() {
     
-    // Overwrite the default behavior of the device back button
     document.addEventListener("backbutton", onBackPress, false);
     fillSettingsInfo("settings_info");
     
-    // Bind application button elements with their functionality
-
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
@@ -45,10 +37,8 @@ function onDeviceReady() {
 }
 
 
-// Overwrites the default behavior of the device back button
 function onBackPress(e) {
     
-    // Skip application history and exit application if the home page (menu page) is active
     if($.mobile.activePage.is("#home_page")){
         
         e.preventDefault();
@@ -57,7 +47,6 @@ function onBackPress(e) {
     }
     else {
         
-        // Do not save new cameraOptions and restore the previous state of the "settings_form" visual elements
         if ($.mobile.activePage.is("#settings_page")) {
             restoreSettings();
         }
@@ -66,23 +55,17 @@ function onBackPress(e) {
     }
 }
 
-// Removes all temporary files created by application. Is to be used when temporary files are not intended to be operated with further
 function removeTemporaryFiles() {
     
     if (isIOS()) {
         
-        // Currently camera.cleanup() seems not to remove files on iPad, iOS 5 and 6 (though onSuccess() function is called,
-        // as well as in the case of other PhoneGap file-remove operations).
-        // Temporary directory is removed on application exit (e.g. on device switch off).
-        //
-        // navigator.camera.cleanup(onSuccess, onError);
+
     }
     
     function onSuccess() { }
     function onError(message) { }
 }
 
-// Calls camera.getPicture() with cameraOptions customised by user
 function onCapture(e) {
 if (settings.positionPaysage==false)
 	{
@@ -190,20 +173,6 @@ if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
                                                                     popoverOptions : settings.popoverOptions
                                                                   });
 								  
-    navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : settings.qualityQuali,
-                                                                    destinationType : settings.destinationType,
-                                                                    sourceType : settings.sourceType,
-                                                                    allowEdit : settings.allowEdit,
-                                                                    encodingType : settings.encodingType,
-                                                                    targetWidth : settings.targetWidthQuali,
-                                                                    targetHeight : settings.targetHeightQuali,
-                                                                    mediaType: settings.mediaType,
-                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
-                                                                    correctOrientation: settings.correctOrientation,
-								    cameraDirection: settings.cameraDirection,
-                                                                    popoverOptions : settings.popoverOptions
-                                                                  });
-
 		}
 	};
 
@@ -248,6 +217,20 @@ var options = new FileUploadOptions();
 
             var ft = new FileTransfer();
 ft.upload(nomphoto, fichierupload, win, fail, options);
+
+    navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : settings.qualityQuali,
+                                                                    destinationType : settings.destinationType,
+                                                                    sourceType : settings.sourceType,
+                                                                    allowEdit : settings.allowEdit,
+                                                                    encodingType : settings.encodingType,
+                                                                    targetWidth : settings.targetWidthQuali,
+                                                                    targetHeight : settings.targetHeightQuali,
+                                                                    mediaType: settings.mediaType,
+                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
+                                                                    correctOrientation: settings.correctOrientation,
+								    cameraDirection: settings.cameraDirection,
+                                                                    popoverOptions : settings.popoverOptions
+                                                                  });
 }
 
 
@@ -266,7 +249,7 @@ var optionsQuali = new FileUploadOptions();
             var paramsQuali = new Object();
             paramsQuali.value1 = "test";
             paramsQuali.value2 = "param";
-            options.paramsQuali = paramsQuali;
+            optionsQuali.paramsQuali = paramsQuali;
 
             var ftQuali = new FileTransfer();
 
