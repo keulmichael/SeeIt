@@ -200,16 +200,4 @@ function getElement(element) {
 
 
 
-function isIOS() {
-
-    var iDevices = ["iPad", "iPhone", "iPod"];
-
-    for (var i = 0; i < iDevices.length ; i++ ) {
-        
-        if( navigator.platform.indexOf(iDevices[i]) !== -1){
-            return true;
-        }
-    }
-    return false;
-}
 
