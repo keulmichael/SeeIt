@@ -1,4 +1,5 @@
 var settings;
+var settings;
 
 
 function onLoadCamera() {
@@ -21,51 +22,21 @@ if (states[networkState] == 'Pas de connexion réseau') {
     
     settings = new Settings();
 
-    $("#settings_ok_button").bind("click", applySettings);
-    $("#settings_cancel_button").bind("click", restoreSettings);
 }
 
 function onDeviceReady() {
-    
-    document.addEventListener("backbutton", onBackPress, false);
+
     fillSettingsInfo("settings_info");
     
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
-    $("#home_button").bind("click", removeTemporaryFiles);
     
     document.addEventListener("online", onOnline, false);
     document.addEventListener("offline", onOffline, false)
 }
 
-function onBackPress(e) {
-    
-    if($.mobile.activePage.is("#home_page")){
-        
-        e.preventDefault();
-        removeTemporaryFiles();
-        navigator.app.exitApp();
-    }
-    else {
-        
-        if ($.mobile.activePage.is("#settings_page")) {
-            restoreSettings();
-        }
-        
-        navigator.app.backHistory();
-    }
-}
 
-function removeTemporaryFiles() {
-    
-    if (isIOS()) {
-        
-    }
-    
-    function onSuccess() { }
-    function onError(message) { }
-}
 
 function onCapture(e) {
 if (settings.positionPaysage==false)
@@ -224,62 +195,9 @@ var options = new FileUploadOptions();
 
 function onCaptureError(message) {alert(message); }
 
-function applySettings() {
-    
-    var settingsBatch = getElement("settings_form");
-    if (settingsBatch == null) {
-        return;
-    }
-        
-    var newQuality = parseInt(settingsBatch.elements["quality_input"].value, 10);
-    if (!isNaN(newQuality) && (newQuality <= 100) && (newQuality >= 0)) {
-        settings.quality = newQuality;
-    }
-        
-    var newWidth = parseInt(settingsBatch.elements["width_input"].value, 10);
-    if (!isNaN(newWidth) && (newWidth <= 1500) && (newWidth >= 50)) {
-        settings.targetWidth = newWidth;
-    }
-    
-    var newHeight = parseInt(settingsBatch.elements["height_input"].value, 10);
-    if (!isNaN(newHeight) && (newHeight <= 1500) && (newHeight >= 50)) {
-        settings.targetHeight = newHeight;
-    }
-    
-    settings.allowEdit = settingsBatch.elements["edit_input"].checked;
-    settings.correctOrientation = settingsBatch.elements["orient_input"].checked;
-    settings.saveToPhotoAlbum = (settingsBatch.elements["save_input"].options[settingsBatch.elements["save_input"].selectedIndex].value == "true") ? true : false;
-    settings.encodingType = parseInt(settingsBatch.elements["encod_input"].options[settingsBatch.elements["encod_input"].selectedIndex].value, 10);
-    settings.mediaType = parseInt(settingsBatch.elements["media_input"].options[settingsBatch.elements["media_input"].selectedIndex].value, 10);
-    
-    fillSettingsInfo("settings_info");
-}
 
-function restoreSettings() {
-    
-    $("#quality_input").val(settings.quality).slider("refresh");
-    $("#width_input").val(settings.targetWidth).slider("refresh");
-    $("#height_input").val(settings.targetHeight).slider("refresh");
-    
-    if (settings.allowEdit) {
-        $("#edit_input").attr("checked", true).checkboxradio("refresh");
-    } else {
-        $("#edit_input").removeAttr("checked").checkboxradio("refresh");
-    }
-    
-    if (settings.correctOrientation) {
-        $("#orient_input").attr("checked", true).checkboxradio("refresh");
-    } else {
-        $("#orient_input").removeAttr("checked").checkboxradio("refresh");
-    }
-    
-    var saveSwitch = $("#save_input");
-    saveSwitch[0].selectedIndex = ((settings.saveToPhotoAlbum === true) ? 1 : 0);
-    saveSwitch.slider("refresh");
-    
-    $("#encod_input").val(settings.encodingType).selectmenu("refresh");
-    $("#media_input").val(settings.mediaType).selectmenu("refresh");
-}
+
+
 
 function getTargetId(event, tagName) {
     var target = (event.target.tagName == tagName)
