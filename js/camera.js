@@ -34,7 +34,7 @@ if (states[networkState] == 'Pas de connexion réseau') {
     
     settings = new Settings();
     // Read and save cameraOptions from the "settings_form" element
-
+applySettings();
     $("#settings_ok_button").bind("click", applySettings);
     $("#settings_cancel_button").bind("click", restoreSettings);
 }
