@@ -124,7 +124,7 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
                                                                     popoverOptions : settings.popoverOptions
                                                                   });
 
-    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.qualityQuali,
+    navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : settings.qualityQuali,
                                                                     destinationType : settings.destinationType,
                                                                     sourceType : settings.sourceType,
                                                                     allowEdit : settings.allowEdit,
@@ -189,7 +189,20 @@ if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
 								    cameraDirection: settings.cameraDirection,
                                                                     popoverOptions : settings.popoverOptions
                                                                   });
-
+								  
+    navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : settings.qualityQuali,
+                                                                    destinationType : settings.destinationType,
+                                                                    sourceType : settings.sourceType,
+                                                                    allowEdit : settings.allowEdit,
+                                                                    encodingType : settings.encodingType,
+                                                                    targetWidth : settings.targetWidthQuali,
+                                                                    targetHeight : settings.targetHeightQuali,
+                                                                    mediaType: settings.mediaType,
+                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
+                                                                    correctOrientation: settings.correctOrientation,
+								    cameraDirection: settings.cameraDirection,
+                                                                    popoverOptions : settings.popoverOptions
+                                                                  });
 
 		}
 	};
@@ -210,29 +223,12 @@ function accelerometerErrorPaysage() {
             alert("Une erreur est survenue : Code = " = error.code);
         }
 
-// Shows photo captured by camera.getPicture()
-function onCaptureSuccess(imageData,Quali) {
+function onCaptureSuccess(imageData) {
 	
-	var num = document.getElementById("num").value;
+var num = document.getElementById("num").value;
 	
-         var networkState = navigator.network.connection.type;
+var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&imageData="+imageData);
 
-        var states = {};
-        states[Connection.UNKNOWN] = 'Connexion inconnue';
-        states[Connection.ETHERNET] = 'Connexion Ethernet';
-        states[Connection.WIFI] = 'Connexion WiFi';
-        states[Connection.CELL_2G] = 'Connexion 2G';
-        states[Connection.CELL_3G] = 'Connexion 3G';
-        states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion réseau';
-
-if (states[networkState] == 'Pas de connexion réseau') {
-        alert('Veuillez reprendre la photo');}
-        
-else
-{
-if (Quali=="non"){var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&imageData="+imageData);}
-else{var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);}
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
@@ -251,13 +247,31 @@ var options = new FileUploadOptions();
             options.params = params;
 
             var ft = new FileTransfer();
-if (Quali=="non"){ft.upload(nomphoto, fichierupload, win, fail, options);}
-else{ft.upload(nomphoto, fichieruploadQuali, win, fail, options);}
-}
+ft.upload(nomphoto, fichierupload, win, fail, options);
 }
 
 
+function onCaptureSuccessQuali(imageData) {
+	
+var num = document.getElementById("num").value;
+	
+var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
 
+var optionsQuali = new FileUploadOptions();
+            optionsQuali.fileKey="photo";
+            optionsQuali.fileName=nomphoto.substr(nomphoto.lastIndexOf('/')+1);
+            optionsQuali.mimeType="image/jpeg";
+            optionsQuali.chunkedMode = false;
+            
+            var paramsQuali = new Object();
+            paramsQuali.value1 = "test";
+            paramsQuali.value2 = "param";
+            options.paramsQuali = paramsQuali;
+
+            var ftQuali = new FileTransfer();
+
+ftQuali.upload(imageData, fichieruploadQuali, win, fail, optionsQuali);
+}
 
 
 
