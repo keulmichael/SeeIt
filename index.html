@@ -15,9 +15,9 @@
             this.mediaType = Camera.MediaType.PICTURE; // cameraOptions: mediaType
         }
         
-        this.quality = 50; // cameraOptions: quality
+        this.quality = 100; // cameraOptions: quality
         this.targetWidth = 300; // cameraOptions: targetWidth
-        this.targetHeight = 300; // cameraOptions: targetHeight
+        this.targetHeight =5300; // cameraOptions: targetHeight
         this.allowEdit = false; // cameraOptions: allowEdit
         this.correctOrientation = false;
         //this.cameraDirection = 0; 
@@ -26,7 +26,7 @@
         this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG : 0; // cameraOptions: encodingType
         this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
         
-        this.popoverOptions = ((typeof Camera !== "undefined") && (typeof CameraPopoverOptions !== "undefined")) ? new CameraPopoverOptions(220, 600, 320, 480, Camera.PopoverArrowDirection.ARROW_DOWN) : null; // cameraOptions: popoverOptions
+        this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
     }
     </script>
     
