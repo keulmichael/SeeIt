@@ -107,20 +107,6 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
                                                                     popoverOptions : settings.popoverOptions
                                                                   });
 
-    navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : settings.qualityQuali,
-                                                                    destinationType : settings.destinationType,
-                                                                    sourceType : settings.sourceType,
-                                                                    allowEdit : settings.allowEdit,
-                                                                    encodingType : settings.encodingType,
-                                                                    targetWidth : settings.targetWidthQuali,
-                                                                    targetHeight : settings.targetHeightQuali,
-                                                                    mediaType: settings.mediaType,
-                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
-                                                                    correctOrientation: settings.correctOrientation,
-								    cameraDirection: settings.cameraDirection,
-                                                                    popoverOptions : settings.popoverOptions
-                                                                  });
-
 
 		}
 	};
