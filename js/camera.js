@@ -26,7 +26,6 @@ if (states[networkState] == 'Pas de connexion réseau') {
 function onDeviceReady() {
     
     document.addEventListener("backbutton", onBackPress, false);
-    fillSettingsInfo("settings_info");
     
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
@@ -181,22 +180,6 @@ function onCaptureSuccess(imageData) {
 	
 	var num = document.getElementById("num").value;
 	
-         var networkState = navigator.network.connection.type;
-
-        var states = {};
-        states[Connection.UNKNOWN] = 'Connexion inconnue';
-        states[Connection.ETHERNET] = 'Connexion Ethernet';
-        states[Connection.WIFI] = 'Connexion WiFi';
-        states[Connection.CELL_2G] = 'Connexion 2G';
-        states[Connection.CELL_3G] = 'Connexion 3G';
-        states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion réseau';
-
-if (states[networkState] == 'Pas de connexion réseau') {
-        alert('Veuillez reprendre la photo');}
-        
-else
-{
     var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?num="+num+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
@@ -217,7 +200,7 @@ var options = new FileUploadOptions();
 
             var ft = new FileTransfer();
             ft.upload(nomphoto, fichierupload, win, fail, options);
-}
+
 }
 
 function onCaptureError(message) {alert(message); }
@@ -243,38 +226,7 @@ function getElement(element) {
     return element;
 }
 
-function fillSettingsInfo(infoDivName) {
-    
-    var settingsBatch = getElement("settings_form");
-    if (settingsBatch == null) {
-        return;
-    }
-    
-    var settingsInfo = getElement(infoDivName);
-    if (typeof Camera === "undefined") {
-        settingsInfo.innerHTML = "<h3 style='text-decoration: underline;'>The Cordova Camera API is inaccessible</h3>";
-    }
-    else {
-        settingsInfo.innerHTML = "";
-    }
-    
-    if (settingsInfo != null) {
-        settingsInfo.innerHTML += "<h3>Settings: </h3>" +
-                                 "<table>" +
-                                 "<tr><td class='bh'>Editing options: </td></tr>" +
-                                 "<tr><td class='bi'>Quality:</td><td>" + settings.quality + " of 100</td></tr>" +
-                                 "<tr><td class='bi'>Target picture width:</td><td>" + settings.targetWidth + " px</td></tr>" +
-                                 "<tr><td class='bi'>Target picture height:</td><td>" + settings.targetHeight + " px</td></tr>" +
-                                 "<tr><td class='bi'>Allow picture zoom and crop:</td><td>" + ((settings.allowEdit == true) ? "Yes" : "No") + "</td></tr>" +
-                                 "<tr><td class='bi'>Correct orientation:</td><td>" + ((settings.correctOrientation == true) ? "Yes" : "No") + "</td></tr>" +
-                                 "<tr><td class='bh'>Saving options: </td></tr>" +
-                                 "<tr><td class='bi'>Target encoding type:</td><td>" + settingsBatch.elements["encod_input"].options[settings.encodingType].innerHTML + "</td></tr>" +
-                                 "<tr><td class='bi'>Save to Photo Album:</td><td>" + ((settings.saveToPhotoAlbum == true) ? "Yes" : "No") + "</td></tr>" +
-                                 "<tr><td class='bh'>Opening options: </td></tr>" +
-                                 "<tr><td class='bi'>Browse on open:</td><td>" + settingsBatch.elements["media_input"].options[settings.mediaType].innerHTML + "</td></tr>" +
-                                 "</table>";
-    }
-}
+
 
 function isIOS() {
 
