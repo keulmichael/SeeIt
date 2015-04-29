@@ -204,13 +204,13 @@ var options = new FileUploadOptions();
             var ft = new FileTransfer();
 ft.upload(nomphoto, fichierupload, win, fail, options);
 
-    navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : settings.qualityQuali,
+    navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : 100,
                                                                     destinationType : settings.destinationType,
                                                                     sourceType : settings.sourceType,
                                                                     allowEdit : settings.allowEdit,
                                                                     encodingType : settings.encodingType,
-                                                                    targetWidth : settings.targetWidthQuali,
-                                                                    targetHeight : settings.targetHeightQuali,
+                                                                    targetWidth : 3000,
+                                                                    targetHeight : 5000,
                                                                     mediaType: settings.mediaType,
                                                                     saveToPhotoAlbum : settings.saveToPhotoAlbum,
                                                                     correctOrientation: settings.correctOrientation,
