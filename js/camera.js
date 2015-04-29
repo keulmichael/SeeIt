@@ -173,43 +173,13 @@ var options = new FileUploadOptions();
             var ft = new FileTransfer();
             ft.upload(nomphoto, fichierupload, win, fail, options);
 
-navigator.camera.getPicture(onCaptureSuccessQuali, onCaptureError, { quality : 100,
-                                                                    destinationType : settings.destinationType,
-                                                                    sourceType : settings.sourceType,
-                                                                    allowEdit : settings.allowEdit,
-                                                                    encodingType : settings.encodingType,
-                                                                    targetWidth : 3000,
-                                                                    targetHeight : 5000,
-                                                                    mediaType: settings.mediaType,
-                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
-                                                                    correctOrientation: settings.correctOrientation,
-								    cameraDirection: settings.cameraDirection,
-                                                                    popoverOptions : settings.popoverOptions
-                                                                  });
-
-}
-
-function onCaptureSuccessQuali(imageData) {
-	
-var num = document.getElementById("num").value;
-	
 var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
+var ftQuali = new FileTransfer();
+ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
 
-var optionsQuali = new FileUploadOptions();
-            optionsQuali.fileKey="photo";
-            optionsQuali.fileName=nomphoto.substr(nomphoto.lastIndexOf('/')+1);
-            optionsQuali.mimeType="image/jpeg";
-            optionsQuali.chunkedMode = false;
-            
-            var paramsQuali = new Object();
-            paramsQuali.value1 = "test";
-            paramsQuali.value2 = "param";
-            optionsQuali.paramsQuali = paramsQuali;
-
-            var ftQuali = new FileTransfer();
-
-ftQuali.upload(imageData, fichieruploadQuali, win, fail, optionsQuali);
 }
+
+
 
 function onCaptureError(message) {alert(message); }
 
