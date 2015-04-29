@@ -1,5 +1,4 @@
 var settings;
-var settings;
 
 
 function onLoadCamera() {
@@ -25,18 +24,46 @@ if (states[networkState] == 'Pas de connexion réseau') {
 }
 
 function onDeviceReady() {
-
+    
+    document.addEventListener("backbutton", onBackPress, false);
     fillSettingsInfo("settings_info");
     
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
+    $("#home_button").bind("click", removeTemporaryFiles);
     
     document.addEventListener("online", onOnline, false);
     document.addEventListener("offline", onOffline, false)
 }
 
+function onBackPress(e) {
+    
+    if($.mobile.activePage.is("#home_page")){
+        
+        e.preventDefault();
+        removeTemporaryFiles();
+        navigator.app.exitApp();
+    }
+    else {
+        
+        if ($.mobile.activePage.is("#settings_page")) {
+            restoreSettings();
+        }
+        
+        navigator.app.backHistory();
+    }
+}
 
+function removeTemporaryFiles() {
+    
+    if (isIOS()) {
+        
+    }
+    
+    function onSuccess() { }
+    function onError(message) { }
+}
 
 function onCapture(e) {
 if (settings.positionPaysage==false)
@@ -261,3 +288,4 @@ function isIOS() {
     }
     return false;
 }
+
