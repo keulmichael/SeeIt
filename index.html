@@ -30,7 +30,7 @@
     }
     </script>
     
-    <script src="hammer.js"></script>
+<script src="kendo.all.min.js"></script>
             <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
             <script type="text/javascript" src="js/jquery.mobile-1.1.1.min.js"></script>
@@ -373,8 +373,11 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1>
-<div id="log"></div>
-    <br><img src="icone.png" width="150" id='hit'><br>
+   <div data-role="view" data-title="Photo viewer" data-zoom="true">
+    <div data-role="content">
+    <br><img src="icone.png" width="150"><br>
+    </div>
+    </div>
     <div id='titreAccueil' align="center"></div><br><br>
 	<input type='hidden' id='nombrePhotosCache'><div id='nombrePhotos' align="center"></div> <br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
@@ -487,8 +490,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
     </ul>
     
-    
-   <script src="hammer_fonctions.js"></script>
+
 	
     </body>
     </html>
