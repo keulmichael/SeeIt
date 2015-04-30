@@ -368,6 +368,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
  }
     </script>
     
+    
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
     
@@ -491,6 +492,8 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </ul>
     
 
-	
+	    <script>
+        window.kendoMobileApplication = new kendo.mobile.Application(document.body);
+    </script>
     </body>
     </html>
