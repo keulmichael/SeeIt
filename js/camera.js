@@ -173,9 +173,6 @@ var options = new FileUploadOptions();
             var ft = new FileTransfer();
             ft.upload(nomphoto, fichierupload, win, fail, options);
 
-var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
-var ftQuali = new FileTransfer();
-ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
 
 }
 
