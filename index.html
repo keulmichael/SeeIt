@@ -17,7 +17,7 @@
         
         this.quality = 100; // cameraOptions: quality
         this.targetWidth = 3000; // cameraOptions: targetWidth
-        this.targetHeight =5000; // cameraOptions: targetHeight
+        this.targetHeight = 5000; // cameraOptions: targetHeight
         this.allowEdit = false; // cameraOptions: allowEdit
         this.correctOrientation = false;
         //this.cameraDirection = 0; 
@@ -26,7 +26,7 @@
         this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG : 0; // cameraOptions: encodingType
         this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
         
-        this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
+        //this.popoverOptions =  new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
     }
     </script>
     
@@ -45,6 +45,7 @@
     <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','IconContainer']"></script>
     <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Accordion']"></script>
     <script src="dojo/dojo.js"></script>
+<script src="hammer.js"></script>
     
     <script type="text/javascript">
     require(["dojox/mobile/parser", "dojox/mobile/compat", "dojo/domReady!", "dojox/mobile/View", "dojox/mobile/Heading", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/Switch", "dojox/mobile/RoundRect", "dojox/mobile/RoundRectCategory",  "dojox/mobile/ContentPane", "dojox/mobile/Button", "dojox/mobile/ProgressIndicator", "dojo/_base/xhr", "dojox/mobile/FilteredListMixin", "dojox/mobile/compat", "dojox/form/Uploader", "dojox/mobile/SwapView", "dojox/mobile/PageIndicator", "dojox/mobile/Badge", "dojox/mobile/IconContainer", "dojox/mobile/IconItem",   "dojox/mobile", "dojox/mobile/RoundRectDataList", "dojo/data/ItemFileReadStore", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton", "dojox/mobile/TabBar", "dojox/mobile/ScrollableView","dojox/mobile/Accordion"
@@ -364,6 +365,17 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     )
     })
  }
+ 
+ var myElement = document.getElementById('zoomPhoto1');
+
+var mc = new Hammer.Manager(myElement);
+
+var pinch = new Hammer.Pinch();
+var rotate = new Hammer.Rotate();
+
+pinch.recognizeWith(rotate);
+mc.add([pinch, rotate]);
+mc.on("pinch rotate", function(ev) {myElement.textContent += ev.type +" ";});
     </script>
     
     </head>
@@ -471,9 +483,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     <a href="#" data-role="button" id="open_camera_button" align="center">Prendre une photo</a>
     </div>
     
-    <div data-role="content">
-    <img id="pic" src="" style="display: none;"/>
-    </div>
+
     </div>
     
     
