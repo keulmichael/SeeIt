@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-  
-    
+<html>
+<head>
+    <title>Zoomable View</title>
+    <meta charset="utf-8">
 
 
+    <script src="jquery.min.js"></script>
+    <script src="kendo.all.min.js"></script>
+
+    <script>
         
-	        <script src="http://www.appliseeit.com/mobile/kendo.all.min.js"></script>
-<script src="http://www.appliseeit.com/mobile/jquery.min.js"></script>
+    </script>
+    
+    
+</head>
+<body>
 
     
+    <div data-role="view" data-title="Photo viewer" data-zoom="true">
 
-    </head>
-    <body >
-    
 
-   <div data-role="view" data-title="Photo viewer" data-zoom="true">
     <div data-role="content">
-<img src="http://www.appliseeit.com/mobile/faces.jpg" style="display: block" />
-    </div>
-    </div>
-    
-    
 
-                   <script>
+        <img src="faces.jpg" style="display: block" />
+    </div>
+</div>
+
+
+
+
+    
+    <script>
         window.kendoMobileApplication = new kendo.mobile.Application(document.body);
     </script>
-
-
-    </body>
-    </html>
+    
+    
+</body>
+</html>
