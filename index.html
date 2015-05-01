@@ -376,7 +376,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </script>
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:visible;">
-    
+    <div data-role="view" data-title="Photo viewer" data-zoom="true"> <div data-role="content"> <img src="icone.png" style="display: block" /> </div></div> 
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
     <div data-role="view" data-title="Photo viewer" data-zoom="true">
