@@ -3,6 +3,7 @@
     <head>
      <meta charset="utf-8">
 
+    <meta http-equiv="Content-type" content="text/html; class="gmail_default" style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <title> Des moments à partager avec SeeIt! </title>
     <script type="text/javascript">
@@ -30,8 +31,7 @@
     }
     </script>
     
-   
-
+    
             <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
             <script type="text/javascript" src="js/jquery.mobile-1.1.1.min.js"></script>
@@ -48,7 +48,7 @@
     <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Accordion']"></script>
     <script src="dojo/dojo.js"></script>
         
-        
+	        
     <script type="text/javascript">
     require(["dojox/mobile/parser", "dojox/mobile/compat", "dojo/domReady!", "dojox/mobile/View", "dojox/mobile/Heading", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/Switch", "dojox/mobile/RoundRect", "dojox/mobile/RoundRectCategory",  "dojox/mobile/ContentPane", "dojox/mobile/Button", "dojox/mobile/ProgressIndicator", "dojo/_base/xhr", "dojox/mobile/FilteredListMixin", "dojox/mobile/compat", "dojox/form/Uploader", "dojox/mobile/SwapView", "dojox/mobile/PageIndicator", "dojox/mobile/Badge", "dojox/mobile/IconContainer", "dojox/mobile/IconItem",   "dojox/mobile", "dojox/mobile/RoundRectDataList", "dojo/data/ItemFileReadStore", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton", "dojox/mobile/TabBar", "dojox/mobile/ScrollableView","dojox/mobile/Accordion"
     ], function (parser) {
@@ -304,7 +304,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     }
     
   function testSocket(){
-require(["dojo/request", "dojo/request/notify"], function(request, notify){
+		require(["dojo/request", "dojo/request/notify"], function(request, notify){
   notify("start", function(){
 alert('start');
   });
@@ -319,11 +319,11 @@ alert('load') + response;
 websocket = new WebSocket("http://www.appliseeit.com/mobile/test.php"); 
 websocket.onopen = function(evt) { websocket.send("WebSocket rocks");  }; 
 websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); }; 
-}
-
+	}
+	
 function VerifNewPhoto(type){
 var NbNewPhotos='';
-require(["dojo/request"], function(request){
+	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNewPhoto){
     var NbNewPhotos=responseNewPhoto.split(" "); 
@@ -355,20 +355,21 @@ require(["dojo/request"], function(request){
     }
     
     
-function nombrePhotos(){
-var responseNbPhotoCache='';
-require(["dojo/request"], function(request){
+ function nombrePhotos(){
+ var responseNbPhotoCache='';
+ 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNbPhoto){
 document.getElementById('nombrePhotos').innerHTML=responseNbPhoto;
 var responseNbPhotoCache=responseNbPhoto.split(" "); 
 document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
-    }
+	    }
     )
     })
-}
+ }
     </script>
-    <script src="kendo.all.min.js"></script>
+    
+<script src="kendo.all.min.js"></script>
 <script src="jquery.min.js"></script>
             <script>
         window.kendoMobileApplication = new kendo.mobile.Application(document.body);
@@ -379,14 +380,12 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
     <div data-role="view" data-title="Photo viewer" data-zoom="true">
-
     <div data-role="content">
-
-        <img src="icone.png" style="display: block; width:150px" />
+        <img src="icone.png" style="display: block" />
     </div>
 </div>
     <br><div id='titreAccueil' align="center"></div><br><br>
-<input type='hidden' id='nombrePhotosCache'><div id='nombrePhotos' align="center"></div> <br>
+	<input type='hidden' id='nombrePhotosCache'><div id='nombrePhotos' align="center"></div> <br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'">Album</li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'">Photos</li>
@@ -450,21 +449,21 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     <div id="texteAjouter" align="center"></div><br><br>
     <font color='grey' size='3'>Album</font>
     <select id="nouvelAlbum">
-<option value='Gastronomie'>Gastronomie
-<option value='Restaurant'>Restaurant 
-<option value='Selfie'>Selfie
-<option value='Jeux'>Jeux
-<option value='Paysage'>Paysage
 <option value='Animaux'>Animaux
 <option value='Architecture'>Architecture
-<option value='Décoration'>Décoration
-<option value='Loisirs'>Loisirs
-<option value='Voyages'>Voyages
-<option value='Nature'>Nature
-<option value='Evénements'>Evénements
-<option value='Insolite'>Insolite
 <option value='Célébrités'>Célébrités
+<option value='Décoration'>Décoration
+<option value='Evénements'>Evénements
 <option value='Faits divers'>Faits divers
+<option value='Gastronomie'>Gastronomie
+<option value='Insolite'>Insolite
+<option value='Jeux'>Jeux
+<option value='Loisirs'>Loisirs
+<option value='Nature'>Nature
+<option value='Paysage'>Paysage
+<option value='Restaurant'>Restaurant 
+<option value='Selfie'>Selfie
+<option value='Voyages'>Voyages
 </select>
     <font color='grey' size='3'>Objectif</font><input type="text" id="nouvelElement">
     
@@ -481,16 +480,16 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </ul>
     <div data-dojo-type="dojox/mobile/Accordion" >
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>   
-<div id='AideInfos' align='left'></div>
+	<div id='AideInfos' align='left'></div>
         </div>
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"A venir"'>
-<div id='AvenirInfos' align='left'></div>
+	<div id='AvenirInfos' align='left'></div>
    </div>
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Pourquoi faire ?"'>
-<div id='PourquoifaireInfos' align='left'></div>
+	<div id='PourquoifaireInfos' align='left'></div>
     </div>
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Nous contacter ?"' id='NouscontacterInfos'>
-<div  align='left'></div>
+	<div  align='left'></div>
     </div>
      </div>
     </div>
@@ -514,6 +513,5 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
     </ul>
     
-
     </body>
     </html>
