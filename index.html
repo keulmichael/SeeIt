@@ -39,9 +39,10 @@
     <link rel="stylesheet" type="text/css" href="dojox/mobile/themes/iphone/iphone.css"></link>
     <link href="dojox/mobile/themes/common/domButtons/DomButtonRedBadge.css" rel="stylesheet"/>
     <link href="dojox/mobile/themes/common/domButtons.css" rel="stylesheet"/>
-                    <script src="http://www.appliseeit.com/mobile/kendo.all.min.js"></script>
-<script src="http://www.appliseeit.com/mobile/jquery.min.js"></script>
 
+    <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Button']"></script>
+    <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','IconContainer']"></script>
+    <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Accordion']"></script>
     <script src="dojo/dojo.js"></script>
 
 	        
@@ -371,8 +372,11 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
    
+   
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
+                        <script src="http://www.appliseeit.com/mobile/kendo.all.min.js"></script>
+<script src="http://www.appliseeit.com/mobile/jquery.min.js"></script>
     <div data-role="view" data-title="Photo viewer" data-zoom="true">
     <div data-role="content">
         <img src="icone.png" style="width:150px;display: block" />
