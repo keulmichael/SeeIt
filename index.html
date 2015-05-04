@@ -354,18 +354,6 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
  </script>
     <script src='jquery.elevatezoom.js'></script>
 
- <script>
- $("#zoom_01").elevateZoom({
-  zoomType				: "inner",
-  cursor: "crosshair"
-});
-
- $("#zoom_icone").elevateZoom({
-  zoomType				: "inner",
-  cursor: "crosshair"
-});
- </script>
-
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
    
@@ -381,7 +369,6 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </ul> 
     <br>
     <div id='problemeReseau' align="center"></div>
-
     </div>
     
     
@@ -518,8 +505,16 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
     </ul>
-
-
-
+    
+ <script>
+ $("#zoom_01").elevateZoom({
+  zoomType				: "inner",
+  cursor: "crosshair"
+});
+ $("#zoom_icone").elevateZoom({
+  zoomType				: "inner",
+  cursor: "crosshair"
+});
+ </script>
     </body>
     </html>
