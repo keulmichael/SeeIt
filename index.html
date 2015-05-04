@@ -130,35 +130,11 @@ while (iconContainerWidgetSuppr.firstChild) {
     })
     }
     
-    var dataStoreTournees;
-    require([
-            "dojox/mobile/parser",
-            "dojox/mobile",
-            "dojox/mobile/compat", 
-            "dojo/ready",
-            "dijit/registry",
-            "dojo/data/ItemFileReadStore",
-            "dojox/mobile/ScrollableView",
-            "dojox/mobile/EdgeToEdgeDataList",
-            "dojox/mobile/FilteredListMixin"
-            ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
-            dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/tournees.php'});
-    })
+   // var dataStoreTournees;
+//require(["dojox/mobile/parser","dojox/mobile","dojox/mobile/compat","dojo/ready","dijit/registry","dojo/data/ItemFileReadStore","dojox/mobile/ScrollableView","dojox/mobile/EdgeToEdgeDataList",       "dojox/mobile/FilteredListMixin"], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){dataStoreTournees = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/tournees.php'});})
     
-    var dataStoreAlbums;
-    require([
-            "dojox/mobile/parser",
-            "dojox/mobile",
-            "dojox/mobile/compat", 
-            "dojo/ready",
-            "dijit/registry",
-            "dojo/data/ItemFileReadStore",
-            "dojox/mobile/ScrollableView",
-            "dojox/mobile/EdgeToEdgeDataList",
-            "dojox/mobile/FilteredListMixin"
-            ], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){
-            dataStoreAlbums = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/album.php'});
-    })
+    //var dataStoreAlbums;
+//require(["dojox/mobile/parser","dojox/mobile","dojox/mobile/compat","dojo/ready","dijit/registry","dojo/data/ItemFileReadStore","dojox/mobile/ScrollableView","dojox/mobile/EdgeToEdgeDataList",            "dojox/mobile/FilteredListMixin"], function(parser, mobile, compat, ready, registry,ItemFileReadStore, ScrollableView, EdgeToEdgeDataList, FilteredListMixin){dataStoreAlbums = new ItemFileReadStore({url: 'http://www.appliseeit.com/mobile/album.php'});})
     
     function affichPointsAlbum(tournee){
     require([
@@ -395,7 +371,10 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     
     <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
             <h1 id="hdgSettings" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Prendre les photos</h1>
-            <ul id="listTournes" data-dojo-type="dojox/mobile/RoundRectDataList" data-dojo-mixins="dojox/mobile/FilteredListMixin" data-dojo-props="placeHolder: 'Search', store: dataStoreTournees"></ul>
+          <ul data-dojo-type="dojox/mobile/RoundRectDataList">
+	<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/camera.jpg', iconPos:\"0,0,35,35\", onClick: function(e){affichPointsTournees('Animaux')} , moveTo:'#'">Animaux</li>    
+	<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/camera.jpg', iconPos:\"0,35,35,35\", onClick: function(e){affichPointsTournees('Architecture')} , moveTo:'#'">Architecture</li>    
+	</ul>
     </div>
     
     
