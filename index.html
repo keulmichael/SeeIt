@@ -2,7 +2,7 @@
     <html>
     <head>
      <meta charset="utf-8">
-
+    <meta http-equiv="Cache-control" content="no-cache" />
 
     <meta http-equiv="Content-type" content="text/html; class="gmail_default" style><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=yes"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
@@ -86,7 +86,8 @@ if (backButton) {
     ], function(connect, ready, request){
     ready(function(){    
 request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 273103345').then(
-    function(nbamisfacebook){document.getElementById('nbamisfacebook').innerHTML=nbamisfacebook['data']['friend_count'] + 'nous suivent sur Facebook';})
+    function(nbamisfacebook){document.getElementById('nbamisfacebook').innerHTML='nous suivent sur Facebook';})
+    //nbamisfacebook['data']['friend_count']
     });
     })
     
@@ -352,9 +353,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
  }
     </script>
     
-            <script>
-        window.kendoMobileApplication = new kendo.mobile.Application(document.body);
-    </script>
+
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
    
@@ -370,7 +369,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </ul> 
     <br>
     <div id='problemeReseau' align="center"></div>
-    <div id='nbamisfacebook' align="center"></div>
+
     </div>
     
     
