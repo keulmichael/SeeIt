@@ -31,21 +31,23 @@
     }
     </script>
     
-
-                            <script src="http://www.appliseeit.com/mobile/kendo.all.min.js"></script>
-<script src="http://www.appliseeit.com/mobile/jquery.min.js"></script>
+            <script src="kendo.all.min.js"></script>
+<script src="jquery.min.js"></script>
+            <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+           <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+            <script type="text/javascript" src="js/jquery.mobile-1.1.1.min.js"></script>
+            <script type="text/javascript" src="js/camera.js"></script>
+    <script src="cordova.js"></script>
             
-
+            <link rel="stylesheet" href="css/jquery.mobile-1.1.1.min.css">
             <link rel="stylesheet" href="css/camera.css" type="text/css">
     <link rel="stylesheet" type="text/css" href="dojox/mobile/themes/iphone/iphone.css"></link>
     <link href="dojox/mobile/themes/common/domButtons/DomButtonRedBadge.css" rel="stylesheet"/>
     <link href="dojox/mobile/themes/common/domButtons.css" rel="stylesheet"/>
-
     <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Button']"></script>
     <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','IconContainer']"></script>
     <script type="text/javascript" src="dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Accordion']"></script>
     <script src="dojo/dojo.js"></script>
-
 	        
     <script type="text/javascript">
     require(["dojox/mobile/parser", "dojox/mobile/compat", "dojo/domReady!", "dojox/mobile/View", "dojox/mobile/Heading", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/Switch", "dojox/mobile/RoundRect", "dojox/mobile/RoundRectCategory",  "dojox/mobile/ContentPane", "dojox/mobile/Button", "dojox/mobile/ProgressIndicator", "dojo/_base/xhr", "dojox/mobile/FilteredListMixin", "dojox/mobile/compat", "dojox/form/Uploader", "dojox/mobile/SwapView", "dojox/mobile/PageIndicator", "dojox/mobile/Badge", "dojox/mobile/IconContainer", "dojox/mobile/IconItem",   "dojox/mobile", "dojox/mobile/RoundRectDataList", "dojo/data/ItemFileReadStore", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton", "dojox/mobile/TabBar", "dojox/mobile/ScrollableView","dojox/mobile/Accordion"
@@ -367,14 +369,11 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
  }
     </script>
     
-
-
             <script>
-        var app = new kendo.mobile.Application(document.body);
+        window.kendoMobileApplication = new kendo.mobile.Application(document.body);
     </script>
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
-   
    
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
