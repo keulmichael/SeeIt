@@ -85,8 +85,8 @@ if (backButton) {
     ], function(connect, ready, request){
     ready(function(){    
 request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
-    function(nbamisfacebook){alert(nbamisfacebook);document.getElementById('nbamisfacebook').innerHTML='nous suivent sur Facebook';})
-    //nbamisfacebook['data']['friend_count']
+    function(nbamisfacebook){alert(nbamisfacebook['data']['friend_count']);document.getElementById('nbamisfacebook').innerHTML='nbamisfacebook['data']['friend_count'] amis nous suivent sur Facebook';})
+    
     });
     })
     
@@ -358,9 +358,18 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
    
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
-        <img id="zoom_01" src='http://www.appliseeit.com/mobile/photos/quali/1821_1.jpg' data-zoom-image="http://www.appliseeit.com/mobile/photos/1821_1.jpg"/>
-<img id='zoom_icone' src="icone.png" data-zoom-image='http://www.appliseeit.com/mobile/iconeseeit.jpg' style="width:150px;display: block" />
-       
+    
+    
+<div data-dojo-type="dojox/mobile/PageIndicator" ></div>
+
+<div data-dojo-type="dojox/mobile/SwapView">
+<img id='zoom_icone' src="icone.png" data-zoom-image='http://www.appliseeit.com/mobile/iconeseeit.jpg' style="width:150px;display: block" />      
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+<img id="zoom_01" src='http://www.appliseeit.com/mobile/photos/quali/1821_1.jpg' data-zoom-image="http://www.appliseeit.com/mobile/photos/1821_1.jpg"/>
+</div>
+
+
     <br><div id='titreAccueil' align="center"></div><br><br>
 	<input type='hidden' id='nombrePhotosCache'><div id='nombrePhotos' align="center"></div> <br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
@@ -369,7 +378,8 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     </ul> 
     <br>
     <div id='problemeReseau' align="center"></div>
-    </div>
+    <div id='nbamisfacebook' align="center"></div>
+     </div>
     
     
     <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
@@ -402,8 +412,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     <div id="affichPointsAlbums" data-dojo-type="dojox/mobile/ScrollableView">
     </div>
     
-    <div id="affichPointsTournee" data-dojo-type="dojox/mobile/ScrollableView">
-    
+    <div id="affichPointsTournee" data-dojo-type="dojox/mobile/ScrollableView">  
     </div>
     
     
