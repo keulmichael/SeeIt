@@ -344,11 +344,11 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     })
  }
   
- function rotation(num,n,degrees){
+ function rotation(num,n,degrees){alert("ok");
 require(["dojo/request"],
 function(request){
 request.get('rotation_image.php?image='+num+n+'&degrees='+degrees).then(
-function(response41){alert(response41);
+function(response41){
 var photo='zoom_'+num;
 photo.src ='photos/'+num+n+'?v=123';
 });
@@ -362,9 +362,9 @@ photo.src ='photos/'+num+n+'?v=123';
     ready(function(){    
 request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
     function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
-    document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
+    document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
     
-    });
+    
     })
  </script>
  
