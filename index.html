@@ -81,15 +81,7 @@ if (backButton) {
     });
     })
     
-    require(["dojo/_base/connect","dojo/ready","dojo/request",
-    ], function(connect, ready, request){
-    ready(function(){    
-request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
-    function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
-    document.getElementById('nbamisfacebook').innerHTML='<font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px">';})
-    
-    });
-    })
+
     
     function AffichBadges(){
     require(["dojo/request",
@@ -351,9 +343,31 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     )
     })
  }
- 
+  
+ function rotation(num,n,degrees){
+require(["dojo/request"],
+function(request){
+request.get('rotation_image.php?image='+num+n+'&degrees='+degrees).then(
+function(response41){
+var photo='zoom_'+num;
+photo.src ='photos/'+num+n+'?v=123';
+});
+});
+}
+
+    require(["dojo/_base/connect","dojo/ready","dojo/request",
+    ], function(connect, ready, request){
+    ready(function(){    
+request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
+    function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
+    document.getElementById('nbamisfacebook').innerHTML='<table><tr>td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
+    
+    });
+    })
  </script>
+ 
     <script src='jquery.elevatezoom.js'></script>
+    
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
    
@@ -362,7 +376,6 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     
     
 <div data-dojo-type="dojox/mobile/Container" style="background-color:white;height:180px;">
-<div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <img id='zoom_01' src="icone.png" data-zoom-image='http://www.appliseeit.com/mobile/iconeseeit.jpg' style="width:150px;display: block" />      
 </div>
