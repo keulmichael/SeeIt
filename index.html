@@ -344,15 +344,18 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     })
  }
   
- function rotation(num,n,degrees){alert(num + '-' + n + '-' + degrees);
+ function rotation(action,num,n,degrees){alert(action + '-' + num + '-' + n + '-' + degrees);
+ if (action=='refresh'){var photo = dom.byId('zoom_'+num);photo.src ='photos/quali'+num+n+'?v=123';}
+ else {
 require(["dojo/request"],
 function(request){
 request.get('rotation_image.php?image='+num+n+'&degrees='+degrees).then(
 function(response41){
-var photo='zoom_'+num;
-photo.src ='photos/'+num+n+'?v=123';
+var photo = dom.byId('zoom_'+num);
+photo.src ='photos/quali'+num+n+'?v=123';
 });
 });
+}
 }
 
 
