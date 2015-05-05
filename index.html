@@ -345,7 +345,7 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
  }
   
  function rotation(action,num,n,degrees){
-  var phototest = new Image(); phototest.src = 'http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg'; var photo = dom.byId('zoom_'+n+'_'+num);
+  var phototest = new Image(); phototest.src = 'http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg'; var photo = dom.byId('zoom_1_1821');
  if (action=='refresh'){alert('refresh');
 if (phototest.height==0){ photo.src = 'http://www.appliseeit.com/mobile/pas-de-photo.png';alert("pas de photo");}
 else{photo.src = 'http://www.appliseeit.com/mobile/photos/quali'+num+'_'+n+'.jpg?v=123';alert("photo "+num +'_'+n +" refresh");} 
