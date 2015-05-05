@@ -345,16 +345,16 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
  }
   
  function rotation(action,num,n,degrees){
-  var phototest = new Image(); phototest.src = 'mobile/photos/quali/'+num+'_'+n+'.jpg'; var photo = dom.byId('zoom_'+n+'_'+num);
+  var phototest = new Image(); phototest.src = 'http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg'; var photo = dom.byId('zoom_'+n+'_'+num);
  if (action=='refresh'){
-if (phototest.height==0){ photo.src = 'pas-de-photo.png';alert("pas de photo");}else{photo.src = 'mobile/photos/quali'+num+'_'+n+'.jpg?v=123';alert("photo "+num +'_'+n +" refresh");} 
+if (phototest.height==0){ photo.src = 'http://www.appliseeit.com/mobile/pas-de-photo.png';alert("pas de photo");}else{photo.src = 'http://www.appliseeit.com/mobile/photos/quali'+num+'_'+n+'.jpg?v=123';alert("photo "+num +'_'+n +" refresh");} 
  }
  else {
 require(["dojo/request"],
 function(request){
-request.get('rotation_image.php?image='+num+'_'+n+'&degrees='+degrees).then(
+request.get('http://www.appliseeit.com/mobile/rotation_image.php?image='+num+'_'+n+'&degrees='+degrees).then(
 function(response41){
-photo.src ='photos/quali/'+num+'_'+n+'.jpg?v=123';alert("photo "+num +'_'+n +" rotation");
+photo.src ='http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg?v=123';alert("photo "+num +'_'+n +" rotation");
 });
 });
 }
