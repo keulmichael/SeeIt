@@ -344,12 +344,12 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
     })
  }
   
- function rotation(num,n,degrees){alert("ok");
+ function rotation(num,n,degrees){
 require(["dojo/request"],
 function(request){
 request.get('rotation_image.php?image='+num+n+'&degrees='+degrees).then(
 function(response41){
-var photo='zoom_'+num;
+var photo='zoom_'+num;alert(photo + '-' + 'photos/'+num+n);
 photo.src ='photos/'+num+n+'?v=123';
 });
 });
