@@ -345,16 +345,16 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
  }
   
  function rotation(action,num,n,degrees){alert(action + '-' + num + '-' + n + '-' + degrees);
-  var phototest = new Image(); phototest.src = 'mobile/photos/quali/'+num+n; var photo = dom.byId('zoom_'+num);
+  var phototest = new Image(); phototest.src = 'mobile/photos/quali/'+num+'_'+n+'.jpg'; var photo = dom.byId('zoom_'+n+'_'+num);
  if (action=='refresh'){
-if (phototest.height==0){ photo.src = 'pas-de-photo.png';}else{photo.src = 'mobile/photos/quali'+num+n+'?v=123';} 
+if (phototest.height==0){ photo.src = 'pas-de-photo.png';}else{photo.src = 'mobile/photos/quali'+num+'_'+n+'.jpg?v=123';} 
  }
  else {
 require(["dojo/request"],
 function(request){
-request.get('rotation_image.php?image='+num+n+'&degrees='+degrees).then(
+request.get('rotation_image.php?image='+num+'_'+n+'&degrees='+degrees).then(
 function(response41){
-photo.src ='photos/quali/'+num+n+'?v=123';
+photo.src ='photos/quali/'+num+'_'+n+'.jpg?v=123';
 });
 });
 }
