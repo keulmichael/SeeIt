@@ -565,8 +565,8 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     })();
     var log = document.querySelector("#log");
     var el = document.querySelector("#zoom_hammer");
-    var START_X = Math.round((window.innerWidth - el.offsetWidth) / 3);
-    var START_Y = Math.round((window.innerHeight - el.offsetHeight) / 3);
+    var START_X = Math.round((window.innerWidth - el.offsetWidth) / 2);alert(START_X);
+    var START_Y = Math.round((window.innerHeight - el.offsetHeight) / 2);alert(START_Y);
     var ticking = false;
     var transform;
     var timer;
