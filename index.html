@@ -376,8 +376,9 @@ function suppression_photos() {
     require(["dojo/_base/connect","dojo/ready","dojo/request",
     ], function(connect, ready, request){
 request.get('http://www.appliseeit.com/suppression_photos_auto.php').then(
+function(response786){
 alert('Photos supprimées');
-) 
+}) 
     })
 }
  </script>
