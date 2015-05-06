@@ -5,7 +5,7 @@
         };
     })();
     var log = document.getElementById("log");
-    var el = document.getElementById("photoaccueil");
+    var el = document.getElementById("pic");
     var START_X = 0;
     var START_Y = 0;
     var ticking = false;
@@ -140,7 +140,7 @@
         };
     })();
     var log = document.getElementById("log");
-    var el = document.getElementById("pic");
+    var el = document.getElementById("photoaccueil");
     var START_X = 0;
     var START_Y = 0;
     var ticking = false;
