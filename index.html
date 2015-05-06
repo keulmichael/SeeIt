@@ -32,7 +32,7 @@
         this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
     }
     </script>
-
+    <script src="hammer.js"></script>   
             <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
            <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
             <script type="text/javascript" src="js/jquery.mobile-1.1.1.min.js"></script>
@@ -369,7 +369,7 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     })
  </script>
 
-    <script src="hammer.js"></script>     
+ 
     <script src='jquery.elevatezoom.js'></script>    
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
