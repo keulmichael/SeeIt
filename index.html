@@ -565,8 +565,8 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     })();
     var log = document.querySelector("#log");
     var el = document.querySelector("#zoom_hammer");
-    var START_X = Math.round((window.innerWidth - el.offsetWidth) / 1);
-    var START_Y = Math.round((window.innerHeight - el.offsetHeight) / 1);
+    var START_X = el.offsetWidth;
+    var START_Y = el.offsetHeight;
     var ticking = false;
     var transform;
     var timer;
@@ -589,20 +589,9 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
         }
     });
     function resetElement() {
-        el.className = 'animate';
-        transform = {
-            translate: { x: START_X, y: START_Y },
-            scale: 1,
-            angle: 0,
-            rx: 0,
-            ry: 0,
-            rz: 0
-        };
-        requestElementUpdate();
-        if (log.textContent.length > 2000) {
-            log.textContent = log.textContent.substring(0, 2000) + "...";
-        }
+
     }
+    
     function updateElementTransform() {
         var value = [
                     'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
