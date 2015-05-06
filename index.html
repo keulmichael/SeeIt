@@ -24,7 +24,7 @@
         this.allowEdit = false; // cameraOptions: allowEdit
         this.correctOrientation = false;
         //this.cameraDirection = 0; 
-        this.positionPaysage = true;
+        this.positionPaysage = false;
             
         this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG : 0; // cameraOptions: encodingType
         this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
@@ -219,8 +219,8 @@ while (iconContainerWidgetSuppr.firstChild) {
     else{settings.correctOrientation=false;}
     };
     function changePositionPortrait(value) {
-    if (value=='on'){settings.positionPaysage=false;}
-    else{settings.positionPaysage=true;}
+    if (value=='on'){settings.positionPaysage=true;}
+    else{settings.positionPaysage=false;}
     };
     function Voix(){
     if ('webkitSpeechRecognition' in window) {
@@ -384,7 +384,7 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <div id='log'></div>
-<img  id='zoom_hammer' src="iconeseeit.jpg" style="width:150px;" />      
+<img  id='zoom_hammer' src="http://www.appliseeit.com/mobile/iconeseeit.jpg" style="width:150px;" />      
 </div>
 </div>
     <br><div id='titreAccueil' align="center"></div><br><br>
