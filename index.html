@@ -5,7 +5,7 @@
 <meta http-equiv="Cache-control" content="no-cache" />
 
     <meta http-equiv="Content-type" content="text/html; class="gmail_default" style>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <title> Des moments à partager avec SeeIt! </title>
     <script type="text/javascript">
@@ -384,7 +384,7 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <div id='log'></div>
-<img  id='zoom_hammer' src="http://www.appliseeit.com/mobile/iconeseeit.jpg" style="width:150px;" />      
+<img  id='zoom_hammer' src="http://www.appliseeit.com/mobile/iconeseeit.jpg" style="width:150px;" />     
 </div>
 </div>
     <br><div id='titreAccueil' align="center"></div><br><br>
@@ -565,8 +565,8 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     })();
     var log = document.querySelector("#log");
     var el = document.querySelector("#zoom_hammer");
-    var START_X = Math.round((window.innerWidth - el.offsetWidth) / 2);
-    var START_Y = Math.round((window.innerHeight - el.offsetHeight) / 2);
+    var START_X = Math.round((window.innerWidth - el.offsetWidth) / 1);
+    var START_Y = Math.round((window.innerHeight - el.offsetHeight) / 1);
     var ticking = false;
     var transform;
     var timer;
