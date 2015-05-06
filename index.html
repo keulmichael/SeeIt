@@ -376,18 +376,19 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
     
-    
+    <div id='log'></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:white;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
-<div id='log'></div>
-<img  id='zoom_hammer' src="icone.png" style="width:150px;display: block" />      
+
+<img  src="icone.png" style="width:150px;display: block" />      
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
-<div id='log'></div>
-<img  id='zoom_hammer' src="http://www.appliseeit.com/mobile/photos/1826_3.jpg" style="width:300px;" />     
+<img   src="http://www.appliseeit.com/mobile/photos/1826_3.jpg" style="width:280px;" />     
 </div>
+<font size='2' color='grey'>Les photos les plus populaires</font>
 </div>
+
     <br><div id='titreAccueil' align="center"></div><br><br>
 	<input type='hidden' id='nombrePhotosCache'><div id='nombrePhotos' align="center"></div> <br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
@@ -550,15 +551,14 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     </ul>
     
  <script>
- 
 
     var reqAnimationFrame = (function () {
         return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
             window.setTimeout(callback, 1000 / 60);
         };
     })();
-    var log = document.querySelector("#log");
-    var el = document.querySelector("#zoom_hammer");
+    var log = document.getElementById("log");
+    var el = document.getElementById("tabViewAccueil");
     var START_X = 0;
     var START_Y = 0;
     var ticking = false;
@@ -682,6 +682,7 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
         logEvent(ev.type);
     }
     resetElement();
+    
  </script>
     </body>
     </html>
