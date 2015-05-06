@@ -358,15 +358,28 @@ photo.src ='http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg?v=12
 }
 });
 }
-    require(["dojo/_base/connect","dojo/ready","dojo/request",
-    ], function(connect, ready, request){
+    require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request",
+    ], function(dom, on, connect, ready, request){
     ready(function(){    
 request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
     function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
     document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
-     })
     
+request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
+function(response441){
+var photoAccueil = dom.byId('photoaccueil');photoAccueil.src = 'http://www.appliseeit.com/mobile/photos/'+response441;
+})
+     })    
     })
+    
+function suppression_photos() {
+    require(["dojo/_base/connect","dojo/ready","dojo/request",
+    ], function(connect, ready, request){
+request.get('http://www.appliseeit.com/suppression_photos_auto.php').then(
+alert('Photos supprimées');
+) 
+    })
+}
  </script>
 
  
@@ -377,15 +390,15 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
     
 <div data-dojo-type="dojox/mobile/Container" style="background-color:white;height:170px;">
+<font size='2' color='grey'>Les photos les plus populaires</font>
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <img  src="icone.png" style="width:150px;display: block" />      
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
-    <div id='log'></div>
-<img  id='photoaccueil' src="http://www.appliseeit.com/mobile/photos/1826_3.jpg" style="width:280px;" />     
+    <div id='logphotoaccueil'></div>
+<img  id='photoaccueil' src="http://www.appliseeit.com/mobile/photos/1826_3.jpg" style="width:250px;" />     
 </div>
-<font size='2' color='grey'>Les photos les plus populaires</font>
 </div>
 
     <br><div id='titreAccueil' align="center"></div><br><br>
