@@ -589,9 +589,20 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
         }
     });
     function resetElement() {
-
+        el.className = 'animate';
+        transform = {
+            translate: { x: START_X, y: START_Y },
+            scale: 1,
+            angle: 0,
+            rx: 0,
+            ry: 0,
+            rz: 0
+        };
+        requestElementUpdate();
+        if (log.textContent.length > 2000) {
+            log.textContent = log.textContent.substring(0, 2000) + "...";
+        }
     }
-    
     function updateElementTransform() {
         var value = [
                     'translate3d(' + transform.translate.x + 'px, ' + transform.translate.y + 'px, 0)',
