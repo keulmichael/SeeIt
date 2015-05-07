@@ -367,10 +367,27 @@ request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHER
     
 request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
 function(response441){
-var photoAccueil = dom.byId('photoaccueil');photoAccueil.src = 'http://www.appliseeit.com/mobile/photos/'+response441;
+var resPhoto = response441.split("_|_"); 
+var photoAccueil = dom.byId('photoaccueil');photoAccueil.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[0];
+var photoAccueil2 = dom.byId('photoaccueil2');photoAccueil2.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[1];
+var photoAccueil3 = dom.byId('photoaccueil3');photoAccueil3.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[2];
 })
      })    
     })
+
+function RafraichirAccueil(){    
+request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
+    function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
+    document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
+    
+request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
+function(response442){
+var resPhoto = response442.split("_|_"); 
+var photoAccueil = dom.byId('photoaccueil');photoAccueil.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[0];
+var photoAccueil2 = dom.byId('photoaccueil2');photoAccueil2.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[1];
+var photoAccueil3 = dom.byId('photoaccueil3');photoAccueil3.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[2];
+})
+}
     
 function suppression_photos() {
     require(["dojo/_base/connect","dojo/ready","dojo/request",
@@ -382,26 +399,31 @@ alert('Photos supprimées');
     })
 }
  </script>
-
  
     </head>
     <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
    
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
-    
+    <font size='2' color='grey'>Les photos les plus récentes</font>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:white;height:170px;">
-<font size='2' color='grey'>Les photos les plus populaires</font>
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <img  src="icone.png" style="width:150px;display: block" />      
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil'></div>
-<img  id='photoaccueil' src="http://www.appliseeit.com/mobile/photos/1826_3.jpg" style="width:250px;" />     
+<img  id='photoaccueil' src="" style="width:250px;" />     
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+    <div id='logphotoaccueil2'></div>
+<img  id='photoaccueil2' src="" style="width:250px;" />     
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+    <div id='logphotoaccueil3'></div>
+<img  id='photoaccueil3' src="" style="width:250px;" />     
 </div>
 </div>
-
     <br><div id='titreAccueil' align="center"></div><br><br>
 	<input type='hidden' id='nombrePhotosCache'><div id='nombrePhotos' align="center"></div> <br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
@@ -556,7 +578,7 @@ alert('Photos supprimées');
     
     
     <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>	
-    <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera();nombrePhotos()}'>Accueil</li>
+    <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera();RafraichirAccueil();nombrePhotos()}'>Accueil</li>
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera();AffichBadges()}'>Today</li>
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewAjouter", onClick:function(){CacherCamera()}'>Ajouter</li>
     <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
