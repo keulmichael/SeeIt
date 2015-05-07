@@ -184,25 +184,7 @@ navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
 
 function onCaptureError(message) {alert(message); }
 
-function geolocationSuccess(position) {
-require(["dojo/_base/connect","dojo/ready","dojo/request",
-    ], function(connect, ready, request){alert(position.coords.latitude);
-    
-    	var num = document.getElementById("num").value;
-	
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude).then(
-function(response276){
-alert('ok');
-}) 
 
-    })
-	
-}
-
-function geolocationError(error) {
-    alert('code: '    + error.code    + '\n' +
-          'message: ' + error.message + '\n');
-}
 
 function getTargetId(event, tagName) {
     var target = (event.target.tagName == tagName)
