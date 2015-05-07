@@ -186,7 +186,7 @@ function onCaptureError(message) {alert(message); }
 
 function geolocationSuccess(position) {
 require(["dojo/_base/connect","dojo/ready","dojo/request",
-    ], function(connect, ready, request){
+    ], function(connect, ready, request){alert(position.coords.latitude);
     
     	var num = document.getElementById("num").value;
 	
