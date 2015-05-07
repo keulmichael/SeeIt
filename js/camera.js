@@ -148,42 +148,6 @@ function accelerometerErrorPaysage() {
             alert("Une erreur est survenue : Code = " = error.code);
         }
 
-function onCaptureSuccess(imageData) {
-	
-	var num = document.getElementById("num").value;
-	
-    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&imageData="+imageData)
-    var photo = getElement("pic");
-    photo.style.display = "block";
-    photo.src = imageData;
-    $.mobile.changePage("#result_page", "slideup");
-    var nomphoto = photo.src;	
-
-var options = new FileUploadOptions();
-            options.fileKey="photo";
-            options.fileName=nomphoto.substr(nomphoto.lastIndexOf('/')+1);
-            options.mimeType="image/jpeg";
-            options.chunkedMode = false;
-            
-            var params = new Object();
-            params.value1 = "test";
-            params.value2 = "param";
-            options.params = params;
-
-            var ft = new FileTransfer();
-            ft.upload(nomphoto, fichierupload, win, fail, options);
-
-var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
-var ftQuali = new FileTransfer();
-ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
-
-navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-}
-
-
-
-function onCaptureError(message) {alert(message); }
-
 
 
 function getTargetId(event, tagName) {
