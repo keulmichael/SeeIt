@@ -188,7 +188,7 @@ function geolocationSuccess(position) {
 require(["dojo/_base/connect","dojo/ready","dojo/request",
     ], function(connect, ready, request){
     	var num = document.getElementById("num").value;
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+).then(
+request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude).then(
 function(response276){
 alert('ok');
 }) 
@@ -217,7 +217,3 @@ function getElement(element) {
     
     return element;
 }
-
-
-
-
