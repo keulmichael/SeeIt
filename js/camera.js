@@ -148,7 +148,51 @@ function accelerometerErrorPaysage() {
             alert("Une erreur est survenue : Code = " = error.code);
         }
 
+function onCaptureSuccess(imageData) {
+	
+	var num = document.getElementById("num").value;
+	
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&imageData="+imageData)
+    var photo = getElement("pic");
+    photo.style.display = "block";
+    photo.src = imageData;
+    $.mobile.changePage("#result_page", "slideup");
+    var nomphoto = photo.src;	
+var options = new FileUploadOptions();
+            options.fileKey="photo";
+            options.fileName=nomphoto.substr(nomphoto.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            options.chunkedMode = false;
+            
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            var ft = new FileTransfer();
+            ft.upload(nomphoto, fichierupload, win, fail, options);
+var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
+var ftQuali = new FileTransfer();
+ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
+navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+}
+function onCaptureError(message) {alert(message); }
 
+function geolocationSuccess(position) {
+require(["dojo/request"], function(request){
+    
+    	var num = document.getElementById("num").value;
+	
+request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude).then(
+function(response276){
+
+}) 
+    })
+}
+
+function geolocationError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
 
 function getTargetId(event, tagName) {
     var target = (event.target.tagName == tagName)
