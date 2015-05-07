@@ -187,7 +187,8 @@ function onCaptureError(message) {alert(message); }
 function geolocationSuccess(position) {
 require(["dojo/_base/connect","dojo/ready","dojo/request",
     ], function(connect, ready, request){
-request.get('http://www.appliseeit.com/mobile/record_gps.php?x='+position.coords.latitude+'&y='+position.coords.longitude+).then(
+    	var num = document.getElementById("num").value;
+request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+).then(
 function(response276){
 alert('ok');
 }) 
