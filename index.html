@@ -410,7 +410,9 @@ alert('Photos supprimées');
 
  //INITIALIZE GOOGLE MAP
 var geocoder;
-function initialize() {geocoder = new google.maps.Geocoder();var directionsService = new google.maps.DirectionsService();}
+function initialize() {geocoder = new google.maps.Geocoder();}
+google.maps.event.addDomListener(window, 'load', initialize);
+
  </script>
  
     </head>
