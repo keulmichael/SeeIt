@@ -177,15 +177,21 @@ var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?q
 var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
 
+navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError)
 }
 
 
 
 function onCaptureError(message) {alert(message); }
 
+function geolocationSuccess(position) {
+alert(position.coords.latitude+ '\n' +position.coords.longitude+ '\n' +position.coords.altitude+ '\n' +position.coords.accuracy+ '\n' +position.coords.heading+ '\n' +position.coords.speed+ '\n' +position.timestamp);
+}
 
-
-
+function geolocationError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
 
 function getTargetId(event, tagName) {
     var target = (event.target.tagName == tagName)
