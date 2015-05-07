@@ -274,7 +274,8 @@ while (iconContainerWidgetSuppr.firstChild) {
     function(request,win, ProgressIndicator){
     var album=document.getElementById('nouvelAlbum').value;
     var element=document.getElementById('nouvelElement').value;
-    request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element).then(
+    var pseudo=document.getElementById('nouveauPseudo').value;
+    request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element+'&pseudo='+peudo).then(
     function(response){
     document.getElementById('resultatCreerAlbum').innerHTML=response; 
     document.getElementById('afficherTourneeApresCreer').style.display="block";
@@ -534,7 +535,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
     <div id="texteAjouter" align="center"></div><br><br>
-    <font color='grey' size='3'>Album</font>
+    <font color='grey' size='3'>Quel thème choississez-vous ?</font>
     <select id="nouvelAlbum">
 <option value='Animaux'>Animaux
 <option value='Architecture'>Architecture
@@ -552,8 +553,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <option value='Selfie'>Selfie
 <option value='Voyages'>Voyages
 </select>
-    <font color='grey' size='3'>Objectif</font><input type="text" id="nouvelElement">
-    
+    <font color='grey' size='3'>Comment s'appelle votre album ?</font><input type="text" id="nouvelElement">
+    <font color='grey' size='3'>Quel est votre pseudo ?</font><input type="text" id="nouveauPseudo">    
     <button onclick='creerAlbum()'>Ajouter</button>
     <br>
     <div id="resultatCreerAlbum"></div><br><br>
