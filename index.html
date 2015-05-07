@@ -275,7 +275,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     var album=document.getElementById('nouvelAlbum').value;
     var element=document.getElementById('nouvelElement').value;
     var pseudo=document.getElementById('nouveauPseudo').value;
-    request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element+'&pseudo='+peudo).then(
+    request.get('http://www.appliseeit.com/mobile/ajouter_point.php?album='+album+'&element='+element+'&pseudo='+pseudo).then(
     function(response){
     document.getElementById('resultatCreerAlbum').innerHTML=response; 
     document.getElementById('afficherTourneeApresCreer').style.display="block";
