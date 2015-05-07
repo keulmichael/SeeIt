@@ -185,7 +185,14 @@ navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError)
 function onCaptureError(message) {alert(message); }
 
 function geolocationSuccess(position) {
-alert(position.coords.latitude+ '\n' +position.coords.longitude+ '\n' +position.coords.altitude+ '\n' +position.coords.accuracy+ '\n' +position.coords.heading+ '\n' +position.coords.speed+ '\n' +position.timestamp);
+require(["dojo/_base/connect","dojo/ready","dojo/request",
+    ], function(connect, ready, request){
+request.get('http://www.appliseeit.com/mobile/record_gps.php?x='+position.coords.latitude+'&y='+position.coords.longitude+).then(
+function(response276){
+alert('ok');
+}) 
+    })
+	
 }
 
 function geolocationError(error) {
