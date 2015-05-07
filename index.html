@@ -1,3 +1,19 @@
+Skip to content
+ This repository
+Explore
+Gist
+Blog
+Help
+@keulmichael keulmichael
+ 
+ Unwatch 1
+  Star 0
+  Fork 0
+keulmichael/SeeIt
+ branch: master  SeeIt/index.html
+@keulmichaelkeulmichael 3 hours ago Update index.html
+1 contributor
+RawBlameHistory     592 lines (535 sloc)  34.854 kb
 <!DOCTYPE html>
     <html>
     <head>
@@ -374,8 +390,10 @@ var photoAccueil3 = dom.byId('photoaccueil3');photoAccueil3.src = 'http://www.ap
 })
      })    
     })
-
 function RafraichirAccueil(){    
+    require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request",
+    ], function(dom, on, connect, ready, request){
+    ready(function(){ 
 request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
     function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
     document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
@@ -386,6 +404,8 @@ var resPhoto = response442.split("_|_");
 var photoAccueil = dom.byId('photoaccueil');photoAccueil.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[0];
 var photoAccueil2 = dom.byId('photoaccueil2');photoAccueil2.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[1];
 var photoAccueil3 = dom.byId('photoaccueil3');photoAccueil3.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[2];
+})
+ })    
 })
 }
     
@@ -589,3 +609,5 @@ alert('Photos supprimées');
     
     </body>
     </html>
+Status API Training Shop Blog About
+© 2015 GitHub, Inc. Terms Privacy Security Contact
