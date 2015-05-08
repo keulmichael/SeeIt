@@ -122,7 +122,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responsePseudoNewPhoto){
     var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_"); 
-    document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+responsePseudoNewPhoto[0] + ' a pris une nouvelle photo à ' + responsePseudoNewPhoto[1] + ' à ' + responsePseudoNewPhoto[2]+"</font>";
+    document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+responsePseudoNewPhoto[1] + ' a pris une nouvelle photo à ' + responsePseudoNewPhoto[2] + ' à ' + responsePseudoNewPhoto[3]+"</font>";
     })
     
     });    
@@ -551,7 +551,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
     <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
-    <div data-dojo-type="dojox/mobile/RoundRect" data-dojo-props='shadow:false' style="background-color:white;height:50px;valign:bottom;">
+    <div data-dojo-type="dojox/mobile/RoundRect" data-dojo-props='shadow:true' style="background-color:white;height:30px;">
 <div id="messageAlerte"></div>
 </div>
     </div>
