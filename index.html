@@ -119,11 +119,18 @@ while (iconContainerWidgetSuppr.firstChild) {
     iconContainerWidget.addChild(itemWidget);
     }
     })
-    });
+    
     if (document.getElementById('alertVibration').value=='off' || document.getElementById('alertSon').value=='off')
     {document.getElementById("messageAlerte").innerHTML="Veuillez activer les alertes pour afficher l'information de la dernière photo prise";}
     else
-    {document.getElementById("messageAlerte").innerHTML="";}
+    {
+    request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
+    function(responsePseudoNewPhoto){
+    var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_"); 
+    document.getElementById("messageAlerte").innerHTML=responsePseudoNewPhoto[0] a pris une nouvelle photo à responsePseudoNewPhoto[1] à responsePseudoNewPhoto[2];
+    })
+    }
+    });    
     }
     
     function SupprBadges(){
@@ -323,9 +330,9 @@ var NbNewPhotos='';
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNewPhoto){
-    var NbNewPhotos=responseNewPhoto.split(" "); 
+    var NbNewPhotos=responseNewPhoto.split("_|_"); 
     var ancienNbPhotos=document.getElementById('nombrePhotosCache').value;
-    if(ancienNbPhotos!=NbNewPhotos[5]){
+    if(ancienNbPhotos!=NbNewPhotos[0]){
     
 //var Notification = window.Notification || window.mozNotification || window.webkitNotification;
 //Notification.requestPermission(function (permission) {
@@ -458,7 +465,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div>
 </div>
     <br><div id='titreAccueil' align="center"></div><br><br>
-	<input type='hidden' id='nombrePhotosCache'><div id='nombrePhotos' align="center"></div> <br>
+	<input type='hidden' id='nombrePhotosCache'><font size=4 color=black>Il y a <div id='nombrePhotos' align="center"></div>  photos en ligne</font><br>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'">Album</li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'">Photos</li>
