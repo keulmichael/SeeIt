@@ -120,6 +120,10 @@ while (iconContainerWidgetSuppr.firstChild) {
     }
     })
     });
+    if (document.getElementById('alertVibration').value=='off' || document.getElementById('alertSon').value=='off')
+    {document.getElementById("messageAlerte").innerHTML="Veuillez activer les alertes pour afficher l'information de la dernière photo prise";}
+    else
+    {document.getElementById("messageAlerte").innerHTML="";}
     }
     
     function SupprBadges(){
@@ -531,9 +535,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
      <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Alertes/Nofications'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Son
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(newStateAlertSon)}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(newStateAlertSon)}" value="off" id="alertSon"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Vibration
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){changeAlertVibration(newStateVibration)}" value="off"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){changeAlertVibration(newStateVibration)}" value="off" id="alertVibration"></div>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
@@ -543,8 +547,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
     <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
-    <div data-dojo-type="dojox/mobile/RoundRect" data-dojo-props='shadow:false' style="background-color:white;height:100px;">
-
+    <div data-dojo-type="dojox/mobile/RoundRect" data-dojo-props='shadow:false' style="background-color:white;height:50px;valign:bottom;">
+<div id="messageAlerte"></div>
 </div>
     </div>
     
@@ -598,7 +602,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
      </div>
     </div>
     
-    <div id='cadreCamera' style="display:none">
+    <div id='cadreCamera' style="display:none;valign:top;">
     <div id='affichLocalisation'></div>
     <div data-role="content" align="center" width="100%">
     <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
