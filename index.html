@@ -120,8 +120,8 @@ while (iconContainerWidgetSuppr.firstChild) {
     })
     
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
-    function(responsePseudoNewPhoto){
-    var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_"); 
+    function(responsePseudoNewPhoto){alert(responsePseudoNewPhoto);
+    var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_"); alert(responsePseudoNewPhoto[0] );
     document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+responsePseudoNewPhoto[1] + ' a pris une nouvelle photo à ' + responsePseudoNewPhoto[2] + ' à ' + responsePseudoNewPhoto[3]+"</font>";
     })
     
@@ -360,7 +360,7 @@ var NbNewPhotos='';
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNbPhoto){
 document.getElementById('gauge').value=50;
-var responseNbPhotoCache=responseNbPhoto.split("_|_"); alert(responseNbPhotoCache[0]);
+var responseNbPhotoCache=responseNbPhoto.split("_|_");
 document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[0];
 
 	    }
@@ -371,14 +371,14 @@ document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[0];
  function rotation(action,num,n,degrees){
  require(['dojo/dom' , "dojo/on", "dojo/request"],
 function(dom, on, request){
-  var phototest = new Image(); phototest.src = 'http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg'; var photo = dom.byId('zoom_'+n+'_'+num);
+  var phototest = new Image(); phototest.src = 'http://www.appliseeit.com/mobile/photos/'+num+'_'+n+'.jpg'; var photo = dom.byId('zoom_'+n+'_'+num);
  if (action=='refresh'){
-photo.src = 'http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg?v=123';
+photo.src = 'http://www.appliseeit.com/mobile/photos/'+num+'_'+n+'.jpg?v=123';
  }
  else {
 request.get('http://www.appliseeit.com/mobile/rotation_image.php?image='+num+'_'+n+'&degrees='+degrees).then(
 function(response41){
-photo.src ='http://www.appliseeit.com/mobile/photos/quali/'+num+'_'+n+'.jpg?v=123';
+photo.src ='http://www.appliseeit.com/mobile/photos/'+num+'_'+n+'.jpg?v=123';
 });
 }
 });
