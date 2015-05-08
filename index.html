@@ -122,7 +122,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responsePseudoNewPhoto){
     var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_"); 
-    document.getElementById("messageAlerte").innerHTML=responsePseudoNewPhoto[0] + ' a pris une nouvelle photo à ' + responsePseudoNewPhoto[1] + ' à ' + responsePseudoNewPhoto[2];
+    document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+responsePseudoNewPhoto[0] + ' a pris une nouvelle photo à ' + responsePseudoNewPhoto[1] + ' à ' + responsePseudoNewPhoto[2]+"</font>";
     })
     
     });    
