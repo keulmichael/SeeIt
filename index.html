@@ -365,8 +365,8 @@ var NbNewPhotos='';
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNbPhoto){
 document.getElementById('nombrePhotos').innerHTML=responseNbPhoto;
-var responseNbPhotoCache=responseNbPhoto.split(" "); 
-document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[5];
+var responseNbPhotoCache=responseNbPhoto.split("_|_"); 
+document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[0];
 	    }
     )
     })
