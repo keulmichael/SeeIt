@@ -170,7 +170,20 @@ while (iconContainerWidgetSuppr.firstChild) {
             }, registry.byId("affichPointsTournee").containerNode);
         
     });
+    navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+    function geolocationSuccess(position) {	
+var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+  geocoder.geocode({'latLng': latlng}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      if (results[1]) {document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address; }
+}})
+}
+
+function geolocationError(error) {
+    alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
+}
     }
+    
     function mobile_modif_donnees_reelle(num, tournee, page){
     require(["dojo/_base/window", "dojox/mobile/ProgressIndicator"],
     function(win, ProgressIndicator){
@@ -530,6 +543,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
     <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
+    <div data-dojo-type="dojox/mobile/RoundRect" data-dojo-props='shadow:false' style="background-color:white;height:100px;">
+
+</div>
     </div>
     
     <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" > 
@@ -583,8 +599,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
     
     <div id='cadreCamera' style="display:none">
+    <div id='affichLocalisation'></div>
     <div data-role="content" align="center" width="100%">
-    <a href="#" data-role="button" id="open_camera_button" align="center">Prendre une photo</a>
+    <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
     </div>
     <div data-role="content">
     <div id="log"></div>
