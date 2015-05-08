@@ -54,7 +54,7 @@
     <script src="cordova.js"></script>
 	        
     <script type="text/javascript">
-    require(["dojox/mobile/parser", "dojox/mobile/compat", "dojo/domReady!", "dojox/mobile/View", "dojox/mobile/Heading", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/Switch", "dojox/mobile/RoundRect", "dojox/mobile/RoundRectCategory",  "dojox/mobile/ContentPane", "dojox/mobile/Button", "dojox/mobile/ProgressIndicator", "dojo/_base/xhr", "dojox/mobile/FilteredListMixin", "dojox/mobile/compat", "dojox/form/Uploader", "dojox/mobile/SwapView", "dojox/mobile/PageIndicator", "dojox/mobile/Badge", "dojox/mobile/IconContainer", "dojox/mobile/IconItem",   "dojox/mobile", "dojox/mobile/RoundRectDataList", "dojo/data/ItemFileReadStore", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton", "dojox/mobile/TabBar", "dojox/mobile/ScrollableView","dojox/mobile/Accordion","dojox/dgauges/components/default/CircularLinearGauge"    ], function (parser) {
+    require(["dojox/mobile/parser", "dojox/mobile/compat", "dojo/domReady!", "dojox/mobile/View", "dojox/mobile/Heading", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/Switch", "dojox/mobile/RoundRect", "dojox/mobile/RoundRectCategory",  "dojox/mobile/ContentPane", "dojox/mobile/Button", "dojox/mobile/ProgressIndicator", "dojo/_base/xhr", "dojox/mobile/FilteredListMixin", "dojox/mobile/compat", "dojox/form/Uploader", "dojox/mobile/SwapView", "dojox/mobile/PageIndicator", "dojox/mobile/Badge", "dojox/mobile/IconContainer", "dojox/mobile/IconItem",   "dojox/mobile", "dojox/mobile/RoundRectDataList", "dojo/data/ItemFileReadStore", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton", "dojox/mobile/TabBar", "dojox/mobile/ScrollableView","dojox/mobile/Accordion","dojo/_base/kernel", "dojo/parser", "dojox/dgauges/components/default/CircularLinearGauge" ], function (parser) {
     parser.parse();	
     });
     dojoConfig = {
@@ -362,6 +362,7 @@ var NbNewPhotos='';
 document.getElementById('gauge').value=responseNbPhoto[0];
 var responseNbPhotoCache=responseNbPhoto.split("_|_"); 
 document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[0];
+
 	    }
     )
     })
@@ -462,7 +463,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <br><div id='titreAccueil' align="center"></div><br><br>
 	<input type='hidden' id='nombrePhotosCache'>
 	<font size=4 color=black>Nombre de  photos en ligne</font><br>
-	<div id="gauge"></div>
+<div data-dojo-type="dojox/dgauges/components/default/CircularLinearGauge" value="20" minimum="-50" maximum="50" style="width:300px; height:300px">
+</div>
     <ul data-dojo-type="dojox/mobile/RoundRectList">
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'">Album</li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'">Photos</li>
