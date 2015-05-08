@@ -119,16 +119,12 @@ while (iconContainerWidgetSuppr.firstChild) {
     }
     })
     
-    if (document.getElementById('alertVibration').value=='off' || document.getElementById('alertSon').value=='off')
-    {document.getElementById("messageAlerte").innerHTML="Veuillez activer les alertes pour afficher l'information de la dernière photo prise";}
-    else
-    {
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responsePseudoNewPhoto){
     var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_"); 
     document.getElementById("messageAlerte").innerHTML=responsePseudoNewPhoto[0] + ' a pris une nouvelle photo à ' + responsePseudoNewPhoto[1] + ' à ' + responsePseudoNewPhoto[2];
     })
-    }
+    
     });    
     }
     
