@@ -129,7 +129,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     request.get('http://www.appliseeit.com/mobile/VerifNewAlbum.php').then(
     function(responsePseudoNewAlbum){
     var PseudoNewAlbum=responsePseudoNewAlbum.split("_|_"); 
-    document.getElementById("messageNouvelAlbum").innerHTML="<font color=grey size=2>"+PseudoNewAlbum[1] + ' a crée l\'album ' + PseudoNewAlbum[1] + ' dans le thème ' + PseudoNewAlbum[1]"</font>";
+    document.getElementById("messageNouvelAlbum").innerHTML="<font color=grey size=2>"+PseudoNewAlbum[0] + " a crée l'album " + PseudoNewAlbum[1] + " dans le thème " + PseudoNewAlbum[2] + "</font>";
     })
     
     });    
@@ -559,11 +559,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
     <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
-<div data-dojo-type="dojox/mobile/RoundRect" data-dojo-props='shadow:false' style="background-color:white;height:40px;vertical-align:middle;">
+<div data-dojo-type="dojox/mobile/RoundRect" style="background-color:white;height:40px;vertical-align:middle;">
 <div id="messageAlerte"></div>
 </div>
 
-<div data-dojo-type="dojox/mobile/RoundRect" data-dojo-props='shadow:false' style="background-color:#EBF4FA;height:40px;vertical-align:middle;">
+<div data-dojo-type="dojox/mobile/RoundRect"  style="background-color:#EBF4FA;height:40px;vertical-align:middle;">
 <div id="messageNouvelAlbum"></div>
 </div>
     </div>
