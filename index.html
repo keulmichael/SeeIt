@@ -189,11 +189,12 @@ while (iconContainerWidgetSuppr.firstChild) {
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      if (results[1]) 
-     for (i = 0; i < results.length; i++){
+      if (results[1]) {
+for (i = 0; i < results.length; i++){
      slkfjl='<br />' + i + ' - ' + results[i]);
    }  
-      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[0].address_components[1].long_name+"\n"+slkfjl; }
+      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[0].address_components[1].long_name+"\n"+slkfjl; 
+      }
 }})
 }
 
