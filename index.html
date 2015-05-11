@@ -393,23 +393,13 @@ photo.src ='http://www.appliseeit.com/mobile/photos/'+num+'_'+n+'.jpg?v=123';
     require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request",
     ], function(dom, on, connect, ready, request){
     ready(function(){    
-request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
-    function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
-    document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
-    
-request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
-function(response441){
-var resPhoto = response441.split("_|_"); 
-var photoAccueil = dom.byId('photoaccueil');photoAccueil.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[0];
-var photoAccueil2 = dom.byId('photoaccueil2');photoAccueil2.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[1];
-var photoAccueil3 = dom.byId('photoaccueil3');photoAccueil3.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[2];
-})
+function RafraichirAccueil();
      })    
     })
+    
+    
 function RafraichirAccueil(){    
-    require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request",
-    ], function(dom, on, connect, ready, request){
-    ready(function(){ 
+    require(["dojo/request"], function(request){
 request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
     function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
     document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
@@ -421,7 +411,6 @@ var photoAccueil = dom.byId('photoaccueil');photoAccueil.src = 'http://www.appli
 var photoAccueil2 = dom.byId('photoaccueil2');photoAccueil2.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[1];
 var photoAccueil3 = dom.byId('photoaccueil3');photoAccueil3.src = 'http://www.appliseeit.com/mobile/photos/'+resPhoto[2];
 })
- })    
 })
 }
     
@@ -456,7 +445,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil'></div>
-<img  id='photoaccueil' src="" style="width:250px;" />     
+<img  id='photoaccueil' src="" style="width:250px;" onclick="alert(this.id);"/>     
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil2'></div>
