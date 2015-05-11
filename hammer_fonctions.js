@@ -8,7 +8,7 @@ function hammer_excecute(id)
 
     var el = document.getElementById(id);
     var ele = id.split("_"); var loge="logphotoaccueil_"+ele[1];
-    var log = document.getElementById(v);
+    var log = document.getElementById(ele);
     var START_X = 0;
     var START_Y = 0;
     var ticking = false;
