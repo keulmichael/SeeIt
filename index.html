@@ -191,7 +191,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
 for (i = 0; i < results[1].length; i++){
-     slkfjl='<br />' + i + ' - ' + results[i];
+     slkfjl='<br />' + i + ' - ' + results[1][i];
    }  
       document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[0].address_components[1].long_name+"\n"+slkfjl; 
       }
@@ -375,7 +375,7 @@ var NbNewPhotos='';
 var responseNbPhotoCache=responseNbPhoto.split("_|_");
 document.getElementById('nombrePhotosCache').value=responseNbPhotoCache[0];
 
-    var pb = new ProgressBar({value:"30%", label:"30/100", style:{width:"100%"}});
+    var pb = new ProgressBar({value:responseNbPhotoCache[0]+"%", label:"100", style:{width:"100%"}});
     pb.placeAt(dom.byId("gauge"));
     pb.startup();
 	    }
