@@ -190,7 +190,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
-for (i = 0; i < results.length; i++){
+for (i = 0; i < results[1].length; i++){
      slkfjl='<br />' + i + ' - ' + results[i];
    }  
       document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[0].address_components[1].long_name+"\n"+slkfjl; 
@@ -369,7 +369,7 @@ var NbNewPhotos='';
     
  function nombrePhotos(){
  var responseNbPhotoCache='';
- 	require(["dojo/request", "dojox/mobile/ProgressBar"], function(request, ProgressBar){
+ 	require(["dojo/request", "dojo/dom", "dojox/mobile/ProgressBar"], function(request, dom, ProgressBar){
     request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
     function(responseNbPhoto){
 var responseNbPhotoCache=responseNbPhoto.split("_|_");
