@@ -393,13 +393,13 @@ photo.src ='http://www.appliseeit.com/mobile/photos/'+num+'_'+n+'.jpg?v=123';
     require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request",
     ], function(dom, on, connect, ready, request){
     ready(function(){    
-function RafraichirAccueil();
+ RafraichirAccueil();
      })    
     })
     
     
 function RafraichirAccueil(){    
-    require(["dojo/request"], function(request){
+    require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request"], function(request,dom, on, connect, ready, ){
 request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
     function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON); 
     document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' +  nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
