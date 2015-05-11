@@ -1,6 +1,6 @@
 function hammer_excecute(id)
 {
-document.getElementById("aideZoom").innerHTML="Pour zoomer, placer le doigt pendant une seconde";
+document.getElementById("aideZoom").innerHTML="<font color='grey' size='2'>Pour zoomer, placer le doigt pendant une seconde</font>";
     var reqAnimationFrame = (function () {
         return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
             window.setTimeout(callback, 1000 / 60);
