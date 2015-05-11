@@ -188,7 +188,7 @@ while (iconContainerWidgetSuppr.firstChild) {
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
-      if (results[1]) {document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address; }
+      if (results[1]) {document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+results[address_components].point_of_interest; }
 }})
 }
 
