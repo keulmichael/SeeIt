@@ -134,7 +134,10 @@ document.getElementById("aideZoom").innerHTML="<font color='grey' size='2'>Pour 
     }
     resetElement();
     
-    document.getElementById("aideZoom").innerHTML="";
     }
     
+  function affaceAideZoom()
+  {
   
+      document.getElementById("aideZoom").innerHTML="";
+    }
