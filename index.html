@@ -449,7 +449,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
     <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
     <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
-<div data-dojo-type="dojox/mobile/Container" style="background-color:white;height:170px;">
+<div data-dojo-type="dojox/mobile/Container" style="background-color:#EBF4FA;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <img  src="icone.png" style="width:150px;display: block" />      
@@ -467,6 +467,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <img  id='photoaccueil_3' src="" style="width:250px;" onTouchstart="hammer_excecute(this.id);"/>     
 </div>
 </div>
+<div id="aideZoom" align="center"></div>
     <br><div id='titreAccueil' align="center"></div><br><br>
 	<input type='hidden' id='nombrePhotosCache'>
 	<div align="center"><font size=3 color=grey align='center'>Nombre de  photos en ligne</font></div>
@@ -559,7 +560,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
     <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
     <ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
-<div data-dojo-type="dojox/mobile/RoundRect" style="background-color:white;height:40px;vertical-align:middle;">
+<div data-dojo-type="dojox/mobile/RoundRect" style="background-color:white;height:60px;vertical-align:middle;">
 <div id="messageAlerte"></div>
 </div>
 
@@ -625,7 +626,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
     <div data-role="content">
     <div id="log"></div>
-    <img id="pic" src="" width="300" style="display: none;"/>
+    <img id="pic" src="" width="300" style="display: none;" />
     </div>
     </div>
     
