@@ -136,7 +136,7 @@ document.getElementById("aideZoom").innerHTML="<font color='grey' size='2'>Pour 
     
     }
     
-  function affaceAideZoom()
+  function effaceAideZoom()
   {
   
       document.getElementById("aideZoom").innerHTML="";
