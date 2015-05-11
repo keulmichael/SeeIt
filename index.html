@@ -191,7 +191,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
       
-      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"\n"+results[1].address_components[0].type; 
+      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"\n"+results[1].address_components[0].type+"\n"+results[1]; 
       }
 }})
 }
@@ -439,7 +439,7 @@ request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
 function(responseNbPhoto){
 var responseNbPhotoGauge=responseNbPhoto.split("_|_");
 var pb = new ProgressBar({value:responseNbPhotoGauge[0]+"%", label:responseNbPhotoGauge[0], style:{width:"100%"}});
-pb.placeAt(dom.byId("gauge"));
+pb.placeAt(dojo.byId("gauge").innerHTML);
 pb.startup();
 })
  })    
