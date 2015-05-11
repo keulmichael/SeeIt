@@ -1,11 +1,12 @@
-
+function hammer_excecute(id)
+{
     var reqAnimationFrame = (function () {
         return window[Hammer.prefixed(window, 'requestAnimationFrame')] || function (callback) {
             window.setTimeout(callback, 1000 / 60);
         };
     })();
     var log = document.getElementById("log");
-    var el = document.getElementById("pic");
+    var el = document.getElementById(id);
     var START_X = 0;
     var START_Y = 0;
     var ticking = false;
@@ -130,7 +131,7 @@
     }
     resetElement();
     
-    
+    }
     
     
     
@@ -139,14 +140,14 @@
             window.setTimeout(callback, 1000 / 60);
         };
     })();
-    var log = document.getElementById("log");
-    var el = document.getElementById("photoaccueil");
+    var logphotoaccueil = document.getElementById("logphotoaccueil");
+    var elphotoaccueil = document.getElementById("photoaccueil");
     var START_X = 0;
     var START_Y = 0;
     var ticking = false;
     var transform;
     var timer;
-    var mc = new Hammer.Manager(el);
+    var mc = new Hammer.Manager(elphotoaccueil);
     mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));
     mc.add(new Hammer.Swipe()).recognizeWith(mc.get('pan'));
     mc.add(new Hammer.Rotate({ threshold: 0 })).recognizeWith(mc.get('pan'));
@@ -165,7 +166,7 @@
         }
     });
     function resetElement() {
-        el.className = 'animate';
+        elphotoaccueil.className = 'animate';
         transform = {
             translate: { x: START_X, y: START_Y },
             scale: 1,
@@ -175,8 +176,8 @@
             rz: 0
         };
         requestElementUpdate();
-        if (log.textContent.length > 2000) {
-            log.textContent = log.textContent.substring(0, 2000) + "...";
+        if (logphotoaccueil.textContent.length > 2000) {
+            logphotoaccueil.textContent = logphotoaccueil.textContent.substring(0, 2000) + "...";
         }
     }
     function updateElementTransform() {
@@ -186,10 +187,10 @@
                     'rotate3d('+ transform.rx +','+ transform.ry +','+ transform.rz +','+  transform.angle + 'deg)'
         ];
         value = value.join(" ");
-        el.textContent = value;
-        el.style.webkitTransform = value;
-        el.style.mozTransform = value;
-        el.style.transform = value;
+        elphotoaccueil.textContent = value;
+        elphotoaccueil.style.webkitTransform = value;
+        elphotoaccueil.style.mozTransform = value;
+        elphotoaccueil.style.transform = value;
         ticking = false;
     }
     function requestElementUpdate() {
@@ -199,10 +200,10 @@
         }
     }
     function logEvent(str) {
-        //log.insertBefore(document.createTextNode(str +"\n"), log.firstChild);
+        //logphotoaccueil.insertBefore(document.createTextNode(str +"\n"), logphotoaccueil.firstChild);
     }
     function onPan(ev) {
-        el.className = '';
+        elphotoaccueil.className = '';
         transform.translate = {
             x: START_X + ev.deltaX,
             y: START_Y + ev.deltaY
@@ -215,7 +216,7 @@
         if(ev.type == 'pinchstart') {
             initScale = transform.scale || 1;
         }
-        el.className = '';
+        elphotoaccueil.className = '';
         transform.scale = initScale * ev.scale;
         requestElementUpdate();
         logEvent(ev.type);
@@ -225,7 +226,7 @@
         if(ev.type == 'rotatestart') {
             initAngle = transform.angle || 0;
         }
-        el.className = '';
+        elphotoaccueil.className = '';
         transform.rz = 1;
         transform.angle = initAngle + ev.rotation;
         requestElementUpdate();
