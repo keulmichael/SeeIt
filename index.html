@@ -185,7 +185,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     });
     
     navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-    function geolocationSuccess(position) {	
+    function geolocationSuccess(position) {	alert(document.getElementById('infosParis').value);
     if(document.getElementById('infosParis').value=="off")
     {
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -209,7 +209,7 @@ else
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
     function(responseLocalisation){
-      document.getElementById("affichLocalisation").innerHTML="Vous êtes dans le secteur de "+responseLocalisation; 
+    if (responseLocalisation){document.getElementById("affichLocalisation").innerHTML="Vous êtes dans le secteur de "+responseLocalisation;} 
       })
       })
 
