@@ -191,7 +191,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
       
-      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"\n"+results[1].address_components[0].type+"\n"+results[1].address_components; 
+      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"\n"+results[1].address_components[0].type[0]+"\n"+results[1].address_components[0]; 
       }
 }})
 }
@@ -478,19 +478,19 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil_1'></div>
-<img  id='photoaccueil_1' src="" style="width:250px;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
+<img  id='photoaccueil_1' src="" style="width:60%;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logpubaccueil_2'></div>
-<img  id='pubaccueil_1' src="imagePub.jpg" style="width:250px;" onTouchstart='window.open("www.rockenseine.com","Rock en Seine","menubar=no, status=no, width=100%");'/>     
+<img  id='pubaccueil_1' src="imagePub.jpg" style="width:60%;" onTouchstart='window.open("http://www.rockenseine.com","Rock en Seine","menubar=no, status=no, width=100%");'/>     
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil_2'></div>
-<img  id='photoaccueil_2' src="" style="width:250px;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
+<img  id='photoaccueil_2' src="" style="width:60%;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil_3'></div>
-<img  id='photoaccueil_3' src="" style="width:250px;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
+<img  id='photoaccueil_3' src="" style="width:60%;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
 </div>
 </div>
 <div id="aideZoom" align="center"></div>
