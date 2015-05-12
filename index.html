@@ -509,12 +509,9 @@ function errorCallback(e) {
   //e.target.src = 'http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv';
 }
 
-(function() {
-var video = document.querySelector('#basic-stream');
-var button = document.querySelector('#capture-button');
+function video() {
 var localMediaStream = null;
 
-button.addEventListener('click', function(e) {
   if (navigator.getUserMedia) {
     navigator.getUserMedia('video', function(stream) {
       video.src = stream;
@@ -530,13 +527,13 @@ button.addEventListener('click', function(e) {
   } else {
     errorCallback({target: video});
   }
-}, false);
+
 
 document.querySelector('#stop-button').addEventListener('click', function(e) {
   video.pause();
   localMediaStream.stop(); // Doesn't do anything in Chrome.
 }, false);
-})();
+};
  </script>
  
     </head>
@@ -734,7 +731,7 @@ document.querySelector('#stop-button').addEventListener('click', function(e) {
 
 <div style="text-align:center;">
   <video id="basic-stream" class="videostream" autoplay></video>
-  <p><button id="capture-button">Capture video</button> <button id="stop-button">Stop</button></p>
+  <p><button id="capture-button" onclick="video()">Capture video</button> <button id="stop-button">Stop</button></p>
 </div>
 
     <div id='affichLocalisation'></div>
