@@ -206,11 +206,11 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
 }})
 }
 else
-    {alert(position.coords.latitude+" / "+ position.coords.longitude);
+    {
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
     function(responseLocalisation){
-    if (responseLocalisation!=""){document.getElementById("affichLocalisation").innerHTML="Vous êtes dans le secteur de "+responseLocalisation;} 
+    if (responseLocalisation!=""){document.getElementById("affichLocalisation").innerHTML="A prendre en photo : "+responseLocalisation;} 
       })
       })
 
