@@ -191,6 +191,11 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
       
+      for(var i = 0; i < (results[1].address_components.length; i++){
+    ac = results[1].address_components[i];
+    alert(ac);
+  }
+      
       document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"<BR>"+results[1].address_components[0]; 
       }
 }})
