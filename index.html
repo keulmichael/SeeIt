@@ -185,7 +185,8 @@ while (iconContainerWidgetSuppr.firstChild) {
     });
     
     navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-    function geolocationSuccess(position) {	alert(document.getElementById('infosParis').value);
+    function geolocationSuccess(position) {	
+
     if(document.getElementById('infosParis').value=="off")
     {
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -367,7 +368,7 @@ var NbNewPhotos='';
 //instance.onclose = function () {AffichBadges();};
 //});
     
-    if(type=='vibrate'){navigator.vibrate([1000, 1000, 1000, 1000, 1000]);}
+    if(type=='vibrate'){navigator.vibrate([100, 100, 100, 100, 100]);}
     if(type=='son'){navigator.notification.beep(1);}
     }
 })
@@ -386,8 +387,8 @@ var NbNewPhotos='';
     
     
     function changeInfosParis(value) {
-    if (value=='on'){document.getElementById('changeInfosParis').value="on";}
-    if (value=='off'){document.getElementById('changeInfosParis').value="off";}
+    if (value=='on'){document.getElementById('infosParis').value="on";}
+    if (value=='off'){document.getElementById('infosParis').value="off";}
     }    
     
     
@@ -610,7 +611,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </li>
      <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Tourisme'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Infos monuments Paris
-    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" id="infosParis"></div>
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" ></div>
+    <input type='hidden' value='off' id="infosParis">
     </ul>
     </div>
     
