@@ -54,7 +54,7 @@
     <script src="cordova.js"></script>
 	        
     <script type="text/javascript">
-    require(["dojox/mobile/parser", "dojox/mobile/compat", "dojo/domReady!", "dojox/mobile/View", "dojox/mobile/Heading", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/Switch", "dojox/mobile/RoundRect", "dojox/mobile/RoundRectCategory",  "dojox/mobile/ContentPane", "dojox/mobile/Button", "dojox/mobile/ProgressIndicator", "dojo/_base/xhr", "dojox/mobile/FilteredListMixin", "dojox/mobile/compat", "dojox/form/Uploader", "dojox/mobile/SwapView", "dojox/mobile/PageIndicator", "dojox/mobile/Badge", "dojox/mobile/IconContainer", "dojox/mobile/IconItem",   "dojox/mobile", "dojox/mobile/RoundRectDataList", "dojo/data/ItemFileReadStore", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton", "dojox/mobile/TabBar", "dojox/mobile/ScrollableView","dojox/mobile/Accordion","dojo/_base/kernel", "dojo/parser", "dojox/dgauges/components/grey/HorizontalLinearGauge", "dojox/mobile/Tooltip" ], function (parser) {
+    require(["dojox/mobile/parser", "dojox/mobile/compat", "dojo/domReady!", "dojox/mobile/View", "dojox/mobile/Heading", "dojox/mobile/RoundRectList", "dojox/mobile/ListItem", "dojox/mobile/Switch", "dojox/mobile/RoundRect", "dojox/mobile/RoundRectCategory",  "dojox/mobile/ContentPane", "dojox/mobile/Button", "dojox/mobile/ProgressIndicator", "dojo/_base/xhr", "dojox/mobile/FilteredListMixin", "dojox/mobile/compat", "dojox/form/Uploader", "dojox/mobile/SwapView", "dojox/mobile/PageIndicator", "dojox/mobile/Badge", "dojox/mobile/IconContainer", "dojox/mobile/IconItem",   "dojox/mobile", "dojox/mobile/RoundRectDataList", "dojo/data/ItemFileReadStore", "dojox/mobile/TextBox", "dojox/mobile/ToggleButton", "dojox/mobile/TabBar", "dojox/mobile/ScrollableView","dojox/mobile/Accordion","dojo/_base/kernel", "dojo/parser", "dojox/dgauges/components/default/HorizontalLinearGauge", "dojox/mobile/Tooltip" ], function (parser) {
     parser.parse();	
     });
     dojoConfig = {
@@ -437,7 +437,7 @@ var photoAccueil3 = dom.byId('photoaccueil_3');photoAccueil3.src = 'http://www.a
 request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
 function(responseNbPhoto){
 var responseNbPhotoGauge=responseNbPhoto.split("_|_");
-var pb = new ProgressBar({value:responseNbPhotoGauge[0]+"%", label:responseNbPhotoGauge[0], style:{width:"100%"}});
+var pb = new default.HorizontalLinearGauge({value:responseNbPhotoGauge[0]+"%", style:{width:"100%"}});
 pb.placeAt(dom.byId("gauge"));
 pb.startup();
 })
@@ -490,6 +490,20 @@ var geocoder;
 function initialize() {geocoder = new google.maps.Geocoder();}
 google.maps.event.addDomListener(window, 'load', initialize);
 
+
+ function fallback(e) {
+  video.src = 'fallbackvideo.webm';
+}
+
+function success(stream) {
+  video.src = window.URL.createObjectURL(stream);
+}
+
+if (!navigator.getUserMedia) {
+  fallback();
+} else {
+  navigator.getUserMedia({video: true}, success, fallback);
+}
  </script>
  
     </head>
@@ -680,6 +694,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
     
     <div id='cadreCamera' style="display:none;valign:top;">
+   
+
+
+<h3 id="toc-basic-demo">Basic demo</h3>
+
+<div style="text-align:center;">
+  <video id="basic-stream" class="videostream" autoplay></video>
+  <p><button id="capture-button">Capture video</button> <button id="stop-button">Stop</button></p>
+</div>
+
     <div id='affichLocalisation'></div>
     <div data-role="content" align="center" width="100%">
     <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
