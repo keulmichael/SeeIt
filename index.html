@@ -186,7 +186,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     
     navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     function geolocationSuccess(position) {	
-    if(document.getElementById('changeInfosParis').value=="off")
+    if(document.getElementById('infosParis').value=="off")
     {
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
   geocoder.geocode({'latLng': latlng}, function(results, status) {
