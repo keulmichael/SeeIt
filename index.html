@@ -193,7 +193,8 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
       
       for(var i = 0; i < results[1].address_components.length; i++){
     ac = results[1].address_components[i];
-    alert(ac);
+    result[ac.types[0]] = ac.long_name;
+    alert(result);
   }
       
       document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"<BR>"+results[1].address_components[0]; 
