@@ -491,49 +491,6 @@ function initialize() {geocoder = new google.maps.Geocoder();}
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
- function errorCallback(e) {
-  if (e.code == 1) {
-    alert('User denied access to their camera');
-  } else {
-    alert('getUserMedia() not supported in your browser.');
-  }
-  //e.target.src = 'http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv';
-}
-
-function errorCallback(e) {
-  if (e.code == 1) {
-    alert('User denied access to their camera');
-  } else {
-    alert('getUserMedia() not supported in your browser.');
-  }
-  //e.target.src = 'http://www.html5rocks.com/en/tutorials/video/basics/Chrome_ImF.ogv';
-}
-
-function video() {
-var localMediaStream = null;
-
-  if (navigator.getUserMedia) {
-    navigator.getUserMedia('video', function(stream) {
-      video.src = stream;
-      video.controls = true;
-      localMediaStream = stream;
-    }, errorCallback);
-  } else if (navigator.webkitGetUserMedia) {
-    navigator.webkitGetUserMedia({video: true}, function(stream) {
-      video.src = window.URL.createObjectURL(stream);
-      video.controls = true;
-      localMediaStream = stream;
-    }, errorCallback);
-  } else {
-    errorCallback({target: video});
-  }
-
-
-document.querySelector('#stop-button').addEventListener('click', function(e) {
-  video.pause();
-  localMediaStream.stop(); // Doesn't do anything in Chrome.
-}, false);
-};
  </script>
  
     </head>
@@ -724,16 +681,6 @@ document.querySelector('#stop-button').addEventListener('click', function(e) {
     </div>
     
     <div id='cadreCamera' style="display:none;valign:top;">
-   
-
-
-<h3 id="toc-basic-demo">Basic demo</h3>
-
-<div style="text-align:center;">
-  <video id="basic-stream" class="videostream" autoplay></video>
-  <p><button id="capture-button" onclick="video()">Capture video</button> <button id="stop-button">Stop</button></p>
-</div>
-
     <div id='affichLocalisation'></div>
     <div data-role="content" align="center" width="100%">
     <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
