@@ -168,6 +168,7 @@ while (iconContainerWidgetSuppr.firstChild) {
         
     });
     }
+    
     function affichPointsTournees(tournee){CacherCamera();
     require([
         "dijit/registry",
@@ -184,6 +185,9 @@ while (iconContainerWidgetSuppr.firstChild) {
         
     });
     
+var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
+var options = {frequency: 3000}; 
+function onSuccess(heading) {
     navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     function geolocationSuccess(position) {	
 
@@ -210,7 +214,7 @@ else
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
     function(responseLocalisation){
-    if (responseLocalisation!=""){document.getElementById("affichLocalisation").innerHTML="A prendre en photo : "+responseLocalisation;} 
+    if (responseLocalisation!=""){document.getElementById("affichLocalisation").innerHTML="A prendre en photo : "+responseLocalisation+" (".heading.magneticHeading.")";} 
       })
       })
 
@@ -220,6 +224,10 @@ else
 function geolocationError(error) {
     alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
 }
+}
+function onError(compassError) {
+    alert('Compass error: ' + compassError.code);
+};
     }
     
     function mobile_modif_donnees_reelle(num, tournee, page){
@@ -254,16 +262,7 @@ function geolocationError(error) {
         alert('onError!');
     };
     }
-    function Ccompass(){
-    navigator.compass.getCurrentHeading(compassSuccess, compassError);
-    function onSuccess(heading) {
-        alert('Heading: ' + heading.magneticHeading);
-    };
-    function onError(error) {
-        alert('CompassError: ' + error.code);
-    };
-    navigator.compass.getCurrentHeading(onSuccess, onError);
-    }
+
     function changeCameraDirection(value) {
     alert('Option disponible dans les prochaines versions');
     if (value=='on'){settings.CameraDirection=1;}
