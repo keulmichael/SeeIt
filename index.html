@@ -211,7 +211,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
       	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?type=annonceur&lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
     function(responseLocalisationAnnonceur){
-      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+"<br><br>"+responseLocalisationAnnonceur+" ()"; 
+      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+"<br><br>"+responseLocalisationAnnonceur; 
       })
       })
 }}
@@ -224,7 +224,7 @@ else
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?type=tourisme&lat='+position.coords.latitude+'&long='+position.coords.longitude+'&compass='+heading.magneticHeading).then(
     function(responseLocalisation){
-    if (responseLocalisation!=""){document.getElementById("affichLocalisation").innerHTML="A prendre en photo : "+responseLocalisation+" ()";} 
+    if (responseLocalisation!=""){document.getElementById("affichLocalisation").innerHTML="A prendre en photo : "+responseLocalisation;} 
       })
       })
 
