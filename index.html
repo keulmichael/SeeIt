@@ -206,7 +206,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
 }})
 }
 else
-    {alert(position.coords.latitude+' / '+position.coords.longitude);
+    {
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
     function(responseLocalisation){
@@ -509,12 +509,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <img  id='photoaccueil_1' src="" style="width:70%;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
-    <div id='logpubaccueil_2'></div>
+    <div id='logpubaccueil_1'></div>
 <img  id='pubaccueil_1' src="http://www.appliseeit.com/mobile/image/imagePub.jpg" style="width:70%;" onTouchstart='window.open("http://www.rockenseine.com","Rock en Seine","menubar=yes, status=yes, width=100%");'/>     
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil_2'></div>
 <img  id='photoaccueil_2' src="" style="width:70%;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>     
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+    <div id='logpubaccueil_2'></div>
+<img  id='pubaccueil_2' src="http://www.appliseeit.com/mobile/image/marqueursRA.jpg" style="width:70%;" onTouchstart='window.open("http://www.html5rocks.com/en/tutorials/webgl/jsartoolkit_webrtc/AR_mediaStream.html","Vidéo","menubar=yes, status=yes, width=100%");'/>     
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
     <div id='logphotoaccueil_3'></div>
