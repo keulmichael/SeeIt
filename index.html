@@ -206,7 +206,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
 }})
 }
 else
-    {
+    {alert(position.coords.latitude+' / '+position.coords.longitude);
 	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
     function(responseLocalisation){
