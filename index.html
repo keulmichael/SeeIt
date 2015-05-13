@@ -185,9 +185,9 @@ while (iconContainerWidgetSuppr.firstChild) {
         
     });
     
-var watchID = navigator.compass.watchHeading(onSuccess, onError, options);
-var options = {frequency: 3000}; 
-function onSuccess(heading) {
+var watchID = navigator.compass.watchHeading(onSuccessCompass, onErrorCompass, optionsCompass);
+var optionsCompass = {frequency: 3000}; 
+function onSuccessCompass(heading) {
     navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
     function geolocationSuccess(position) {	
 
@@ -205,7 +205,11 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
  // }
       
       //document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"<BR>"+results[1].address_components[0]; 
-      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address; 
+      	require(["dojo/request"], function(request){
+    request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
+    function(responseLocalisationAnnonceur){
+      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+"<br><br>"+responseLocalisationAnnonceur; 
+      })
       }
 }})
 }
@@ -225,10 +229,14 @@ function geolocationError(error) {
     alert('code: '    + error.code    + '\n' + 'message: ' + error.message + '\n');
 }
 }
-function onError(compassError) {
+function onErrorCompass(compassError) {
     alert('Compass error: ' + compassError.code);
 };
     }
+	}
+    
+    
+    
     
     function mobile_modif_donnees_reelle(num, tournee, page){
     require(["dojo/_base/window", "dojox/mobile/ProgressIndicator"],
