@@ -637,8 +637,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
+        </ul>
         <div data-dojo-type="dojox/mobile/Accordion" >
         <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Thèmes"'> 
+	    <h1 data-dojo-type="dojox/mobile/Heading">Options</h1>
+    <ul data-dojo-type="dojox/mobile/RoundRectList">
      <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Animaux'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoo de Vincennes
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
@@ -661,9 +664,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Infos monuments Paris
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" ></div>
     <input type='hidden' value='' id="affichInfoLoca">
+            </ul>
     </div>
     </div>
-    </ul>
     </div>
     
     <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" > 
