@@ -244,12 +244,7 @@ function onErrorCompass(compassError) {
 	
     
     
-    
-    
-    
-    
-    
-    
+
     
     
     function mobile_modif_donnees_reelle(num, tournee, page){
@@ -411,6 +406,12 @@ var NbNewPhotos='';
     if (value=='on'){document.getElementById('infosParis').value="on";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
     if (value=='off'){document.getElementById('infosParis').value="off";}
     }    
+    
+        function changeLeParcdeSceaux(value) {
+    if (value=='on'){document.getElementById('infosLeParcdeSceaux').value="on";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
+    if (value=='off'){document.getElementById('infoLeParcdeSceaux').value="off";}
+    }    
+       
     
     
  function nombrePhotos(){
@@ -635,7 +636,26 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
-     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Tourisme'"></li>
+     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Animaux'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoo de Vincennes
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Architecture'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Bâtiments de Paris
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Evénements'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Concerts
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Jeux'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Trouver les monuments de Paris
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Loisirs'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Les parcs de Loisirs
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nature'"></li>
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Le Parc de Sceaux
+    <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatLeParcdeSceaux){changeLeParcdeSceaux(newStatLeParcdeSceaux)}" value="off" ></div>
+  <input type='hidden' value='off' id="infosLeParcdeSceaux">
+    <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Tourisme'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Infos monuments Paris
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" ></div>
     <input type='hidden' value='off' id="infosParis">
