@@ -409,7 +409,7 @@ var NbNewPhotos='';
     }    
     
         function changeLeParcdeSceaux(value) {
-	alert("Le parcours démarre à l'entrée de la Grenouillère";)
+	alert("Le parcours démarre à l'entrée de la Grenouillère");
     if (value=='on'){document.getElementById('affichInfoLoca').value="infosLeParcdeSceaux";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
     if (value=='off'){document.getElementById('affichInfoLoca').value="";}
     }    
@@ -639,7 +639,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
     </li>
 
- 
+<div data-dojo-type="dojox/mobile/Accordion" >
+<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>   
      <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Animaux'"></li>
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoo de Vincennes
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
@@ -662,7 +663,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Infos monuments Paris
     <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" ></div>
     <input type='hidden' value='' id="affichInfoLoca">
-
+</div>
+</div>
     </ul>
     </div>
     
