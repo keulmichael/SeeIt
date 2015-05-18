@@ -202,7 +202,8 @@ function onSuccessCompass(heading) {
 /////////////////////////////////
     if (document.getElementById('affichInfoLoca').value=="")
     {
-var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    if (position.coords.accuracy<100){
+var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);}
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
