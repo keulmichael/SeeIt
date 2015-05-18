@@ -221,12 +221,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
             if(elt[i].types[0] == 'country')                                   var pays = elt[i].long_name;
             if(elt[i].types[0] == 'park')                                        var parc = elt[i].long_name;
             if(elt[i].types[0] == 'point_of_interest')                    var mon = elt[i].long_name;
-            if(elt[i].types[0] == 'premise ')                                  var prem = elt[i].long_name;
-		    
-	    
-	     
-	    
-	    premise 
+            if(elt[i].types[0] == 'premise')                                  var prem = elt[i].long_name;
           }
 	  document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+ adr +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ pays +"<br>"+ parc +"<br>"+ mon +"<br>"+ prem; 
       })
