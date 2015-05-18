@@ -207,11 +207,19 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
            
-      //document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].address_components[0].long_name+"<BR>"+results[1].address_components[0]; 
       	require(["dojo/request"], function(request){
     request.get('http://www.appliseeit.com/mobile/rechercheLocalisation.php?affichInfoLoca=annonceur&lat='+position.coords.latitude+'&long='+position.coords.longitude).then(
     function(responseLocalisationAnnonceur){
-      document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+"<br><br>"+responseLocalisationAnnonceur; 
+      //document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+"<br><br>"+responseLocalisationAnnonceur; 
+	    
+      var elt = results[0].address_components;
+          for(i in elt){
+            if(elt[i].types[0] == 'postal_code')                            var cp  = elt[i].long_name;
+            if(elt[i].types[0] == 'locality')                                    var city = elt[i].long_name;
+            if(elt[i].types[0] == 'administrative_area_level_2')  var dpt = elt[i].long_name;
+            if(elt[i].types[0] == 'country')                                   var pays = elt[i].long_name;
+          }
+	  document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+ cp +" "+ city +"<BR>"+ dpt +"<BR>"+ pays; 
       })
       })
 }}
