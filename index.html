@@ -216,7 +216,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
           for(i in elt){
             if(elt[i].types[0] == 'street_number')                       var num  = elt[i].long_name; 
             if(elt[i].types[0] == 'route')                                      var street  = elt[i].long_name; 
-            if(elt[i].types[0] == 'street_address')                       var adr  = elt[i].long_name;  	    
+            if(elt[i].types[0] == 'sublocality')                              var sub  = elt[i].long_name; 		    
             if(elt[i].types[0] == 'postal_code')                            var cp  = elt[i].long_name;
             if(elt[i].types[0] == 'locality')                                    var city = elt[i].long_name;
             if(elt[i].types[0] == 'administrative_area_level_2')  var dpt = elt[i].long_name;
@@ -225,7 +225,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
             if(elt[i].types[0] == 'point_of_interest')                    var mon = elt[i].long_name;
             if(elt[i].types[0] == 'premise')                                  var prem = elt[i].long_name;
           }
-	  document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+num +" "+ street +"<br>"+ adr +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ pays +"<br>"+ parc +"<br>"+ mon +"<br>"+ prem; 
+	  document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ pays +"<br>"+ parc +"<br>"+ mon +"<br>"+ prem; 
       })
       })
 }}
