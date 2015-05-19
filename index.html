@@ -7,11 +7,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <title> Des moments à partager avec SeeIt! </title>
-  <style type="text/css">
-      html { height: 100% }
-    body { height: 100%; margin: 0px; padding: 0px }
-    #map_canvas { height: 100% ; width:100%;}
-  </style>
+
 <script type="text/javascript">
 function Settings() {
 if ((typeof Camera !== "undefined")) {
@@ -183,19 +179,19 @@ function(responseLocalisationAnnonceur){
 //document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+"<br><br>"+responseLocalisationAnnonceur;
 var elt = results[0].address_components;
 for(i in elt){
-if(elt[i].types[0] == 'street_number'){if (elt[i].long_name != ''){var num = elt[i].long_name; }else{ var num='';}}
-if(elt[i].types[0] == 'route'){if (elt[i].long_name != ''){var street = elt[i].long_name; }else{var street='';}}
-if(elt[i].types[0] == 'sublocality'){if (elt[i].long_name != ''){var sub = elt[i].long_name; }else{var sub='';}}
-if(elt[i].types[0] == 'postal_code'){if (elt[i].long_name != ''){var cp = elt[i].long_name;}else{var cp='';}}
-if(elt[i].types[0] == 'locality'){if (elt[i].long_name != ''){var city = elt[i].long_name;}else{var city='';}}
-if(elt[i].types[0] == 'administrative_area_level_2' != ''){if (elt[i].long_name){var dpt = elt[i].long_name;}else{var dpt='';}}
-if(elt[i].types[0] == 'administrative_area_level_1' != ''){if (elt[i].long_name){var reg = elt[i].long_name;}else{var reg='';}}
-if(elt[i].types[0] == 'country'){if (elt[i].long_name != ''){var pays = elt[i].long_name;}else{var pays='';}}
-if(elt[i].types[0] == 'park'){if (elt[i].long_name != ''){var parc = elt[i].long_name;}else{var parc='';}}
-if(elt[i].types[0] == 'natural_feature'){if (elt[i].long_name != ''){var nat = elt[i].long_name; }else{var nat='';}}
-if(elt[i].types[0] == 'point_of_interest'){if (elt[i].long_name != ''){var mon = elt[i].long_name;}else{var mon='';}}
-if(elt[i].types[0] == 'premise'){if (elt[i].long_name != ''){var prem = elt[i].long_name;}else{var prem='';}}
-if(elt[i].types[0] == 'transit_station'){if (elt[i].long_name != ''){var sta = elt[i].long_name;}else{var sta='';}}
+if(elt[i].types[0] == 'street_number'){if (elt[i].long_name != undefined){var num = elt[i].long_name; }else{ var num='';}}
+if(elt[i].types[0] == 'route'){if (elt[i].long_name != undefined){var street = elt[i].long_name; }else{var street='';}}
+if(elt[i].types[0] == 'sublocality'){if (elt[i].long_name != undefined){var sub = elt[i].long_name; }else{var sub='';}}
+if(elt[i].types[0] == 'postal_code'){if (elt[i].long_name != undefined){var cp = elt[i].long_name;}else{var cp='';}}
+if(elt[i].types[0] == 'locality'){if (elt[i].long_name != undefined){var city = elt[i].long_name;}else{var city='';}}
+if(elt[i].types[0] == 'administrative_area_level_2' != undefined){if (elt[i].long_name){var dpt = elt[i].long_name;}else{var dpt='';}}
+if(elt[i].types[0] == 'administrative_area_level_1' != undefined){if (elt[i].long_name){var reg = elt[i].long_name;}else{var reg='';}}
+if(elt[i].types[0] == 'country'){if (elt[i].long_name != undefined){var pays = elt[i].long_name;}else{var pays='';}}
+if(elt[i].types[0] == 'park'){if (elt[i].long_name != undefined){var parc = elt[i].long_name;}else{var parc='';}}
+if(elt[i].types[0] == 'natural_feature'){if (elt[i].long_name != undefined){var nat = elt[i].long_name; }else{var nat='';}}
+if(elt[i].types[0] == 'point_of_interest'){if (elt[i].long_name != undefined){var mon = elt[i].long_name;}else{var mon='';}}
+if(elt[i].types[0] == 'premise'){if (elt[i].long_name != undefined){var prem = elt[i].long_name;}else{var prem='';}}
+if(elt[i].types[0] == 'transit_station'){if (elt[i].long_name != undefined){var sta = elt[i].long_name;}else{var sta='';}}
 }
 document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+results[1].formatted_address+"<br><br>"+ num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br>"+ parc +"<br>"+ nat +"<br>"+ mon +"<br>"+ prem +"<br>"+ sta; })
 })
@@ -493,14 +489,19 @@ map = new google.maps.Map(document.getElementById("map_canvas"), {
 }
 
 </script>
+
+  <style type="text/css">
+      html { height: 100% }
+    body { height: 100%; margin: 0px; padding: 0px }
+    #map_canvas { height: 100% ; width:100%;}
+  </style>
 </head>
 
-<body onload="initialize()">
-<div id='map_canvas'></div>
+<body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
 <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
-
+<div id='map_canvas'></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
@@ -696,9 +697,7 @@ map = new google.maps.Map(document.getElementById("map_canvas"), {
 </div>
 </div>
 <div id='cadreCamera' style="display:none;valign:top;">
-<div data-dojo-type="dojox/mobile/RoundRect" style="background-color:white;height:60px;vertical-align:middle;">
 <div id='affichLocalisation'></div>
-</div>
 <div data-role="content" align="center" width="100%">
 <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
 </div>
