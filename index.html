@@ -489,18 +489,12 @@ map = new google.maps.Map(document.getElementById("map_canvas"), {
 
 </script>
 
-  <style type="text/css">
-      html { height: 100% }
-    body { height: 100%; margin: 0px; padding: 0px }
-    #map_canvas { height: 30% ; width:100%;}
-  </style>
 </head>
 
-<body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
+<body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);" style="visibility:hidden;">
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
 <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
-<div id='map_canvas'></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
@@ -697,6 +691,7 @@ map = new google.maps.Map(document.getElementById("map_canvas"), {
 </div>
 <div id='cadreCamera' style="display:none;valign:top;">
 <div id='affichLocalisation'></div>
+<a href="google_map.php">Afficher la carte</a>
 <div data-role="content" align="center" width="100%">
 <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
 </div>
