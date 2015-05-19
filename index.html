@@ -495,7 +495,7 @@ map = new google.maps.Map(document.getElementById("map_canvas"), {
 </script>
 </head>
 
-<body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" >
+<body onload="initialize()">
 <div id='map_canvas'></div>
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
@@ -696,8 +696,9 @@ map = new google.maps.Map(document.getElementById("map_canvas"), {
 </div>
 </div>
 <div id='cadreCamera' style="display:none;valign:top;">
+<div data-dojo-type="dojox/mobile/RoundRect" style="background-color:white;height:60px;vertical-align:middle;">
 <div id='affichLocalisation'></div>
-
+</div>
 <div data-role="content" align="center" width="100%">
 <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
 </div>
