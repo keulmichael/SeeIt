@@ -173,7 +173,7 @@ while (iconContainerWidgetSuppr.firstChild) {
     
     
     
-    
+     var previousPosition = null;
     
     function affichPointsTournees(tournee){CacherCamera();
     require([
@@ -204,6 +204,40 @@ function onSuccessCompass(heading) {
     {
     if (position.coords.accuracy<100){
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);}
+///////////////////////////////////////////////////////////////////////
+ map = new google.maps.Map(document.getElementById("map_canvas"), {
+            zoom: 19,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+          });  
+    }
+       
+    if (navigator.geolocation)
+      var watchId = navigator.geolocation.watchPosition(successCallback, null, {enableHighAccuracy:true});
+    else
+      alert("Votre navigateur ne prend pas en compte la géolocalisation HTML5");
+       
+    function successCallback(position){
+      map.panTo(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+        map: map
+      }); 
+      if (previousPosition){
+        var newLineCoordinates = [
+           new google.maps.LatLng(previousPosition.coords.latitude, previousPosition.coords.longitude),
+           new google.maps.LatLng(position.coords.latitude, position.coords.longitude)];
+         
+        var newLine = new google.maps.Polyline({
+          path: newLineCoordinates,       
+          strokeColor: "#FF0000",
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+        newLine.setMap(map);
+      }
+      previousPosition = position;
+     ///////////////////////////////////////////////////////////////
   geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
@@ -531,15 +565,6 @@ alert('Photos supprimées');
 var geocoder;
 function initialize() {
 geocoder = new google.maps.Geocoder();
-  var pyrmont = new google.maps.LatLng('48.858704', '2.347464');
-
-  map = new google.maps.Map(document.getElementById('map-canvas'), {
-  center: pyrmont,
-    zoom: 15
-  });
-
-
-
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 
