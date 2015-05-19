@@ -215,20 +215,20 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
 	    
       var elt = results[0].address_components;
           for(i in elt){
-            if(elt[i].types[0] == 'street_address')                   var adr  = elt[i].long_name; 
-            if(elt[i].types[0] == 'street_number')                   var num  = elt[i].long_name; 
-            if(elt[i].types[0] == 'route')                             var street  = elt[i].long_name; 
-            if(elt[i].types[0] == 'sublocality')                       var sub  = elt[i].long_name; 		    
-            if(elt[i].types[0] == 'postal_code')                      var cp  = elt[i].long_name;
-            if(elt[i].types[0] == 'locality')                          var city = elt[i].long_name;
-            if(elt[i].types[0] == 'administrative_area_level_2')    var dpt = elt[i].long_name;
-            if(elt[i].types[0] == 'administrative_area_level_1')    var reg = elt[i].long_name;
-            if(elt[i].types[0] == 'country')                          var pays = elt[i].long_name;
-            if(elt[i].types[0] == 'park')                             var parc = elt[i].long_name;
-            if(elt[i].types[0] == 'natural_feature')                 var nat = elt[i].long_name;		    
-            if(elt[i].types[0] == 'point_of_interest')               var mon = elt[i].long_name;
-            if(elt[i].types[0] == 'premise')                          var prem = elt[i].long_name;
-	    if(elt[i].types[0] == 'transit_station')                  var sta = elt[i].long_name;
+            if(elt[i].types[0] == 'street_address'){if (elt[i].long_name){var adr  = elt[i].long_name; }}
+            if(elt[i].types[0] == 'street_number'){if (elt[i].long_name){var num  = elt[i].long_name; }}
+            if(elt[i].types[0] == 'route'){if (elt[i].long_name){var street  = elt[i].long_name; }}
+            if(elt[i].types[0] == 'sublocality'){if (elt[i].long_name){var sub  = elt[i].long_name; }}		    
+            if(elt[i].types[0] == 'postal_code'){if (elt[i].long_name){var cp  = elt[i].long_name;}}
+            if(elt[i].types[0] == 'locality'){if (elt[i].long_name){var city = elt[i].long_name;}}
+            if(elt[i].types[0] == 'administrative_area_level_2'){if (elt[i].long_name){var dpt = elt[i].long_name;}}
+            if(elt[i].types[0] == 'administrative_area_level_1'){if (elt[i].long_name){var reg = elt[i].long_name;}}
+            if(elt[i].types[0] == 'country'){if (elt[i].long_name){var pays = elt[i].long_name;}}
+            if(elt[i].types[0] == 'park'){if (elt[i].long_name){var parc = elt[i].long_name;}}
+            if(elt[i].types[0] == 'natural_feature'){if (elt[i].long_name){var nat = elt[i].long_name;	}}	    
+            if(elt[i].types[0] == 'point_of_interest'){if (elt[i].long_name){var mon = elt[i].long_name;}}
+            if(elt[i].types[0] == 'premise'){if (elt[i].long_name){var prem = elt[i].long_name;}}
+	    if(elt[i].types[0] == 'transit_station'){if (elt[i].long_name){var sta = elt[i].long_name;}}
           }
 	  document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+results[1].formatted_address+"<br><br>"+ adr +"<br><br>"+ num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br>"+ parc +"<br>"+ nat +"<br>"+ mon +"<br>"+ prem +"<br>"+ sta;       })
       })
@@ -529,7 +529,18 @@ alert('Photos supprimées');
 
  //INITIALIZE GOOGLE MAP
 var geocoder;
-function initialize() {geocoder = new google.maps.Geocoder();}
+function initialize() {
+geocoder = new google.maps.Geocoder();
+  var pyrmont = new google.maps.LatLng('48.858704', '2.347464');
+
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+  center: pyrmont,
+    zoom: 15
+  });
+
+
+
+}
 google.maps.event.addDomListener(window, 'load', initialize);
 
 
@@ -750,7 +761,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </div>
     
     <div id='cadreCamera' style="display:none;valign:top;">
-    <div id='affichLocalisation'></div>
+    <div id='affichLocalisation' width="100%" height="33%"></div>
+    <div id='map-canvas'></div>
     <div data-role="content" align="center" width="100%">
     <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
     </div>
