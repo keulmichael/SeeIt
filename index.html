@@ -183,22 +183,21 @@ function(responseLocalisationAnnonceur){
 //document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à "+results[1].formatted_address+"<br><br>"+responseLocalisationAnnonceur;
 var elt = results[0].address_components;
 for(i in elt){
-if(elt[i].types[0] == 'street_address'){if (elt[i].long_name){var adr = elt[i].long_name; }}
-if(elt[i].types[0] == 'street_number'){if (elt[i].long_name){var num = elt[i].long_name; }}
-if(elt[i].types[0] == 'route'){if (elt[i].long_name){var street = elt[i].long_name; }}
-if(elt[i].types[0] == 'sublocality'){if (elt[i].long_name){var sub = elt[i].long_name; }}
-if(elt[i].types[0] == 'postal_code'){if (elt[i].long_name){var cp = elt[i].long_name;}}
-if(elt[i].types[0] == 'locality'){if (elt[i].long_name){var city = elt[i].long_name;}}
-if(elt[i].types[0] == 'administrative_area_level_2'){if (elt[i].long_name){var dpt = elt[i].long_name;}}
-if(elt[i].types[0] == 'administrative_area_level_1'){if (elt[i].long_name){var reg = elt[i].long_name;}}
-if(elt[i].types[0] == 'country'){if (elt[i].long_name){var pays = elt[i].long_name;}}
-if(elt[i].types[0] == 'park'){if (elt[i].long_name){var parc = elt[i].long_name;}}
-if(elt[i].types[0] == 'natural_feature'){if (elt[i].long_name){var nat = elt[i].long_name; }}
-if(elt[i].types[0] == 'point_of_interest'){if (elt[i].long_name){var mon = elt[i].long_name;}}
-if(elt[i].types[0] == 'premise'){if (elt[i].long_name){var prem = elt[i].long_name;}}
-if(elt[i].types[0] == 'transit_station'){if (elt[i].long_name){var sta = elt[i].long_name;}}
+if(elt[i].types[0] == 'street_number'){if (elt[i].long_name){var num = elt[i].long_name; }else{ num='';}}
+if(elt[i].types[0] == 'route'){if (elt[i].long_name){var street = elt[i].long_name; }else{street='';}}
+if(elt[i].types[0] == 'sublocality'){if (elt[i].long_name){var sub = elt[i].long_name; }else{sub='';}}
+if(elt[i].types[0] == 'postal_code'){if (elt[i].long_name){var cp = elt[i].long_name;}else{cp='';}}
+if(elt[i].types[0] == 'locality'){if (elt[i].long_name){var city = elt[i].long_name;}else{city='';}}
+if(elt[i].types[0] == 'administrative_area_level_2'){if (elt[i].long_name){var dpt = elt[i].long_name;}else{dpt='';}}
+if(elt[i].types[0] == 'administrative_area_level_1'){if (elt[i].long_name){var reg = elt[i].long_name;}else{reg='';}}
+if(elt[i].types[0] == 'country'){if (elt[i].long_name){var pays = elt[i].long_name;}else{pays='';}}
+if(elt[i].types[0] == 'park'){if (elt[i].long_name){var parc = elt[i].long_name;}else{parc='';}}
+if(elt[i].types[0] == 'natural_feature'){if (elt[i].long_name){var nat = elt[i].long_name; }else{nat='';}}
+if(elt[i].types[0] == 'point_of_interest'){if (elt[i].long_name){var mon = elt[i].long_name;}else{mon='';}}
+if(elt[i].types[0] == 'premise'){if (elt[i].long_name){var prem = elt[i].long_name;}else{prem='';}}
+if(elt[i].types[0] == 'transit_station'){if (elt[i].long_name){var sta = elt[i].long_name;}else{sta='';}}
 }
-document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+results[1].formatted_address+"<br><br>"+ adr +"<br><br>"+ num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br>"+ parc +"<br>"+ nat +"<br>"+ mon +"<br>"+ prem +"<br>"+ sta; })
+document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+results[1].formatted_address+"<br><br>"+ num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br>"+ parc +"<br>"+ nat +"<br>"+ mon +"<br>"+ prem +"<br>"+ sta; })
 })
 }}
 })
@@ -503,6 +502,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
 <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
+<div id='map_canvas'></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
@@ -699,7 +699,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 </div>
 <div id='cadreCamera' style="display:none;valign:top;">
 <div id='affichLocalisation'></div>
-<div id='map_canvas'></div>
+
 <div data-role="content" align="center" width="100%">
 <a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
 </div>
