@@ -215,19 +215,22 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
 	    
       var elt = results[0].address_components;
           for(i in elt){
-            if(elt[i].types[0] == 'street_number')                       var num  = elt[i].long_name; 
-            if(elt[i].types[0] == 'route')                                      var street  = elt[i].long_name; 
-            if(elt[i].types[0] == 'sublocality')                              var sub  = elt[i].long_name; 		    
-            if(elt[i].types[0] == 'postal_code')                            var cp  = elt[i].long_name;
-            if(elt[i].types[0] == 'locality')                                    var city = elt[i].long_name;
-            if(elt[i].types[0] == 'administrative_area_level_2')  var dpt = elt[i].long_name;
-            if(elt[i].types[0] == 'country')                                   var pays = elt[i].long_name;
-            if(elt[i].types[0] == 'park')                                        var parc = elt[i].long_name;
-            if(elt[i].types[0] == 'point_of_interest')                    var mon = elt[i].long_name;
-            if(elt[i].types[0] == 'premise')                                  var prem = elt[i].long_name;
+            if(elt[i].types[0] == 'street_address')                   var adr  = elt[i].long_name; 
+            if(elt[i].types[0] == 'street_number')                   var num  = elt[i].long_name; 
+            if(elt[i].types[0] == 'route')                             var street  = elt[i].long_name; 
+            if(elt[i].types[0] == 'sublocality')                       var sub  = elt[i].long_name; 		    
+            if(elt[i].types[0] == 'postal_code')                      var cp  = elt[i].long_name;
+            if(elt[i].types[0] == 'locality')                          var city = elt[i].long_name;
+            if(elt[i].types[0] == 'administrative_area_level_2')    var dpt = elt[i].long_name;
+            if(elt[i].types[0] == 'administrative_area_level_1')    var reg = elt[i].long_name;
+            if(elt[i].types[0] == 'country')                          var pays = elt[i].long_name;
+            if(elt[i].types[0] == 'park')                             var parc = elt[i].long_name;
+            if(elt[i].types[0] == 'natural_feature')                 var nat = elt[i].long_name;		    
+            if(elt[i].types[0] == 'point_of_interest')               var mon = elt[i].long_name;
+            if(elt[i].types[0] == 'premise')                          var prem = elt[i].long_name;
+	    if(elt[i].types[0] == 'transit_station')                  var sta = elt[i].long_name;
           }
-	  document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ pays +"<br>"+ parc +"<br>"+ mon +"<br>"+ prem; 
-      })
+	  document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+results[1].formatted_address+"<br><br>"+ adr +"<br><br>"+ num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br>"+ parc +"<br>"+ nat +"<br>"+ mon +"<br>"+ prem +"<br>"+ sta;       })
       })
 }}
 })
