@@ -210,7 +210,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
             center: latlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
           });  
-    }
+    
        
     if (navigator.geolocation)
       var watchId = navigator.geolocation.watchPosition(successCallback, null, {enableHighAccuracy:true});
