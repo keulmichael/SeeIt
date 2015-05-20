@@ -411,7 +411,8 @@ var photoAccueil3 = dom.byId('photoaccueil_3');photoAccueil3.src = 'http://www.a
 request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
 function(responseNbPhoto){
 var responseNbPhotoGauge=responseNbPhoto.split("_|_");
-var pb = new ProgressBar({value:responseNbPhotoGauge[0]+"%", label:responseNbPhotoGauge[0], style:{width:"100%"}});
+var nbPhotosGauge= responseNbPhotoGauge[0]/5;
+var pb = new ProgressBar({value:nbPhotosGauge+"%", label:responseNbPhotoGauge[0], style:{width:"100%"}});
 pb.placeAt(dom.byId("gauge"));
 pb.startup();
 })
@@ -468,7 +469,7 @@ geocoder = new google.maps.Geocoder();
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
-<img src="icone.png" style="width:150px;display: block" />
+<img src="http://www.appliseeit.com/public/images/icone-seeit.png" style="width:150px;display: block" />
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <div id='logphotoaccueil_1'></div>
@@ -664,7 +665,7 @@ geocoder = new google.maps.Geocoder();
 <div id='cadreCamera' style="display:none;valign:top;">
 <div id='affichLocalisation'></div>
 
-<div data-role="content"><a href="#" data-role="button" id="open_camera_button"  style="display: inline-block;width:100">Prendre une photo</a>
+<div data-role="content"><a href="#" data-role="button" id="open_camera_button"  style="display: inline-block;width:50px">Prendre une photo</a>
 <a href="#" data-role="button" style="display: inline-block" onTouchstart='window.open("http://www.appliseeit.com/mobile/google_map.php","","menubar=no, status=no, width=100%");'>Afficher la carte</a></div>
 <div id="log"></div>
 <img id="pic" src="" width="300" style="display: none;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>
