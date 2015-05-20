@@ -659,15 +659,22 @@ geocoder = new google.maps.Geocoder();
 </div>
 </div>
 </div>
+
+
 <div id='cadreCamera' style="display:none;valign:top;">
 <div id='affichLocalisation'></div>
+
 <div data-role="content" align="center" width="100%">
-<img src="http://www.appliseeit.com/mobile/iconeApparareilphoto2.png" id="open_camera_button" alt="prendre du photo" style="margin-right:20"><img src="http://www.appliseeit.com/mobile/image/google_map.png" onTouchstart='window.open("http://www.appliseeit.com/mobile/google_map.php","","menubar=no, status=no, width=100%");'>
+<a href="#" data-role="button" id="open_camera_button" >Prendre une photo</a>
+<a href="#" data-role="button" id="open_camera_button"  onTouchstart='window.open("http://www.appliseeit.com/mobile/google_map.php","","menubar=no, status=no, width=100%");'>Afficher la carte</a>
+</div>
 <div data-role="content">
 <div id="log"></div>
-<img id="pic" src="" width="300" style="display: none;" />
+<img id="pic" src="" width="300" style="display: none;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>
 </div>
 </div>
+
+
 <ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera();RafraichirAccueil();nombrePhotos()}'>Accueil</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera();AffichBadges()}'>Today</li>
