@@ -183,8 +183,8 @@ if(elt[i].types[0] == 'route'){if (typeof  elt[i].long_name != "undefined"){var 
 if(elt[i].types[0] == 'sublocality'){if (typeof  elt[i].long_name != "undefined"){var sub = elt[i].long_name; }else{var sub='';}}
 if(elt[i].types[0] == 'postal_code'){if (typeof  elt[i].long_name != "undefined"){var cp = elt[i].long_name;}else{var cp='';}}
 if(elt[i].types[0] == 'locality'){if (typeof  elt[i].long_name != "undefined"){var city = elt[i].long_name;}else{var city='';}}
-if(elt[i].types[0] == 'administrative_area_level_2' != "undefined"){if (typeof elt[i].long_name){var dpt = elt[i].long_name;}else{var dpt='';}}
-if(elt[i].types[0] == 'administrative_area_level_1' != "undefined"){if (typeof elt[i].long_name){var reg = elt[i].long_name;}else{var reg='';}}
+if(elt[i].types[0] == 'administrative_area_level_2'){if (typeof elt[i].long_name  != "undefined"){var dpt = elt[i].long_name;}else{var dpt='';}}
+if(elt[i].types[0] == 'administrative_area_level_1'){if (typeof elt[i].long_name  != "undefined"){var reg = elt[i].long_name;}else{var reg='';}}
 if(elt[i].types[0] == 'country'){if (typeof elt[i].long_name != "undefined"){var pays = elt[i].long_name;}else{var pays='';}}
 if(elt[i].types[0] == 'park'){if (typeof elt[i].long_name != "undefined"){var parc = elt[i].long_name;}else{var parc='';}}
 if(elt[i].types[0] == 'natural_feature'){if (typeof lt[i].long_name != "undefined"){var nat = elt[i].long_name; }else{var nat='';}}
@@ -192,7 +192,7 @@ if(elt[i].types[0] == 'point_of_interest'){if (typeof elt[i].long_name != "undef
 if(elt[i].types[0] == 'premise'){if (typeof elt[i].long_name != "undefined"){var prem = elt[i].long_name;}else{var prem='';}}
 if(elt[i].types[0] == 'transit_station'){if (typeof elt[i].long_name != "undefined"){var sta = elt[i].long_name;}else{var sta='';}}
 }
-document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+results[1].formatted_address+"<br><br>"+ num +" "+ street +"<br>"+ sub +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br>"+ parc +"<br>"+ nat +"<br>"+ mon +"<br>"+ prem +"<br>"+ sta; })
+document.getElementById("affichLocalisation").innerHTML="Votre photo sera localisée à <br>"+results[1].formatted_address+"<br><br>"+ num +" "+ street +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays; })
 })
 }}
 })
@@ -573,7 +573,7 @@ geocoder = new google.maps.Geocoder();
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
 </li>
 <div data-dojo-type="dojox/mobile/Accordion" >
-<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>
+<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Thèmes"'>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Animaux'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoo de Vincennes
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
@@ -661,10 +661,8 @@ geocoder = new google.maps.Geocoder();
 </div>
 <div id='cadreCamera' style="display:none;valign:top;">
 <div id='affichLocalisation'></div>
-<img src="http://www.appliseeit.com/mobile/image/google_map.png" onTouchstart='window.open("http://www.appliseeit.com/mobile/google_map.php","","menubar=no, status=no, width=100%");'>
 <div data-role="content" align="center" width="100%">
-<a href="#" data-role="button" id="open_camera_button" align="center" width="100%">Prendre une photo</a>
-</div>
+<img src="http://www.appliseeit.com/mobile/iconeApparareilphoto2.png" id="open_camera_button" alt="prendre du photo" style="margin-right:20"><img src="http://www.appliseeit.com/mobile/image/google_map.png" onTouchstart='window.open("http://www.appliseeit.com/mobile/google_map.php","","menubar=no, status=no, width=100%");'>
 <div data-role="content">
 <div id="log"></div>
 <img id="pic" src="" width="300" style="display: none;" />
