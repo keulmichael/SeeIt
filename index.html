@@ -421,7 +421,7 @@ var photoAccueil3 = dom.byId('photoaccueil_3');photoAccueil3.src = 'http://www.a
 request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
 function(responseNbPhoto){
 var responseNbPhotoGauge=responseNbPhoto.split("_|_");
-var nbPhotosGauge= responseNbPhotoGauge[0]/5;
+var nbPhotosGauge= responseNbPhotoGauge[0]/4;
 var pb = new ProgressBar({value:nbPhotosGauge+"%", label:responseNbPhotoGauge[0], style:{width:"100%"}});
 pb.placeAt(dom.byId("gauge"));
 pb.startup();
@@ -432,9 +432,11 @@ function RafraichirAccueil(){
 require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request","dojox/mobile/ProgressBar"
 ], function(dom, on, connect, ready, request, ProgressBar){
 ready(function(){
-request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 100009539529598').then(
+//request.get('https://graph.facebook.com/fql?q=SELECT friend_count FROM user WHERE uid = 1441017086216744').then(
+request.get('https://graph.facebook.com/100009539529598').then(
 function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON);
-document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' + nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
+//document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' + nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
+document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><a href="'+ nbamisfacebook.data[0].link +'"><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></a></td></tr></table>';})
 request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
 function(response442){
 var resPhoto = response442.split("_|_");
@@ -445,7 +447,8 @@ var photoAccueil3 = dom.byId('photoaccueil_3');photoAccueil3.src = 'http://www.a
 request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
 function(responseNbPhoto){
 var responseNbPhotoGauge=responseNbPhoto.split("_|_");
-var pb = new ProgressBar({value:responseNbPhotoGauge[0]+"%", label:responseNbPhotoGauge[0], style:{width:"100%"}});
+var nbPhotosGauge= responseNbPhotoGauge[0]/4;
+var pb = new ProgressBar({value:nbPhotosGauge+"%", label:responseNbPhotoGauge[0], style:{width:"100%"}});
 pb.placeAt(dojo.byId("gauge").innerHTML);
 pb.startup();
 })
