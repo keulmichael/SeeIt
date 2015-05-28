@@ -268,7 +268,6 @@ else{settings.positionPaysage=true;}
 function changeEnregistrerPhoto(value) {
 if (value=='on'){settings.saveToPhotoAlbum=true;}
 else{settings.saveToPhotoAlbum=false;}
-alert(settings.saveToPhotoAlbum);
 };
 
 function Voix(){
@@ -404,6 +403,10 @@ photo.src ='http://www.appliseeit.com/mobile/photos/'+num+'_'+n+'.jpg?v=123';
 }
 });
 }
+
+function openFacebook(){
+	window.open("http://www.facebook.com/100009539529598","Facebook","menubar=yes, status=yes, width=100%");}
+	
 require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request", "dojox/mobile/ProgressBar"
 ], function(dom, on, connect, ready, request, ProgressBar){
 ready(function(){
@@ -411,7 +414,7 @@ ready(function(){
 request.get('https://graph.facebook.com/100009539529598').then(
 function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON);
 //document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' + nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
-document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><a href="http://www.facebook.com/100009539529598"><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></a></td></tr></table>';})
+document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onclick="openFacebook()"></td></tr></table>';})
 request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
 function(response441){
 var resPhoto = response441.split("_|_");
@@ -429,6 +432,7 @@ pb.startup();
 })
 })
 })
+
 function RafraichirAccueil(){
 require(['dojo/dom' , "dojo/on", "dojo/_base/connect","dojo/ready","dojo/request","dojox/mobile/ProgressBar"
 ], function(dom, on, connect, ready, request, ProgressBar){
@@ -437,7 +441,7 @@ ready(function(){
 request.get('https://graph.facebook.com/100009539529598').then(
 function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON);
 //document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' + nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
-document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><a href="'+ nbamisfacebook[link] +'"><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></a></td></tr></table>';})
+document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onclick="openFacebook()"></td></tr></table>';})
 request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
 function(response442){
 var resPhoto = response442.split("_|_");
@@ -471,6 +475,7 @@ var geocoder;
 function initialize() {
 geocoder = new google.maps.Geocoder();
 }
+
 
 </script>
 
@@ -581,7 +586,7 @@ geocoder = new google.maps.Geocoder();
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Photo'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Enregistrer dans l'appareil
-<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateEnregistrerPhoto){changenewStateEnregistrerPhoto(newStateEnregistrerPhoto)}" value="off"></div>
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateEnregistrerPhoto){changeEnregistrerPhoto(newStateEnregistrerPhoto)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nofications'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Son
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(newStateAlertSon)}" value="off" id="alertSon"></div>
