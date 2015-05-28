@@ -411,7 +411,7 @@ ready(function(){
 request.get('https://graph.facebook.com/100009539529598').then(
 function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON);
 //document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' + nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
-document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><a href="'+ nbamisfacebook[link] +'"><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></a></td></tr></table>';})
+document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><a href="http://www.facebook.com/100009539529598"><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></a></td></tr></table>';})
 request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
 function(response441){
 var resPhoto = response441.split("_|_");
