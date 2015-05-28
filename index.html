@@ -264,6 +264,12 @@ function changePositionPortrait(value) {
 if (value=='on'){settings.positionPaysage=false;}
 else{settings.positionPaysage=true;}
 };
+
+function changeEnregistrerPhoto(value) {
+if (value=='on'){settings.positionPaysage=false;}
+else{settings.positionPaysage=true;}
+};
+
 function Voix(){
 if ('webkitSpeechRecognition' in window) {
 var recognition = new webkitSpeechRecognition();
@@ -364,6 +370,8 @@ function changeInfosParis(value) {
 if (value=='on'){document.getElementById('affichInfoLoca').value="infosParis";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
 if (value=='off'){document.getElementById('affichInfoLoca').value="";}
 }
+
+
 function changeLeParcdeSceaux(value) {
 alert("Le parcours démarre à l'entrée de la Grenouillère");
 if (value=='on'){document.getElementById('affichInfoLoca').value="infosLeParcdeSceaux";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
@@ -554,7 +562,7 @@ geocoder = new google.maps.Geocoder();
 <div id='tabViewOptions' data-dojo-type='dojox/mobile/ScrollableView' >
 <h1 data-dojo-type="dojox/mobile/Heading">Options</h1>
 <ul data-dojo-type="dojox/mobile/RoundRectList">
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Camera/Image'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Appareil photo'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Orientation auto
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateOrientation){changeCorrectOrientation(newStateOrientation)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Blocage Position (Paysage)
@@ -565,7 +573,10 @@ geocoder = new google.maps.Geocoder();
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoom Grand Angle
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Alertes/Nofications'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Photo'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Enregistrer dans l'appareil
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateEnregistrerPhoto){changenewStateEnregistrerPhoto(newStateEnregistrerPhoto)}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nofications'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Son
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(newStateAlertSon)}" value="off" id="alertSon"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Vibration
