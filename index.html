@@ -487,6 +487,7 @@ geocoder = new google.maps.Geocoder();
 <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
 
 <script>
+window.onload = function() {
       window.fbAsyncInit = function() {
         FB.init({
           appId      : '1441017086216744',
@@ -502,7 +503,9 @@ geocoder = new google.maps.Geocoder();
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+}
     </script>
+       
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -517,7 +520,7 @@ geocoder = new google.maps.Geocoder();
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
   <div id="pull1" style="position: absolute;height: 65px; top: -65px;">
- <center><table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table> </center>
+<table><tr><td align="center"><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table> 
   </div>
 <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
