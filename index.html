@@ -404,7 +404,7 @@ photo.src ='http://www.appliseeit.com/mobile/photos/'+num+'_'+n+'.jpg?v=123';
 });
 }
 
-function openFacebook(){alert('facebook');
+function openFacebook(){
 	window.open("http://www.facebook.com/100009539529598","Facebook","menubar=yes, status=yes, width=100%");
 	}
 	
@@ -442,7 +442,7 @@ ready(function(){
 request.get('https://graph.facebook.com/100009539529598').then(
 function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON);
 //document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' + nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
-document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart="openFacebook()"></td></tr></table>';})
+document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart="alert(\'facebook\');openFacebook()"></td></tr></table>';})
 request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
 function(response442){
 var resPhoto = response442.split("_|_");
@@ -638,7 +638,8 @@ geocoder = new google.maps.Geocoder();
 <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
 <div id="texteAjouter" align="center"></div><br><br>
 <font color='grey' size='3'>Quel thème choississez-vous ?</font>
-<select id="nouvelAlbum>
+<select id="nouvelAlbum">
+<option value='' selected disabled>
 <option value='Animaux'>Animaux
 <option value='Architecture'>Architecture
 <option value='Célébrités'>Célébrités
@@ -657,7 +658,7 @@ M0<option value='Evénements'>Evénements
 <option value='Voyages'>Voyages
 </select>
 <font color='grey' size='3'>Comment s'appelle votre album ?</font><input type="text" id="nouvelElement">
-<font color='grey' size='3'>Quel est votre pseudo ?</font><input type="text" id="nouveauPseudo>
+<font color='grey' size='3'>Quel est votre pseudo ?</font><input type="text" id="nouveauPseudo">
 <button onclick='creerAlbum()'>Ajouter</button>
 <br>
 <div id="resultatCreerAlbum"></div><br><br>
