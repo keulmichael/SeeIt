@@ -485,10 +485,21 @@ geocoder = new google.maps.Geocoder();
 </head>
 
 <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.3&appId=1441017086216744";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
   <div id="pull1" style="position: absolute;height: 65px; top: -65px;">
-<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+<table align=center><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
   </div>
 <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
@@ -528,13 +539,13 @@ geocoder = new google.maps.Geocoder();
 </ul>
 <br>
 <div id='problemeReseau' align="center"></div>
-<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart='window.open("http://www.facebook.com/100009539529598","Facebook","menubar=yes, status=yes, width=100%");' ></td></tr></table>
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count"></div>
 </div>
 
 <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
 <h1 id="hdgTournees" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Prendre les photos</h1>
   <div id="pull2" style="position: absolute;height: 65px; top: -65px;">
-<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+<table align=center><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
   </div>
 <ul data-dojo-type="dojox/mobile/RoundRectList">
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,0,35,35', onClick: function(e){affichPointsTournees('Animaux')}, moveTo:'#'">Animaux</li>
