@@ -489,11 +489,12 @@ window.onload = function() {
       
 
       FB.getLoginStatus(function(response){
-              // Using the SDK to trigger a Share dialog
-              FB.ui({
-                  method: 'share',
-                  href: 'https://developers.facebook.com/docs/'
-              }, function(response){});
+  if (response.status === 'connected') {
+    alert('Logged in.');
+  }
+  else {
+    FB.login();
+  }
           });
         };
 	
@@ -566,7 +567,7 @@ window.onload = function() {
 </ul>
 <br>
 <div id='problemeReseau' align="center"></div>
-<font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart='window.open("http://www.facebook.com/100009539529598","Facebook","menubar=yes, status=yes, width=100%");' align="center">
+<div id='facebookLien' align="center"><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart='window.open("http://www.facebook.com/100009539529598","Facebook","menubar=yes, status=yes, width=100%");'></div>
 <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>
 
