@@ -479,14 +479,6 @@ function initialize() {
 geocoder = new google.maps.Geocoder();
 }
 
-
-</script>
-
-</head>
-
-<body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
-
-<script>
 window.onload = function() {
       window.fbAsyncInit = function() {
         FB.init({
@@ -494,8 +486,17 @@ window.onload = function() {
           xfbml      : true,
           version    : 'v2.3'
         });
-      };
+      
 
+      FB.getLoginStatus(function(response){
+              // Using the SDK to trigger a Share dialog
+              FB.ui({
+                  method: 'share',
+                  href: 'https://developers.facebook.com/docs/'
+              }, function(response){});
+          });
+        };
+	
       (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
@@ -504,8 +505,13 @@ window.onload = function() {
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
 }
-    </script>
-       
+
+</script>
+
+</head>
+
+<body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
+      
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -520,7 +526,7 @@ window.onload = function() {
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
   <div id="pull1" style="position: absolute;height: 65px; top: -65px;">
-<table><tr><td align="center"><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table> 
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png" align="center"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table> 
   </div>
 <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
@@ -560,6 +566,7 @@ window.onload = function() {
 </ul>
 <br>
 <div id='problemeReseau' align="center"></div>
+<font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart='window.open("http://www.facebook.com/100009539529598","Facebook","menubar=yes, status=yes, width=100%");' align="center">
 <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
 </div>
 
