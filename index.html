@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="Cache-control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <title> Des moments à partager avec SeeIt! </title>
@@ -416,7 +417,7 @@ ready(function(){
 request.get('https://graph.facebook.com/100009539529598').then(
 function(nbamisfacebookJSON){var nbamisfacebook = JSON.parse(nbamisfacebookJSON);
 //document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">' + nbamisfacebook.data[0].friend_count + ' amis nous suivent sur </font></td><td><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px"></td></tr></table>';})
-document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart="alert(\'facebook\');openFacebook()"></td></tr></table>';})
+document.getElementById('nbamisfacebook').innerHTML='<table><tr><td><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart="openFacebook()"></td></tr></table>';})
 request.get('http://www.appliseeit.com/mobile/affichPhotosAccueil.php?n=1').then(
 function(response441){
 var resPhoto = response441.split("_|_");
@@ -524,7 +525,7 @@ geocoder = new google.maps.Geocoder();
 </ul>
 <br>
 <div id='problemeReseau' align="center"></div>
-<div id='nbamisfacebook' align="center"></div>
+<div id='nbamisfacebook' align="center" onTouchstart="openFacebook()"></div>
 </div>
 <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
 <h1 id="hdgTournees" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Prendre les photos</h1>
