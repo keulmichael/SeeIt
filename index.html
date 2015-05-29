@@ -146,7 +146,7 @@ transition:"slide"
 
 function affichPointsTournees(tournee){
 CacherCamera();
-ocument.getElementById("affichPointsTournee").innerHTML="";
+document.getElementById("affichPointsTournee").innerHTML="";
 require([
 "dijit/registry",
 "dojox/mobile/ViewController",
@@ -487,6 +487,11 @@ geocoder = new google.maps.Geocoder();
 <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
+  <div id="pull" style="position: absolute;height: 65px; top: -65px;">
+    <img id="icon" src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png">
+    <div id="msg1">Pull down to refresh...</div>
+    <div id="msg2">Check for new items</div>
+  </div>
 <div align="center"><font size='2' color='grey'>Les photos les plus récentes</font></div>
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
