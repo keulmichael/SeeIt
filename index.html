@@ -106,8 +106,9 @@ iconContainerWidget.addChild(itemWidget);
 request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
 function(responsePseudoNewPhoto){
 var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_");
-if(PseudoNewPhotos[2]!=''){var adresse='à '+PseudoNewPhotos[2];}
-document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+PseudoNewPhotos[1] + ' a pris une photo ' + adresse + ' à ' + PseudoNewPhotos[3]+"<br> Album : "+PseudoNewPhotos[5]+" - Thème : "+PseudoNewPhotos[6]+"</font>";
+if(PseudoNewPhotos[2]!=''){var adresse=PseudoNewPhotos[2];}
+var heure=PseudoNewPhotos[3].spli(" ");
+document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+PseudoNewPhotos[1] + ' a pris une photo à' + adresse + ' à ' + heure[1]+"<br> Album : "+PseudoNewPhotos[5]+" - Thème : "+PseudoNewPhotos[6]+"</font>";
 })
 request.get('http://www.appliseeit.com/mobile/VerifNewAlbum.php').then(
 function(responsePseudoNewAlbum){
@@ -382,6 +383,14 @@ alert("Le parcours démarre à l'entrée de la Grenouillère");
 if (value=='on'){document.getElementById('affichInfoLoca').value="infosLeParcdeSceaux";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
 if (value=='off'){document.getElementById('affichInfoLoca').value="";}
 }
+
+function changeArboretum(value) {
+if (value=='on'){document.getElementById('affichInfoLoca').value="infosArboretum";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
+if (value=='off'){document.getElementById('affichInfoLoca').value="";}
+}
+
+
+
 function nombrePhotos(){
 var responseNbPhotoCache='';
 require(["dojo/request"], function(request){
@@ -676,11 +685,11 @@ window.onload = function() {
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Trouver les monuments de Paris
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Loisirs'"></li>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Les parcs de Loisirs
-<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nature'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Le Parc de Sceaux
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatLeParcdeSceaux){changeLeParcdeSceaux(newStatLeParcdeSceaux)}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nature'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">L'Arboretum de la Vallée aux Loups
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatArboretum){changeArboretum(newStatArboretum)}" value="off" ></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Tourisme'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Infos monuments Paris
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" ></div>
