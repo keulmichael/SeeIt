@@ -396,7 +396,10 @@ if (value=='on'){document.getElementById('affichInfoLoca').value="infosArboretum
 if (value=='off'){document.getElementById('affichInfoLoca').value="";}
 }
 
-
+changeLeJardindesPlantes(value) {
+if (value=='on'){document.getElementById('affichInfoLoca').value="infosLeJardindesPlantes";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
+if (value=='off'){document.getElementById('affichInfoLoca').value="";}
+}
 
 function nombrePhotos(){
 var responseNbPhotoCache='';
@@ -546,7 +549,7 @@ geocoder = new google.maps.Geocoder();
 </ul>
 <br>
 <div id='problemeReseau' align="center"></div>
-<div id='facebookLien' align="center"><font size=2 color="grey">Retrouvez nous sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart='window.open("http://www.facebook.com/","SeeIt!","menubar=yes, status=yes, width=100%");'></div>
+<div id='facebookLien' align="center"><font size=2 color="grey">Partagez sur </font><img src="http://www.appliseeit.com/mobile/icone-facebook.gif" width="50px" onTouchstart='window.open("http://www.appliseeit.com/mobile/facebookPartage.php","SeeIt!","menubar=yes, status=yes, width=100%");'></div>
 <div id='facebookPartage'></div>
 </div>
 
@@ -660,6 +663,8 @@ geocoder = new google.maps.Geocoder();
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nature'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">L'Arboretum de la Vallée aux Loups
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatArboretum){changeArboretum(newStatArboretum)}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Le Jardin des Plantes
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatLeJardindesPlantes){changeLeJardindesPlantes(newStatLeJardindesPlantes)}" value="off" ></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Tourisme'"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Infos monuments Paris
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" ></div>
