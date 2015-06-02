@@ -174,7 +174,7 @@ var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?q
 var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
 if(navigator.geolocation){navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);}
-else{pasdegeolocation();}
+else{alert('pasdegeolocation');pasdegeolocation();}
 }
 function onCaptureError(message) {alert(message); }
 
@@ -196,7 +196,7 @@ function geolocationError(error) {
           'message: ' + error.message + '\n');
 }
 
-function pasdegeolocation() {alert('pasdegeolocation');
+function pasdegeolocation() {
 require(["dojo/request"], function(request){
 var num = document.getElementById("num").value;
 request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response277){ }) 
