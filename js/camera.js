@@ -178,7 +178,7 @@ else{pasdegeolocation();}
 }
 function onCaptureError(message) {alert(message); }
 
-function geolocationSuccess(position) {
+function geolocationSuccess(position) {alert('ok');
 require(["dojo/request"], function(request){    
 var num = document.getElementById("num").value;		
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -196,7 +196,7 @@ function geolocationError(error) {
           'message: ' + error.message + '\n');
 }
 
-function pasdegeolocation() {
+function pasdegeolocation() {alert('pasdegeolocation');
 require(["dojo/request"], function(request){
 var num = document.getElementById("num").value;
 request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response277){ }) 
