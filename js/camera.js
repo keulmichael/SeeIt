@@ -173,8 +173,8 @@ var options = new FileUploadOptions();
 var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
 var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
-if("geolocation" in navigator){navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);}
-else{alert('okk');pasdegeolocation();}
+if("geolocation" in navigator){alert('geolocation');navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);}
+else{alert('pasdegeolocation');pasdegeolocation();}
 }
 function onCaptureError(message) {alert(message); }
 
