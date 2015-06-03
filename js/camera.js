@@ -178,19 +178,19 @@ else{pasdegeolocation();}
 }
 function onCaptureError(message) {alert(message); }
 
-function geolocationSuccess(position) {alert(position.coords.latitude);
+function geolocationSuccess(position) {
 require(["dojo/request"], function(request){    
 var num = document.getElementById("num").value;		
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 geocoder.geocode({'latLng': latlng}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       if (results[1]) {
-      request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+'&adress='+results[1].formatted_address).then(function(response276){ }) 
+      request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+'&adress='+results[1].formatted_address).then(function(response276){ alert(response276);}) 
       }
       else {
 require(["dojo/request"], function(request){
 var num = document.getElementById("num").value;
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response277){ }) ;      
+request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response277){ alert(response277);}) ;      
 })	      
       }
 	      
@@ -206,7 +206,7 @@ function geolocationError(error) {
 function pasdegeolocation() {
 require(["dojo/request"], function(request){
 var num = document.getElementById("num").value;
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response277){ }) ;      
+request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response278){alert(response278) }) ;      
 })
 }
 
