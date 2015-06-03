@@ -178,7 +178,7 @@ else{alert('pasdegeolocation');pasdegeolocation();}
 }
 function onCaptureError(message) {alert(message); }
 
-function geolocationSuccess(position) {
+function geolocationSuccess(position) {alert(position.coords.latitude);
 require(["dojo/request"], function(request){    
 var num = document.getElementById("num").value;		
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
