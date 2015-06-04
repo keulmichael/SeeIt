@@ -173,7 +173,7 @@ var options = new FileUploadOptions();
 var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
 var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
-if("geolocation" in navigator){navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);}
+if("geolocation" in navigator){alert("geolocation in navigator");navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);}
 else{pasdegeolocation();}
 }
 function onCaptureError(message) {alert(message); }
@@ -193,7 +193,7 @@ request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&a
 }})	
 }
  else {
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response277){ alert(response277);}) ;      
+request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response279){ alert(response279);}) ;      
 
 }
     })
