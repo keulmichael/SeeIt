@@ -174,10 +174,8 @@ var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?q
 var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
 require(["dojo/request"], function(request){    
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response271){ 
-	
-if("geolocation" in navigator){navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);}
-else{pasdegeolocation();}	
+request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response271){ 	
+navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
 	}) 	
 })	
 
@@ -187,21 +185,11 @@ function onCaptureError(message) {alert(message); }
 function geolocationSuccess(position) {
 require(["dojo/request"], function(request){    
 var num = document.getElementById("num").value;	
-if (position){
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 geocoder.geocode({'latLng': latlng}, function(results, status) {
-    if (status == google.maps.GeocoderStatus.OK) {
       request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+'&adress='+results[1].formatted_address).then(function(response276){ }) ;
-      }
-      else {
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response277){}) ;      
+})	
 
-}})	
-}
- else {
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response279){ }) ;      
-
-}
     })
 }
 
@@ -219,12 +207,7 @@ switch(error.code){
     }
 }
 
-function pasdegeolocation() {
-require(["dojo/request"], function(request){
-var num = document.getElementById("num").value;
-request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response278){alert(response278) }) ;      
-})
-}
+
 
 function getTargetId(event, tagName) {
     var target = (event.target.tagName == tagName)
