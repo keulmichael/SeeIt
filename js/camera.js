@@ -189,7 +189,7 @@ var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.lo
 geocoder.geocode({'latLng': latlng}, function(results, status) {
 	if (status == google.maps.GeocoderStatus.OK) {
 if (results[1]) {
-      request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+'&adress='+results[1].formatted_address).then(function(response276){ }) ;
+      request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+'&adress='+results[1].formatted_address).then(function(response276){ document.getElementById("affichFormattedAddress").innerHTML="<font size=2 color=grey>"+formatted_address+"</font>";}) ;
       }}
 })	
 
