@@ -107,7 +107,7 @@ function(responsePseudoNewPhoto){
 var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_");
 if(PseudoNewPhotos[2]!=''){var adresse=PseudoNewPhotos[2];}
 var heure=PseudoNewPhotos[3].split(" ");
-document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+PseudoNewPhotos[1] + ' a pris une photo à' + adresse + ' à ' + heure[2]+"<br> Album : "+PseudoNewPhotos[5]+" - Thème : "+PseudoNewPhotos[6]+"</font>";
+document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+PseudoNewPhotos[1] + ' a pris une photo à ' + adresse + ' à ' + heure[1]+"<br> Album : "+PseudoNewPhotos[5]+" - Thème : "+PseudoNewPhotos[6]+"</font>";
 })
 request.get('http://www.appliseeit.com/mobile/VerifNewAlbum.php').then(
 function(responsePseudoNewAlbum){
