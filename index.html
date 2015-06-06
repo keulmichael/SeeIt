@@ -112,7 +112,7 @@ document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+Ps
 request.get('http://www.appliseeit.com/mobile/VerifNewAlbum.php').then(
 function(responsePseudoNewAlbum){
 var PseudoNewAlbum=responsePseudoNewAlbum.split("_|_");
-document.getElementById("messageNouvelAlbum").innerHTML="<font color=grey size=2>"+PseudoNewAlbum[0] + " a crée l'album " + PseudoNewAlbum[1] + " dans le thème " + PseudoNewAlbum[2] + "</font>";
+document.getElementById("messageNouvelAlbum").innerHTML="<font color=grey size=2>"+PseudoNewAlbum[0] + " a créé l'album " + PseudoNewAlbum[1] + " dans le thème " + PseudoNewAlbum[2] + "</font>";
 })
 });
 }
