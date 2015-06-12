@@ -175,14 +175,14 @@ var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, win, fail, options);
 require(["dojo/request"], function(request){    
 request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x=&y=&adress=').then(function(response271){ 	
-navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);alert("position ok");
 	}) 	
 })	
 
 }
 function onCaptureError(message) {alert(message); }
 
-function geolocationSuccess(position) {alert(position);
+function geolocationSuccess(position) {
 require(["dojo/request"], function(request){    
 var num = document.getElementById("num").value;	
 var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
