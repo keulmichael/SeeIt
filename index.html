@@ -485,7 +485,7 @@ geocoder = new google.maps.Geocoder();
 </head>
 <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
 
-//__________________________________________________ACCUEIL____________________________________________________________
+<!--------------------------------------------------------------ACCUEIL---------------------------------------------------------------->
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
 <div id="pull1" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -532,7 +532,7 @@ geocoder = new google.maps.Geocoder();
 <center><table onTouchstart='window.open("http://www.appliseeit.com/mobile/facebookPartage.php","Facebook","menubar=yes, status=yes, width=100%");'><tr><td> <font size=2 color="grey">Partagez vos idées sur http://www.appliseeit.com </font></td><td></td></tr></table></center>
 </div>
 
-//__________________________________________________TOURNEES____________________________________________________________
+<!--------------------------------------------------------------TOURNEES---------------------------------------------------------------->
 <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
 <h1 id="hdgTournees" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Prendre les photos</h1>
 <div id="pull2" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -558,7 +558,7 @@ geocoder = new google.maps.Geocoder();
 </ul>
 </div>
 
-//__________________________________________________ALBUM____________________________________________________________
+<!--------------------------------------------------------------ALBUMS---------------------------------------------------------------->
 <div id="album" data-dojo-type="dojox/mobile/ScrollableView">
 <h1 id="hdgAlbum" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Voir les allbums</h1>
 <div id="pull3" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -584,21 +584,21 @@ geocoder = new google.maps.Geocoder();
 </ul>
 </div>
 
-//__________________________________________________POINTS ALBUM____________________________________________________
+<!--------------------------------------------------------------POINTS ALBUM---------------------------------------------------------------->
 <div id="affichPointsAlbums" data-dojo-type="dojox/mobile/ScrollableView">
 <div id="pull4" style="position: absolute;height: 65px; top: -65px;" align="center">
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
 </div>
 </div>
 
-//__________________________________________________POINTS TOURNEESALBUM____________________________________________
+<!--------------------------------------------------------------POINTS TOURNEE---------------------------------------------------------------->
 <div id="affichPointsTournee" data-dojo-type="dojox/mobile/ScrollableView">
 <div id="pull5" style="position: absolute;height: 65px; top: -65px;" align="center">
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>>
 </div>
 </div>
 
-//__________________________________________________OPTIONS_________________________________________________________
+<!--------------------------------------------------------------OPTIONS---------------------------------------------------------------->
 <h1 data-dojo-type="dojox/mobile/Heading">Options</h1>
 <div id='tabViewOptions' data-dojo-type='dojox/mobile/ScrollableView' >
 <div id="pull6" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -658,7 +658,7 @@ geocoder = new google.maps.Geocoder();
 </ul>
 </div>
 
-//__________________________________________________TODAY_______________________________________________________
+<!--------------------------------------------------------------TODAY---------------------------------------------------------------->
 <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
 <div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id="pull7" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -673,7 +673,7 @@ geocoder = new google.maps.Geocoder();
 </div>
 </div>
 
-//__________________________________________________AJOUTER____________________________________________________________
+<!--------------------------------------------------------------AJOUTER---------------------------------------------------------------->
 <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
 <div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id="pull8" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -709,7 +709,7 @@ M0<option value='Evénements'>Evénements
 </div>
 
 
-//__________________________________________________INFOS____________________________________________________________
+<!--------------------------------------------------------------INFOS---------------------------------------------------------------->
 <h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
 <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id="pull10" style="position: absolute;height: 65px; top: -65px; align="center"">
@@ -734,7 +734,7 @@ M0<option value='Evénements'>Evénements
 </div>
 </div>
 
-//__________________________________________________PIC____________________________________________________________
+<!--------------------------------------------------------------PIC---------------------------------------------------------------->
 <div id='cadreCamera' style="display:none;position: absolute;height: 65px; top: 65px;" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id='affichLocalisation'></div>
 <div data-role="content"><a href="#" data-role="button" id="open_camera_button" style="display: inline-block;width:100px;margin:20px"><img src='http://www.appliseeit.com/mobile/iconeApparareilphoto2.png' height='50px'></a>
