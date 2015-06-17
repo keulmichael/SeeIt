@@ -484,6 +484,8 @@ geocoder = new google.maps.Geocoder();
 </script>
 </head>
 <body onload="onLoadCamera();nombrePhotos();setInterval(nombrePhotos, 10000);initialize()" style="visibility:hidden;">
+
+//__________________________________________________ACCUEIL____________________________________________________________
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
 <div id="pull1" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -529,6 +531,8 @@ geocoder = new google.maps.Geocoder();
 <div id='problemeReseau' align="center"></div>
 <center><table onTouchstart='window.open("http://www.appliseeit.com/mobile/facebookPartage.php","Facebook","menubar=yes, status=yes, width=100%");'><tr><td> <font size=2 color="grey">Partagez vos idées sur http://www.appliseeit.com </font></td><td></td></tr></table></center>
 </div>
+
+//__________________________________________________TOURNEES____________________________________________________________
 <div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
 <h1 id="hdgTournees" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Prendre les photos</h1>
 <div id="pull2" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -553,6 +557,8 @@ geocoder = new google.maps.Geocoder();
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,0,35,35', onClick: function(e){affichPointsTournees('Voyages')}, moveTo:'#'">Voyages</li>
 </ul>
 </div>
+
+//__________________________________________________ALBUM____________________________________________________________
 <div id="album" data-dojo-type="dojox/mobile/ScrollableView">
 <h1 id="hdgAlbum" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Voir les allbums</h1>
 <div id="pull3" style="position: absolute;height: 65px; top: -65px;" align="center">
@@ -577,18 +583,24 @@ geocoder = new google.maps.Geocoder();
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,0,35,35', onClick: function(e){affichPointsAlbum('Voyages')}, moveTo:'#'">Voyages</li>
 </ul>
 </div>
+
+//__________________________________________________POINTS ALBUM____________________________________________________
 <div id="affichPointsAlbums" data-dojo-type="dojox/mobile/ScrollableView">
 <div id="pull4" style="position: absolute;height: 65px; top: -65px;" align="center">
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
 </div>
 </div>
+
+//__________________________________________________POINTS TOURNEESALBUM____________________________________________
 <div id="affichPointsTournee" data-dojo-type="dojox/mobile/ScrollableView">
 <div id="pull5" style="position: absolute;height: 65px; top: -65px;" align="center">
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>>
 </div>
 </div>
-<div id='tabViewOptions' data-dojo-type='dojox/mobile/ScrollableView' >
+
+//__________________________________________________OPTIONS_________________________________________________________
 <h1 data-dojo-type="dojox/mobile/Heading">Options</h1>
+<div id='tabViewOptions' data-dojo-type='dojox/mobile/ScrollableView' >
 <div id="pull6" style="position: absolute;height: 65px; top: -65px;" align="center">
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
 </div>
@@ -645,8 +657,10 @@ geocoder = new google.maps.Geocoder();
 </div>
 </ul>
 </div>
-<div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" >
+
+//__________________________________________________TODAY_______________________________________________________
 <h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
+<div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id="pull7" style="position: absolute;height: 65px; top: -65px;" align="center">
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
 </div>
@@ -658,8 +672,10 @@ geocoder = new google.maps.Geocoder();
 <div id="messageNouvelAlbum"></div>
 </div>
 </div>
-<div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" >
+
+//__________________________________________________AJOUTER____________________________________________________________
 <h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
+<div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id="pull8" style="position: absolute;height: 65px; top: -65px;" align="center">
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
 </div>
@@ -691,11 +707,14 @@ M0<option value='Evénements'>Evénements
 <div id="resultatCreerAlbum"></div><br><br>
 <div id='afficherTourneeApresCreer' style='display:none'><button onclick='affichPointsTournees(document.getElementById("nouvelAlbum").value);'>Afficher</button></div>
 </div>
+
+
+//__________________________________________________INFOS____________________________________________________________
+<h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
 <div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id="pull10" style="position: absolute;height: 65px; top: -65px; align="center"">
 <table ><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
 </div>
-<h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
 <ul id="intro" data-dojo-type="dojox/mobile/RoundRectList">
 <div id='IntroInfos' align='center'></div>
 </ul>
@@ -714,7 +733,9 @@ M0<option value='Evénements'>Evénements
 </div>
 </div>
 </div>
-<div id='cadreCamera' style="display:none;valign:top;" data-dojo-type="dojox/mobile/ScrollableView" >
+
+//__________________________________________________PIC____________________________________________________________
+<div id='cadreCamera' style="display:none;position: absolute;height: 65px; top: 65px;" data-dojo-type="dojox/mobile/ScrollableView" >
 <div id='affichLocalisation'></div>
 <div data-role="content"><a href="#" data-role="button" id="open_camera_button" style="display: inline-block;width:100px;margin:20px"><img src='http://www.appliseeit.com/mobile/iconeApparareilphoto2.png' height='50px'></a>
 <a href="#" data-role="button" style="display: inline-block;width:100px;margin:20px" onTouchstart='window.open("http://www.appliseeit.com/mobile/google_map.php","","menubar=no, status=no, width=100%");'><img src='http://www.appliseeit.com/mobile/image/google_map.png'></a></div>
@@ -729,6 +750,7 @@ M0<option value='Evénements'>Evénements
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
 <li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
 </ul>
+
 <script src="hammer_fonctions.js"></script>
 </body>
 </html>
