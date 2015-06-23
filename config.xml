@@ -24,10 +24,8 @@ Michael Host
 <gap:platforms>
 <gap:platform name="android" minVersion="3.6.3" />
 <gap:platform name="webos" />
-<gap:platform name="symbian.wrt" />
-<gap:platform name="blackberry" project="widgets"/>
 </gap:platforms>
-<icon src="icone.png" />
+<icon src="icon.png" />
 
 <preference name="phonegap-version" value="3.7.0" />
 <!-- for Android -->
