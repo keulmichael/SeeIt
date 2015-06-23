@@ -25,7 +25,11 @@ Michael Host
 <gap:platform name="android" minVersion="3.6.3" />
 <gap:platform name="webos" />
 </gap:platforms>
-<icon src="icon.png" />
+<icon src="icone.png" />
+<icon src="icone.png" gap:platform="ios" width="57" height="57" />
+<icon src="icone.png" gap:platform="ios" width="114" height="114" />
+<icon src="icone.png" gap:platform="ios" width=72" height="72" />
+<icon src="icone.png" gap:platform="ios" width="144" height="144" />
 
 <preference name="phonegap-version" value="3.7.0" />
 <!-- for Android -->
